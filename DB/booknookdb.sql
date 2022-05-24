@@ -46,7 +46,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `booknookdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'admin', 'x', 1, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'admin', '$2a$10$5PbAsZlmRaA/6XfTJPFkA.AjYJJWN74amFScRzJh1ptPY34yMX/Qy', 1, 'ROLE_ADMIN');
 
 COMMIT;
 
