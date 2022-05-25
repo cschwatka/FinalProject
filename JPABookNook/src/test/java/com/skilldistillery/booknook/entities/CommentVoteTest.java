@@ -45,7 +45,7 @@ class CommentVoteTest {
 	}
 
 	@Test
-	@DisplayName("Test basic AnswerVote entity mapping")
+	@DisplayName("Test basic CommentVote entity mapping")
 	/*
 	 * SELECT * FROM comment_vote WHERE comment_id = 1;
 	+---------+------------+------+
@@ -54,7 +54,7 @@ class CommentVoteTest {
 	|       2 |          1 |    1 |
 	+---------+------------+------+
 	 */
-	void test_basic_AnswerVote_entity_mapping() {
+	void test_basic_CommentVote_entity_mapping() {
 		assertNotNull(commentVote);
 		assertEquals(true, commentVote.getVote());
 	}
