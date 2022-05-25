@@ -87,6 +87,7 @@ public class Category {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
+	
 
 	@Override
 	public int hashCode() {

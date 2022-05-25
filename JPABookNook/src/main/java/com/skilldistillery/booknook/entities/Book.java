@@ -92,109 +92,313 @@ public class Book {
 		super();
 	}
 
+
+	
+	
+	
 	public int getId() {
 		return id;
 	}
+
+
+
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+
+
+
+
 	public Language getLanguage() {
 		return language;
 	}
+
+
+
+
 
 	public void setLanguage(Language language) {
 		this.language = language;
 	}
 
+
+
+
+
 	public User getUser() {
 		return user;
 	}
+
+
+
+
 
 	public void setUser(User user) {
 		this.user = user;
 	}
 
+
+
+
+
 	public String getTitle() {
 		return title;
 	}
+
+
+
+
 
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
+
+
+
+
 	public String getDescription() {
 		return description;
 	}
+
+
+
+
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+
+
+
+
 	public String getIsbn10() {
 		return isbn10;
 	}
+
+
+
+
 
 	public void setIsbn10(String isbn10) {
 		this.isbn10 = isbn10;
 	}
 
+
+
+
+
 	public Integer getPageCount() {
 		return pageCount;
 	}
+
+
+
+
 
 	public void setPageCount(Integer pageCount) {
 		this.pageCount = pageCount;
 	}
 
+
+
+
+
 	public String getImgUrl() {
 		return imgUrl;
 	}
+
+
+
+
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
 
+
+
+
+
 	public LocalDate getPublishDate() {
 		return publishDate;
 	}
+
+
+
+
 
 	public void setPublishDate(LocalDate publishDate) {
 		this.publishDate = publishDate;
 	}
 
+
+
+
+
 	public String getIsbn13() {
 		return isbn13;
 	}
+
+
+
+
 
 	public void setIsbn13(String isbn13) {
 		this.isbn13 = isbn13;
 	}
 
+
+
+
+
 	public LocalDate getDateAdded() {
 		return dateAdded;
 	}
+
+
+
+
 
 	public void setDateAdded(LocalDate dateAdded) {
 		this.dateAdded = dateAdded;
 	}
 
+
+
+
+
 	public LocalDateTime getLastUpdated() {
 		return lastUpdated;
 	}
+
+
+
+
 
 	public void setLastUpdated(LocalDateTime lastUpdated) {
 		this.lastUpdated = lastUpdated;
 	}
 
+
+
+
+
 	public List<Category> getCategories() {
 		return categories;
 	}
 
+
+
+
+
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
 	}
+
+
+
+
+
+	public List<Author> getAuthors() {
+		return authors;
+	}
+
+
+
+
+
+	public void setAuthors(List<Author> authors) {
+		this.authors = authors;
+	}
+
+
+
+
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+
+
+
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+
+
+
+
+	public List<User> getFavoriteUsers() {
+		return favoriteUsers;
+	}
+
+
+
+
+
+	public void setFavoriteUsers(List<User> favoriteUsers) {
+		this.favoriteUsers = favoriteUsers;
+	}
+
+
+
+
+
+	public List<User> getFinishedUsers() {
+		return finishedUsers;
+	}
+
+
+
+
+
+	public void setFinishedUsers(List<User> finishedUsers) {
+		this.finishedUsers = finishedUsers;
+	}
+
+
+
+
+
+	public List<User> getReadingUsers() {
+		return readingUsers;
+	}
+
+
+
+
+
+	public void setReadingUsers(List<User> readingUsers) {
+		this.readingUsers = readingUsers;
+	}
+
+
+
+
+
+	public List<User> getWishlistUsers() {
+		return wishlistUsers;
+	}
+
+
+
+
+
+	public void setWishlistUsers(List<User> wishlistUsers) {
+		this.wishlistUsers = wishlistUsers;
+	}
+
+
+
+
 
 	@Override
 	public int hashCode() {
