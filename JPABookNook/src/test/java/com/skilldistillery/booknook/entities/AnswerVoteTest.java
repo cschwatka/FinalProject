@@ -30,10 +30,6 @@ class AnswerVoteTest {
 	}
 
 	@BeforeEach
-//	void setUp() throws Exception {
-//		em = emf.createEntityManager();
-//		answerVote = em.find(AnswerVote.class, 1);
-	
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		AnswerVoteId avid = new AnswerVoteId();

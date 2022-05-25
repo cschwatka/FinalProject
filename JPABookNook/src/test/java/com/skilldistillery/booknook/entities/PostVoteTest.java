@@ -45,7 +45,7 @@ class PostVoteTest {
 	}
 
 	@Test
-	@DisplayName("Test basic AnswerVote entity mapping")
+	@DisplayName("Test basic PostVote entity mapping")
 	/*
 	 * SELECT * FROM post_vote WHERE post_id = 1;
 +---------+---------+------+
@@ -54,7 +54,7 @@ class PostVoteTest {
 |       1 |       1 |    1 |
 +---------+---------+------+
 	 */
-	void test_basic_AnswerVote_entity_mapping() {
+	void test_basic_PostVote_entity_mapping() {
 		assertNotNull(postVote);
 		assertEquals(true, postVote.getVote());
 	}
