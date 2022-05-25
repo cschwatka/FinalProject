@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private bookSvc: BooknookService) { }
 
-  books: Book[] = [];
+  books: any[] = [];
 
   ngOnInit(): void {
     this.fetch();
@@ -20,18 +20,16 @@ export class HomeComponent implements OnInit {
   fetch() {
     for (let i = 0; i < 120; i+=40) {
       this.bookSvc.fetch(i).subscribe(
-        (next) => {this.parseData(next)},
-        (error) => console.log("Observable error fetching book data.")
+        (data) => {this.parseData(data);
+        },
+        (error) => console.log("Observable error fetching book data " + error)
       )
     }
   }
 
-  parseData(data: Book[]) {
-    let newBook = {title: ""};
-
-    for (let i = 0; i < data.length; i++) {
-      // newBook.title = data["volumeInfo"]["title"];
+  parseData(data: any) {
+    for (let i = 0; i < data["items"].length; i++) {
+      console.log(data["items"][i]);
     }
   }
-
 }

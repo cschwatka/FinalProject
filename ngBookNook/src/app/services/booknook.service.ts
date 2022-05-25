@@ -13,8 +13,8 @@ export class BooknookService {
   url = "https://www.googleapis.com/books/v1/volumes?q=''&startIndex=&maxResults=";
 
   fetch(i: number) {
-      this.url = "https://www.googleapis.com/books/v1/volumes?q=''&startIndex=" + i + "&maxResults=40";
-      return this.http.get<Book[]>(this.url).pipe(
+      this.url = 'https://www.googleapis.com/books/v1/volumes?q=""&startIndex=' + i + '&maxResults=40';
+      return this.http.get<any>(this.url).pipe(
         catchError((err: any) => {
           console.log(err);
           return throwError('Could not list all books');
