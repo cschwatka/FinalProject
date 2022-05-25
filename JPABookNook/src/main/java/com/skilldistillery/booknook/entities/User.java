@@ -1,11 +1,14 @@
 package com.skilldistillery.booknook.entities;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class User {
@@ -21,6 +24,22 @@ public class User {
 	private boolean enabled;
 	
 	private String role;
+	
+	private String email;
+	
+	@Column(name="first_name")
+	private String firstName;
+	
+	@Column(name="last_name")
+	private String lastName;
+	
+	@Column(name="img_url")
+	private String imgUrl;
+	
+	private String biography;
+	
+	@Column(name="create_date")
+	private LocalDate createDate;
 
 	// Default Constructor
 	public User() {
