@@ -412,7 +412,7 @@ DROP TABLE IF EXISTS `post_vote` ;
 CREATE TABLE IF NOT EXISTS `post_vote` (
   `post_id` INT NOT NULL,
   `user_id` INT NOT NULL,
-  `vote` INT NOT NULL,
+  `vote` TINYINT NOT NULL,
   PRIMARY KEY (`post_id`, `user_id`),
   INDEX `fk_post_has_user_user1_idx` (`user_id` ASC),
   INDEX `fk_post_has_user_post1_idx` (`post_id` ASC),
@@ -437,7 +437,7 @@ DROP TABLE IF EXISTS `comment_vote` ;
 CREATE TABLE IF NOT EXISTS `comment_vote` (
   `user_id` INT NOT NULL,
   `comment_id` INT NOT NULL,
-  `vote` VARCHAR(45) NOT NULL,
+  `vote` TINYINT NOT NULL,
   PRIMARY KEY (`user_id`, `comment_id`),
   INDEX `fk_user_has_comment_comment1_idx` (`comment_id` ASC),
   INDEX `fk_user_has_comment_user1_idx` (`user_id` ASC),
@@ -747,8 +747,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `booknookdb`;
-INSERT INTO `comment_vote` (`user_id`, `comment_id`, `vote`) VALUES (2, 1, '1');
-INSERT INTO `comment_vote` (`user_id`, `comment_id`, `vote`) VALUES (2, 2, '1');
+INSERT INTO `comment_vote` (`user_id`, `comment_id`, `vote`) VALUES (2, 1, 1);
+INSERT INTO `comment_vote` (`user_id`, `comment_id`, `vote`) VALUES (2, 2, 1);
 
 COMMIT;
 
