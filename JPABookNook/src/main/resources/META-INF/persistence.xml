@@ -13,6 +13,21 @@
 		<!-- Being Entities Here -->
 
 		<class>com.skilldistillery.booknook.entities.User</class>
+		<class>com.skilldistillery.booknook.entities.Answer</class>
+		<class>com.skilldistillery.booknook.entities.AnswerVote</class>
+		<class>com.skilldistillery.booknook.entities.AnswerVoteId</class>
+		<class>com.skilldistillery.booknook.entities.Author</class>
+		<class>com.skilldistillery.booknook.entities.Book</class>
+		<class>com.skilldistillery.booknook.entities.Category</class>
+		<class>com.skilldistillery.booknook.entities.Comment</class>
+		<class>com.skilldistillery.booknook.entities.CommentVote</class>
+		<class>com.skilldistillery.booknook.entities.CommentVoteId</class>
+		<class>com.skilldistillery.booknook.entities.Language</class>
+		<class>com.skilldistillery.booknook.entities.Post</class>
+		<class>com.skilldistillery.booknook.entities.PostVote</class>
+		<class>com.skilldistillery.booknook.entities.PostVoteId</class>
+		<class>com.skilldistillery.booknook.entities.Question</class>
+		<class>com.skilldistillery.booknook.entities.Review</class>
 
 		<!-- End Entities Here -->
 
