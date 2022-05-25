@@ -9,14 +9,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-public class Answer {
-
+public class Comment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +25,9 @@ public class Answer {
 	
 	private String content;
 	
-	@Column(name="answer_date")
+	@Column(name="comment_date")
 	@CreationTimestamp
-	private LocalDateTime answerDate;
+	private LocalDateTime commentDate;
 	
 	private boolean enabled;
 	
@@ -35,19 +36,22 @@ public class Answer {
 	private User user;
 	
 	@ManyToOne
-	@JoinColumn(name="question_id")
-	private Question question;
+	@JoinColumn(name="post_id")
+	private Post post;
 	
 	@ManyToOne
 	@JoinColumn(name="in_reply_to_id")
-	private Answer answer;
+	private Comment comment;
 	
-	@OneToMany(mappedBy="answer")
-	private List<Answer> answers;
+	@OneToMany(mappedBy="comment")
+	private List<Comment> comments;
 	
-	@OneToMany(mappedBy="answer")
-	private List<AnswerVote> answerVotes;
+	@ManyToMany
+	@JoinTable(name="comment_vote")
+	private List<User> users;
 	
+	@OneToMany(mappedBy="comment")
+	private List<CommentVote> commentVotes;
 	
-	
+
 }

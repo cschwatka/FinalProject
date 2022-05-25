@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -57,6 +58,43 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	private List<Review> reviews;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Answer> answers;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Post> posts;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Comment> comments;
+	
+	@OneToMany(mappedBy = "user")
+	private List<PostVote> postVotes;
+	
+	@OneToMany(mappedBy = "user")
+	private List<CommentVote> commentVotes;
+	
+	@OneToMany(mappedBy = "user")
+	private List<AnswerVote> answerVotes;
+	
+	@ManyToMany(mappedBy = "favoriteUsers")
+	private List<Book> favoriteBooks;
+	
+	@ManyToMany(mappedBy = "finishedUsers")
+	private List<Book> finishedBooks;
+	
+	@ManyToMany(mappedBy = "readingUsers")
+	private List<Book> readingBooks;
+	
+	@ManyToMany(mappedBy = "wishlistUsers")
+	private List<Book> wishlistBooks;
+	
+	@ManyToMany
+	@JoinTable(name="follow_list")
+	private List<User> users;
+	
+	@ManyToMany(mappedBy = "users")
+	private List<User> followedUsers;
 	
 
 	// Default Constructor

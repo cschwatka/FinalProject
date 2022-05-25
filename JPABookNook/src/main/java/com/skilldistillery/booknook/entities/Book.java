@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -68,6 +69,22 @@ public class Book {
 	
 	@OneToMany(mappedBy = "book")
 	private List<Review> reviews;
+	
+	@ManyToMany
+	@JoinTable(name = "favorite_book")
+	private List<User> favoriteUsers;
+	
+	@ManyToMany
+	@JoinTable(name = "finished")
+	private List<User> finishedUsers;
+	
+	@ManyToMany
+	@JoinTable(name = "currently_reading")
+	private List<User> readingUsers;
+	
+	@ManyToMany
+	@JoinTable(name = "wishlist")
+	private List<User> wishlistUsers;
 	
 	
 

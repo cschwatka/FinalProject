@@ -15,8 +15,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-public class Answer {
-
+public class Post {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +23,11 @@ public class Answer {
 	
 	private String content;
 	
-	@Column(name="answer_date")
+	private String title;
+	
+	@Column(name="post_date")
 	@CreationTimestamp
-	private LocalDateTime answerDate;
+	private LocalDateTime postDate;
 	
 	private boolean enabled;
 	
@@ -34,20 +35,7 @@ public class Answer {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	@ManyToOne
-	@JoinColumn(name="question_id")
-	private Question question;
-	
-	@ManyToOne
-	@JoinColumn(name="in_reply_to_id")
-	private Answer answer;
-	
-	@OneToMany(mappedBy="answer")
-	private List<Answer> answers;
-	
-	@OneToMany(mappedBy="answer")
-	private List<AnswerVote> answerVotes;
-	
-	
+	@OneToMany(mappedBy="post")
+	private List<PostVote> postVotes;
 	
 }
