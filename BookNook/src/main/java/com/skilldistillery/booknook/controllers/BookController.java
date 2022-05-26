@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skilldistillery.booknook.entities.Author;
 import com.skilldistillery.booknook.entities.Book;
 import com.skilldistillery.booknook.entities.Category;
-import com.skilldistillery.booknook.entities.Review;
 import com.skilldistillery.booknook.services.BookService;
 
 @RestController
