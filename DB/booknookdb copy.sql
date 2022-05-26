@@ -117,7 +117,7 @@ DROP TABLE IF EXISTS `post` ;
 CREATE TABLE IF NOT EXISTS `post` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `content` TEXT NOT NULL,
-  `title` VARCHAR(45) NULL,
+  `title` VARCHAR(200) NULL,
   `post_date` DATETIME NOT NULL,
   `enabled` TINYINT NOT NULL DEFAULT 1,
   `user_id` INT NOT NULL,
@@ -652,6 +652,7 @@ COMMIT;
 START TRANSACTION;
 USE `booknookdb`;
 INSERT INTO `post` (`id`, `content`, `title`, `post_date`, `enabled`, `user_id`) VALUES (1, 'I\'m a huge Tolkien fan, but I\'ve only ever watched the movies. I am going to start reading the books and am super excited', 'New Tolkien fan!', '2022-05-25 15:10:01 ', 1, 2);
+INSERT INTO `post` (`id`, `content`, `title`, `post_date`, `enabled`, `user_id`) VALUES (2, 'I am here to help. If you have questions or comments, fee free to share.', 'Admin is here to assist your reading adventures!', '2022-05-25 15:11:34', 1, 1);
 
 COMMIT;
 
