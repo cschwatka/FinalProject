@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
@@ -21,12 +22,22 @@ public class Author {
 	@Column(name ="full_name")
 	private String fullName;
 	
-	@ManyToMany
-	@JoinTable(name = "author_to_book")
-	private List<Book> books;
 	
 	@ManyToMany
-	@JoinTable(name = "favorite_authors")
+	@JoinTable(
+			name = "author_to_book",
+			joinColumns = @JoinColumn(name = "author_id"),
+			inverseJoinColumns = @JoinColumn(name = "book_id")
+	)
+	private List<Book> books;
+	
+	
+	@ManyToMany
+	@JoinTable(
+			name = "favorite_authors",
+			joinColumns = @JoinColumn(name = "author_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id")
+	)
 	private List<User> users;
 	
 	
