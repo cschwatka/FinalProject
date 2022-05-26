@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -90,7 +91,9 @@ public class User {
 	private List<Book> wishlistBooks;
 	
 	@ManyToMany
-	@JoinTable(name="follow_list")
+	@JoinTable(name="follow_list",
+			joinColumns = @JoinColumn(name="user_id"),
+			inverseJoinColumns = @JoinColumn(name= "user_id"))
 	private List<User> users;
 	
 	@ManyToMany(mappedBy = "users")
