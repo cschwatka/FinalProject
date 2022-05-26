@@ -40,7 +40,9 @@ public class Category {
 	private List<Book> books;
 	
 	@ManyToMany
-	@JoinTable(name = "favorite_categories")
+	@JoinTable(name = "favorite_categories",
+			joinColumns = @JoinColumn(name = "category_id"),
+			inverseJoinColumns = @JoinColumn(name= "user_id"))
 	private List<User> users;
 	
 	
