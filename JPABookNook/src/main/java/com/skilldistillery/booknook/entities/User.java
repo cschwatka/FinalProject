@@ -96,7 +96,7 @@ public class User {
 			inverseJoinColumns = @JoinColumn(name= "follow_to_user_id"))
 	private List<User> usersFollowing;
 	
-	@ManyToMany(mappedBy = "users")
+	@ManyToMany(mappedBy = "usersFollowing")
 	private List<User> followedUsers;
 	
 
