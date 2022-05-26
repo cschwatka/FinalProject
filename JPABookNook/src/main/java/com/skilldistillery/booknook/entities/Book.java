@@ -71,21 +71,38 @@ public class Book {
 	private List<Review> reviews;
 	
 	@ManyToMany
-	@JoinTable(name = "favorite_book")
+	@JoinTable(
+			name = "favorite_book",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "book_id")
+	)
 	private List<User> favoriteUsers;
 	
 	@ManyToMany
-	@JoinTable(name = "finished")
+	@JoinTable(
+			name = "finished",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "book_id")
+	)
 	private List<User> finishedUsers;
 	
 	@ManyToMany
-	@JoinTable(name = "currently_reading")
+	@JoinTable(
+			name = "currently_reading",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "book_id")
+	)
 	private List<User> readingUsers;
 	
-	@ManyToMany
-	@JoinTable(name = "wishlist")
-	private List<User> wishlistUsers;
 	
+	@ManyToMany
+	@JoinTable(
+			name = "wishlist",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "book_id")
+	)
+	private List<User> wishlistUsers;
+
 	
 
 	public Book() {
@@ -107,6 +124,12 @@ public class Book {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+
+
+
+
 
 
 
