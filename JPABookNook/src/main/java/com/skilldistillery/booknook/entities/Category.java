@@ -34,6 +34,7 @@ public class Category {
 //	@JoinTable(name = "book_to_category")
 //	private List<Book> books;
 	
+	@JsonIgnoreProperties({"categories"})
 	@ManyToMany
 	@JoinTable(
 			name = "book_to_category",
@@ -42,6 +43,9 @@ public class Category {
 	)
 	private List<Book> books;
 	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "users", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToMany
 	@JoinTable(name = "favorite_categories",
 			joinColumns = @JoinColumn(name = "category_id"),

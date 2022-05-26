@@ -15,13 +15,13 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
 public class Post {
 	
-	@JsonIgnoreProperties({"user"})
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,13 +38,18 @@ public class Post {
 	
 	private boolean enabled;
 	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "users", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	@JsonIgnoreProperties({"user", "post"})
 	@OneToMany(mappedBy="post")
 	private List<PostVote> postVotes;
 	
+	@JsonIgnoreProperties({"post","comment","users"})
 	@OneToMany(mappedBy="post")
 	private List<Comment> comments;
 

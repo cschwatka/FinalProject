@@ -19,12 +19,12 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Book {
 	
-	@JsonIgnoreProperties({"language", "user", "favoriteUsers", "finishedUsers", "readingUsers", "wishlistUsers"})
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +34,7 @@ public class Book {
 	@JoinColumn(name="language_id")
 	private Language language;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
@@ -67,15 +68,21 @@ public class Book {
 	@UpdateTimestamp
 	private LocalDateTime lastUpdated;
 	
+	@JsonIgnoreProperties({"users", "books"})
 	@ManyToMany(mappedBy = "books")
 	private List<Category> categories;
 	
+	@JsonIgnoreProperties({"users", "books"})
 	@ManyToMany(mappedBy = "books")
 	private List<Author> authors;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "book")
 	private List<Review> reviews;
 	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "users", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToMany
 	@JoinTable(
 			name = "favorite_book",
@@ -84,6 +91,9 @@ public class Book {
 	)
 	private List<User> favoriteUsers;
 	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "users", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToMany
 	@JoinTable(
 			name = "finished",
@@ -92,6 +102,9 @@ public class Book {
 	)
 	private List<User> finishedUsers;
 	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "users", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToMany
 	@JoinTable(
 			name = "currently_reading",
@@ -100,7 +113,9 @@ public class Book {
 	)
 	private List<User> readingUsers;
 	
-	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "users", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToMany
 	@JoinTable(
 			name = "wishlist",

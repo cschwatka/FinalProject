@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -24,8 +25,6 @@ public class Question {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@JsonIgnoreProperties({"book", "user"})
-	
 	private String content;
 	
 	@Column(name="question_date")
@@ -34,10 +33,14 @@ public class Question {
 	
 	private boolean enabled;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="book_id")
 	private Book book;
 	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "users", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;

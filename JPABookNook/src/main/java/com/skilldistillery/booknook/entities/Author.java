@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -23,13 +24,10 @@ public class Author {
 	
 	private boolean enabled;
 	
-	@JsonIgnoreProperties({"books", "users"})
-
-	
 	@Column(name ="full_name")
 	private String fullName;
 	
-	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(
 			name = "author_to_book",
@@ -39,7 +37,7 @@ public class Author {
 
 	private List<Book> books;
 	
-	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(
 			name = "favorite_authors",
