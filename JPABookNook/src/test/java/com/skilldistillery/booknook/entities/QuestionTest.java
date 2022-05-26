@@ -64,11 +64,11 @@ class QuestionTest {
 //		+----+-------------------------------------------------------------+---------------------+---------+---------+---------+
 //		| id | content                                                     | question_date       | enabled | user_id | book_id |
 //		+----+-------------------------------------------------------------+---------------------+---------+---------+---------+
-//		|  1 | Should I read The Hobbit if I've already watched the movie? | 2022-05-25 00:00:00 |       1 |       2 |       2 |
+//		|  1 | Should I read The Hobbit if I've already watched the movie? | 2022-05-25 00:00:00 |       1 |       2 |        1|
 //		+----+-------------------------------------------------------------+---------------------+---------+---------+---------+
 		assertNotNull(question);
 		assertEquals(2, question.getUser().getId());
-		assertEquals(2, question.getBook().getId());
+		assertEquals(1, question.getBook().getId());
 	}
 
 }

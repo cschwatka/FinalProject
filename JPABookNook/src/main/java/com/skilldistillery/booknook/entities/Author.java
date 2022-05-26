@@ -24,32 +24,20 @@ public class Author {
 	
 	
 	@ManyToMany
-<<<<<<< HEAD
-	@JoinTable(name = "author_to_book", 
-	joinColumns = @JoinColumn(name = "author_id"),
-	inverseJoinColumns = @JoinColumn(name = "book_id"))
-=======
 	@JoinTable(
 			name = "author_to_book",
 			joinColumns = @JoinColumn(name = "author_id"),
 			inverseJoinColumns = @JoinColumn(name = "book_id")
 	)
->>>>>>> a7253953dbe835301abfb3a4c61906dfe8b5a897
 	private List<Book> books;
 	
 	
 	@ManyToMany
-<<<<<<< HEAD
-	@JoinTable(name = "favorite_authors",
-			joinColumns = @JoinColumn(name = "author_id"),
-			inverseJoinColumns = @JoinColumn(name = "user_id"))
-=======
 	@JoinTable(
 			name = "favorite_authors",
 			joinColumns = @JoinColumn(name = "author_id"),
 			inverseJoinColumns = @JoinColumn(name = "user_id")
 	)
->>>>>>> a7253953dbe835301abfb3a4c61906dfe8b5a897
 	private List<User> users;
 	
 	
