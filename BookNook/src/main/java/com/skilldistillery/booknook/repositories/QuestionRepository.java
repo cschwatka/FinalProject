@@ -10,8 +10,5 @@ import com.skilldistillery.booknook.entities.Question;
 
 public interface QuestionRepository extends JpaRepository<Question, Integer>{
 
-	public List<Category> findCategoriesByBookId(int bookId);
-	
-	public List<Author> findAuthorsByBookId(int bookId);
 	
 }

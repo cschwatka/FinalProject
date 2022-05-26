@@ -19,7 +19,7 @@ import com.skilldistillery.booknook.entities.Question;
 import com.skilldistillery.booknook.services.QuestionService;
 
 @RestController
-@CrossOrigin({"*", "http://localhost"})
+@CrossOrigin({"*", "http://localhost:4209"})
 public class QuestionController {
 
 	@Autowired
