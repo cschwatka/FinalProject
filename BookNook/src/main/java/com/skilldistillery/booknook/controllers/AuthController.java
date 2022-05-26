@@ -15,7 +15,7 @@ import com.skilldistillery.booknook.entities.User;
 import com.skilldistillery.booknook.services.AuthService;
 
 @RestController
-@CrossOrigin({"*", "http://localhost"})
+@CrossOrigin({"*", "http://localhost:4209"})
 public class AuthController {
 
 	@Autowired

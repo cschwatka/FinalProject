@@ -52,12 +52,12 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public List<Category> categories(int bookId) {
-		return bookRepo.findCategoriesByBookId(bookId);
+		return bookRepo.findCategoriesById(bookId);
 	}
 
 	@Override
 	public List<Author> authors(int bookId) {
-		return bookRepo.findAuthorsByBookId(bookId);
+		return bookRepo.findAuthorsById(bookId);
 	}
 
 }

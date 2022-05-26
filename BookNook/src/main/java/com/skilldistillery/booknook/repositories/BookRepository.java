@@ -10,8 +10,8 @@ import com.skilldistillery.booknook.entities.Category;
 
 public interface BookRepository extends JpaRepository<Book, Integer>{
 
-	public List<Category> findCategoriesByBookId(int bookId);
+	public List<Category> findCategoriesById(int bookId);
 	
-	public List<Author> findAuthorsByBookId(int bookId);
+	public List<Author> findAuthorsById(int bookId);
 	
 }

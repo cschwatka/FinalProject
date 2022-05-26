@@ -13,20 +13,20 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	public User findByUsername(String username);
 	
-	public List<Category> findCategoriesByUserId(int userId);
+	public List<Category> findCategoriesById(int userId);
 	
-	public List<Author> findAuthorsByUserId(int userId);
+	public List<Author> findAuthorsById(int userId);
 	
-	public List<Book> findFavoriteBooksByUserId(int userId);
+	public List<Book> findFavoriteBooksById(int userId);
 	
-	public List<Book> findFinishedBooksByUserId(int userId);
+	public List<Book> findFinishedBooksById(int userId);
 	
-	public List<Book> findReadingBooksByUserId(int userId);
+	public List<Book> findReadingBooksById(int userId);
 	
-	public List<Book> findWishlistBooksByUserId(int userId);
+	public List<Book> findWishlistBooksById(int userId);
 	
-	public List<User> findUsersFollowingByUserId(int userId);
+	public List<User> findUsersFollowingById(int userId);
 	
-	public List<User> findFollowedUsersByUserId(int userId);
+	public List<User> findFollowedUsersById(int userId);
 
 }

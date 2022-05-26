@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.booknook.entities.Post;
 import com.skilldistillery.booknook.repositories.PostRepository;
 
+@Service
 public class PostServiceImpl implements PostService {
 	
 	@Autowired

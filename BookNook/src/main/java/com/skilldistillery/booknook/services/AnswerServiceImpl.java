@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.booknook.entities.Answer;
-import com.skilldistillery.booknook.entities.Question;
 import com.skilldistillery.booknook.repositories.AnswerRepository;
 
+@Service
 public class AnswerServiceImpl implements AnswerService {
 	
 	@Autowired

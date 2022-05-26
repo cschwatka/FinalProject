@@ -53,42 +53,42 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<Category> categories(int userId) {
-		return userRepo.findCategoriesByUserId(userId);
+		return userRepo.findCategoriesById(userId);
 	}
 	
 	@Override
 	public List<Author> authors(int userId) {
-		return userRepo.findAuthorsByUserId(userId);
+		return userRepo.findAuthorsById(userId);
 	}
 
 	@Override
 	public List<Book> favoriteBooks(int userId) {
-		return userRepo.findFavoriteBooksByUserId(userId);
+		return userRepo.findFavoriteBooksById(userId);
 	}
 
 	@Override
 	public List<Book> finishedBooks(int userId) {
-		return userRepo.findFinishedBooksByUserId(userId);
+		return userRepo.findFinishedBooksById(userId);
 	}
 
 	@Override
 	public List<Book> readingBooks(int userId) {
-		return userRepo.findReadingBooksByUserId(userId);
+		return userRepo.findReadingBooksById(userId);
 	}
 
 	@Override
 	public List<Book> wishlistBooks(int userId) {
-		return userRepo.findWishlistBooksByUserId(userId);
+		return userRepo.findWishlistBooksById(userId);
 	}
 
 	@Override
 	public List<User> followers(int userId) {
-		return userRepo.findUsersFollowingByUserId(userId);
+		return userRepo.findUsersFollowingById(userId);
 	}
 
 	@Override
 	public List<User> followedUsers(int userId) {
-		return userRepo.findFollowedUsersByUserId(userId);
+		return userRepo.findFollowedUsersById(userId);
 	}
 
 	

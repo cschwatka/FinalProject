@@ -1,13 +1,16 @@
 package com.skilldistillery.booknook.services;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.booknook.entities.Comment;
 import com.skilldistillery.booknook.repositories.CommentRepository;
 
+@Service
 public class CommentServiceImpl implements CommentService {
 	
 	@Autowired
