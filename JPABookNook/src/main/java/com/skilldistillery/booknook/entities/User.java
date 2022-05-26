@@ -81,7 +81,6 @@ public class User {
 	@ManyToMany(mappedBy = "favoriteUsers")
 	private List<Book> favoriteBooks;
 	
-	
 	@ManyToMany(mappedBy = "finishedUsers")
 	private List<Book> finishedBooks;
 	
@@ -92,7 +91,9 @@ public class User {
 	private List<Book> wishlistBooks;
 	
 	@ManyToMany
-	@JoinTable(name="follow_list")
+	@JoinTable(name="follow_list",
+			joinColumns = @JoinColumn(name="user_id"),
+			inverseJoinColumns = @JoinColumn(name= "follow_to_user_id"))
 	private List<User> users;
 	
 	@ManyToMany(mappedBy = "users")
