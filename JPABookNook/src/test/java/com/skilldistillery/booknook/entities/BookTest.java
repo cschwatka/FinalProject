@@ -46,7 +46,7 @@ class BookTest {
 	@Test
 	void test_basic_book_entity_mapping() {
 		assertNotNull(book);
-		assertEquals("The Fellowship of the Ring", book.getTitle());
+		assertEquals("The Hobbit Or There and Back Again", book.getTitle());
 	}
 	
 	@Test
