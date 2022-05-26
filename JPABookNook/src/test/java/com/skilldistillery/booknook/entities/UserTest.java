@@ -117,7 +117,8 @@ class UserTest {
 		 * 
 		 */
 		assertNotNull(user);
-		assertTrue(user.getComments().size() > 0);
+		assertTrue(user.getPostVotes().size() > 0);
 	}
+	
 	
 }

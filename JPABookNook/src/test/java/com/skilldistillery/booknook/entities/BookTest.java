@@ -33,6 +33,7 @@ class BookTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
+//		book = em.find(Book.class, 2); 
 		book = em.find(Book.class, 1);
 	}
 
@@ -45,7 +46,7 @@ class BookTest {
 	@Test
 	void test_basic_book_entity_mapping() {
 		assertNotNull(book);
-		assertEquals("The Fellowship of the Ring", book.getTitle());
+		assertEquals("The Hobbit Or There and Back Again", book.getTitle());
 	}
 	
 	@Test
@@ -94,6 +95,58 @@ class BookTest {
 		assertEquals(1, book.getCategories().size());
 		assertTrue(book.getCategories().size() > 0);
 	}
+	
+	@Test
+	void test_book_MTM_authors_mapping() {
+		
+		assertNotNull(book);
+		assertNotNull(book.getAuthors());
+		assertTrue(book.getAuthors().size() > 0);
+	}
+	
+	@Test
+	void test_book_OTM_reviews_mapping() {
+		
+		// manually tested book.id = 2 because id=1 has no review inserted
+//		assertNotNull(book); 
+//		assertNotNull(book.getReviews());
+//		assertTrue(book.getReviews().size() > 0);
+	}
+	
+	@Test
+	void test_book_MTM_favoriteUsers_mapping() {
+		
+		assertNotNull(book);
+		assertNotNull(book.getFavoriteUsers());
+		assertTrue(book.getFavoriteUsers().size() > 0);
+	}
+	
+	@Test
+	void test_book_MTM_finishedUsers_mapping() {
+		
+		assertNotNull(book);
+		assertNotNull(book.getFinishedUsers());
+		assertTrue(book.getFinishedUsers().size() > 0);
+	}
+	
+	@Test
+	void test_book_MTM_readingUsers_mapping() {
+		
+		assertNotNull(book);
+		assertNotNull(book.getReadingUsers());
+		assertTrue(book.getReadingUsers().size() > 0);
+	}
+	
+	
+	@Test
+	void test_book_MTM_wishlistUsers_mapping() {
+		
+		assertNotNull(book);
+		assertNotNull(book.getWishlistUsers());
+		assertTrue(book.getWishlistUsers().size() > 0);
+	}
+	
+	
 	
 	
 
