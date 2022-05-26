@@ -19,6 +19,9 @@ public class Author {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	private boolean enabled;
+
+	
 	@Column(name ="full_name")
 	private String fullName;
 	
@@ -80,6 +83,14 @@ public class Author {
 		this.users = users;
 	}
 	
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 
 	@Override
 	public int hashCode() {

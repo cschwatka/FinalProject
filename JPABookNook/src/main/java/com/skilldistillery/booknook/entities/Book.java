@@ -38,6 +38,8 @@ public class Book {
 	
 	private String description;
 	
+	private boolean enabled;
+	
 	@Column(name="isbn_10")
 	private String isbn10;
 	
@@ -417,6 +419,22 @@ public class Book {
 
 	public void setWishlistUsers(List<User> wishlistUsers) {
 		this.wishlistUsers = wishlistUsers;
+	}
+
+
+
+
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+
+
+
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 
