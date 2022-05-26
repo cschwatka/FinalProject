@@ -47,5 +47,78 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 	}
-
+	
+	@Test
+	void test_OneToMany_mapping_with_books() {
+		/*
+		 * 
+		 */
+		assertNotNull(user);
+		assertTrue(user.getBooks().size() > 0);
+	}
+	
+	@Test
+	void test_ManyToMany_mapping_with_categories() {
+		/*
+		 * 
+		 */
+		assertNotNull(user);
+		assertTrue(user.getCategories().size() > 0);
+	}
+	
+	@Test
+	void test_ManyToMany_mapping_with_authors() {
+		/*
+		 * 
+		 */
+		assertNotNull(user);
+		assertTrue(user.getAuthors().size() > 0);
+	}
+	
+	@Test
+	void test_OneToMany_mapping_with_reviews() {
+		/*
+		 * 
+		 */
+		assertNotNull(user);
+		assertTrue(user.getReviews().size() > 0);
+	}
+	
+	@Test
+	void test_OneToMany_mapping_with_answers() {
+		/*
+		 * 
+		 */
+		assertNotNull(user);
+		assertTrue(user.getAnswers().size() > 0);
+	}
+	
+	@Test
+	void test_OneToMany_mapping_with_posts() {
+		/*
+		 * 
+		 */
+		assertNotNull(user);
+		assertTrue(user.getPosts().size() > 0);
+	}
+	
+	@Test
+	void test_OneToMany_mapping_with_comments() {
+		/*
+		 * 
+		 */
+		assertNotNull(user);
+		assertTrue(user.getComments().size() > 0);
+	}
+	
+	@Test
+	void test_OneToMany_mapping_with_postVotes() {
+		/*
+		 * 
+		 */
+		assertNotNull(user);
+		assertTrue(user.getPostVotes().size() > 0);
+	}
+	
+	
 }
