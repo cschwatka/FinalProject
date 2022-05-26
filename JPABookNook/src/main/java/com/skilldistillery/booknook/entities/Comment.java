@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Comment {
 	
@@ -25,6 +27,8 @@ public class Comment {
 	private int id;
 	
 	private String content;
+	
+	@JsonIgnoreProperties({"user", "post", "comment", "users"})
 	
 	@Column(name="comment_date")
 	@CreationTimestamp
