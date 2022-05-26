@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Author {
 
@@ -20,6 +22,8 @@ public class Author {
 	private int id;
 	
 	private boolean enabled;
+	
+	@JsonIgnoreProperties({"books", "users"})
 
 	
 	@Column(name ="full_name")
