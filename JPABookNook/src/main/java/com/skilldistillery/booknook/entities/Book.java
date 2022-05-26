@@ -19,8 +19,12 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Book {
+	
+	@JsonIgnoreProperties({"language", "user", "favoriteUsers", "finishedUsers", "readingUsers", "wishlistUsers"})
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
