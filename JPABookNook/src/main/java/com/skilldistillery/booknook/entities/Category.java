@@ -31,7 +31,7 @@ public class Category {
 	private List<Book> books;
 	
 	@ManyToMany
-	@JoinTable(name = "favoite_categories")
+	@JoinTable(name = "favorite_categories")
 	private List<User> users;
 	
 	
