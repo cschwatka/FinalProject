@@ -29,6 +29,7 @@ public class Author {
 			joinColumns = @JoinColumn(name = "author_id"),
 			inverseJoinColumns = @JoinColumn(name = "book_id")
 	)
+
 	private List<Book> books;
 	
 	
@@ -38,6 +39,7 @@ public class Author {
 			joinColumns = @JoinColumn(name = "author_id"),
 			inverseJoinColumns = @JoinColumn(name = "user_id")
 	)
+
 	private List<User> users;
 	
 	
