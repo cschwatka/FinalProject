@@ -70,7 +70,7 @@ class ReviewTest {
 	void test_Review_foreign_key_relationship_mapping() {
 		assertNotNull(review);
 		assertEquals(1, review.getUser().getId());
-		assertEquals(2, review.getBook().getId());
+		assertEquals(1, review.getBook().getId());
 	}
 
 }

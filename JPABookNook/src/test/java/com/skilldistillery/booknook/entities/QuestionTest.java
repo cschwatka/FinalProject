@@ -68,7 +68,7 @@ class QuestionTest {
 //		+----+-------------------------------------------------------------+---------------------+---------+---------+---------+
 		assertNotNull(question);
 		assertEquals(2, question.getUser().getId());
-		assertEquals(2, question.getBook().getId());
+		assertEquals(1, question.getBook().getId());
 	}
 
 }
