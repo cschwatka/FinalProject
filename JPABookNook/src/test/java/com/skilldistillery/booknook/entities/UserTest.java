@@ -120,5 +120,22 @@ class UserTest {
 		assertTrue(user.getPostVotes().size() > 0);
 	}
 	
+	@Test
+	void test_OneToMany_mapping_with_fovoriteUsers() {
+		/*
+		 * 
+		 */
+		assertNotNull(user);
+		assertTrue(user.getFavoriteBooks().size() > 0);
+	}
+	
+//	@Test
+//	void test_SelfJoin_mapping_with_user() {
+//		/*
+//		 * 
+//		 */
+//		assertNotNull(user);
+//		assertTrue(user.getUsers().size() > 0);
+//	}
 	
 }
