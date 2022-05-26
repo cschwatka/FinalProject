@@ -586,8 +586,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `booknookdb`;
-INSERT INTO `book` (`id`, `title`, `description`, `isbn_10`, `page_count`, `img_url`, `publish_date`, `isbn_13`, `language_id`, `user_id`, `date_added`, `last_updated`) VALUES (1, 'The Fellowship of the Ring', 'Presents the epic depicting the Great War of the Ring, a struggle between good and evil in Middle Earth.', '0618129022', 1137, 'https://books.google.com/books/publisher/content/images/frontcover/ptHZAAAAMAAJ?fife=w400-h600&source=gbs_api', '2001-01-01', '9780618129027', 1, 1, '2022-05-25', NULL);
-INSERT INTO `book` (`id`, `title`, `description`, `isbn_10`, `page_count`, `img_url`, `publish_date`, `isbn_13`, `language_id`, `user_id`, `date_added`, `last_updated`) VALUES (2, 'The Hobbit Or There and Back Again', 'Celebrating 75 years of one of the world\'s most treasured classics with an all new trade paperback edition. Repackaged with new cover art. 500,000 first printing.', '054792822X', 300, 'https://books.google.com/books/publisher/content/images/frontcover/LLSpngEACAAJ?fife=w400-h600&source=gbs_api', '2012-01-01', '9780547928227', 1, 1, '2022-05-25', NULL);
+INSERT INTO `book` (`id`, `title`, `description`, `isbn_10`, `page_count`, `img_url`, `publish_date`, `isbn_13`, `language_id`, `user_id`, `date_added`, `last_updated`) VALUES (2, 'The Fellowship of the Ring', 'Presents the epic depicting the Great War of the Ring, a struggle between good and evil in Middle Earth.', '0618129022', 1137, 'https://books.google.com/books/publisher/content/images/frontcover/ptHZAAAAMAAJ?fife=w400-h600&source=gbs_api', '2001-01-01', '9780618129027', 1, 1, '2022-05-25', NULL);
+INSERT INTO `book` (`id`, `title`, `description`, `isbn_10`, `page_count`, `img_url`, `publish_date`, `isbn_13`, `language_id`, `user_id`, `date_added`, `last_updated`) VALUES (1, 'The Hobbit Or There and Back Again', 'Celebrating 75 years of one of the world\'s most treasured classics with an all new trade paperback edition. Repackaged with new cover art. 500,000 first printing.', '054792822X', 300, 'https://books.google.com/books/publisher/content/images/frontcover/LLSpngEACAAJ?fife=w400-h600&source=gbs_api', '2012-01-01', '9780547928227', 1, 1, '2022-05-25', NULL);
 INSERT INTO `book` (`id`, `title`, `description`, `isbn_10`, `page_count`, `img_url`, `publish_date`, `isbn_13`, `language_id`, `user_id`, `date_added`, `last_updated`) VALUES (3, 'The Two Towers', 'This title is also available as a film as a film - Part 2 of The lord of the rings.', '026110358X', 322, 'https://books.google.com/books/publisher/content/images/frontcover/_yI_c7_c4ZMC?fife=w400-h600&source=gbs_api', '1997-01-01', '9780261103580', 1, 1, '2022-05-25', NULL);
 INSERT INTO `book` (`id`, `title`, `description`, `isbn_10`, `page_count`, `img_url`, `publish_date`, `isbn_13`, `language_id`, `user_id`, `date_added`, `last_updated`) VALUES (4, 'The Return of the King', 'Concluding the story begun in The Hobbit, this is the final part of Tolkien s epic masterpiece, The Lord of the Rings, featuring an exclusive cover image from the film, the definitive text, and a detailed map of Middle-earth. The armies of the Dark Lord Sauron are massing as his evil shadow spreads ever wider. Men, Dwarves, Elves and Ents unite forces to do battle agains the Dark. Meanwhile, Frodo and Sam struggle further into Mordor in their heroic quest to destroy the One Ring. The devastating conclusion of J.R.R. Tolkien s classic tale of magic and adventure, begun in The Fellowship of the Ring and The Two Towers, features the definitive edition of the text and includes the Appendices and a revised Index in full. To celebrate the release of the first of Peter Jackson s two-part film adaptation of The Hobbit, THE HOBBIT: AN UNEXPECTED JOURNEY, this third part of The Lord of the Rings is available for a limited time with an exclusive cover image from Peter Jackson s award-winning trilogy.', '0007488343', 624, 'https://books.google.com/books/publisher/content/images/frontcover/1EcBuwAACAAJ?fife=w400-h600&source=gbs_api', '2012-01-01', '9780007488346', 1, 1, '2022-05-25', NULL);
 INSERT INTO `book` (`id`, `title`, `description`, `isbn_10`, `page_count`, `img_url`, `publish_date`, `isbn_13`, `language_id`, `user_id`, `date_added`, `last_updated`) VALUES (5, 'Automate the Boring Stuff with Python', 'If you+IBk-ve ever spent hours renaming files or updating hundreds of spreadsheet cells, you know how tedious tasks like these can be. But what if you could have your computer do them for you? In Automate the Boring Stuff with Python, you+IBk-ll learn how to use Python to write programs that do in minutes what would take you hours to do by hand+IBQ-no prior programming experience required. Once you+IBk-ve mastered the basics of programming, you+IBk-ll create Python programs that effortlessly perform useful and impressive feats of automation to: +IBM-Search for text in a file or across multiple files +IBM-Create, update, move, and rename files and folders +IBM-Search the Web and download online content +IBM-Update and format data in Excel spreadsheets of any size +IBM-Split, merge, watermark, and encrypt PDFs +IBM-Send reminder emails and text notifications +IBM-Fill out online forms Step-by-step instructions walk you through each program, and practice projects at the end of each chapter challenge you to improve those programs and use your newfound skills to automate similar tasks. Don+IBk-t spend your time doing work a well-trained monkey could do. Even if you+IBk-ve never written a line of code, you can make your computer do the grunt work. Learn how in Automate the Boring Stuff with Python. Note: The programs in this book are written to run on Python 3.', '1593276850', 504, 'https://books.google.com/books/publisher/content/images/frontcover/8AcvDwAAQBAJ?fife=w400-h600&source=gbs_api', '2015-04-14', '9781593276850', 1, 1, '2022-05-25', NULL);
@@ -672,7 +672,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `booknookdb`;
-INSERT INTO `question` (`id`, `content`, `question_date`, `enabled`, `user_id`, `book_id`) VALUES (1, 'Should I read The Hobbit if I\'ve already watched the movie?', '2022-05-25', 1, 2, 2);
+INSERT INTO `question` (`id`, `content`, `question_date`, `enabled`, `user_id`, `book_id`) VALUES (1, 'Should I read The Hobbit if I\'ve already watched the movie?', '2022-05-25', 1, 2, 1);
 
 COMMIT;
 
@@ -692,7 +692,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `booknookdb`;
-INSERT INTO `review` (`id`, `content`, `rating`, `enabled`, `title`, `review_date`, `user_id`, `book_id`) VALUES (1, 'Honestly, way better than the films. Like did the director even read this?', 5, 1, 'The Hobbit is WAY BETTER as a book', '2022-05-25', 1, 2);
+INSERT INTO `review` (`id`, `content`, `rating`, `enabled`, `title`, `review_date`, `user_id`, `book_id`) VALUES (1, 'Honestly, way better than the films. Like did the director even read this?', 5, 1, 'The Hobbit is WAY BETTER as a book', '2022-05-25', 1, 1);
 
 COMMIT;
 
@@ -702,7 +702,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `booknookdb`;
-INSERT INTO `wishlist` (`user_id`, `book_id`) VALUES (1, 4);
+INSERT INTO `wishlist` (`user_id`, `book_id`) VALUES (1, 1);
 
 COMMIT;
 
@@ -712,7 +712,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `booknookdb`;
-INSERT INTO `currently_reading` (`user_id`, `book_id`) VALUES (1, 3);
+INSERT INTO `currently_reading` (`user_id`, `book_id`) VALUES (1, 1);
 
 COMMIT;
 
@@ -820,7 +820,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `booknookdb`;
-INSERT INTO `favorite_book` (`user_id`, `book_id`) VALUES (1, 2);
+INSERT INTO `favorite_book` (`user_id`, `book_id`) VALUES (1, 1);
 
 COMMIT;
 
