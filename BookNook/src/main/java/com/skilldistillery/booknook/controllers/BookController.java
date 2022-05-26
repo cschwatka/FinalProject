@@ -21,7 +21,7 @@ import com.skilldistillery.booknook.entities.Category;
 import com.skilldistillery.booknook.services.BookService;
 
 @RestController
-@CrossOrigin({"*", "http://localhost"})
+@CrossOrigin({ "*", "http://localhost:4209" })
 @RequestMapping("api")
 public class BookController {
 	

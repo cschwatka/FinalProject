@@ -38,6 +38,9 @@ public class Post {
 	
 	@OneToMany(mappedBy="post")
 	private List<PostVote> postVotes;
+	
+	@OneToMany(mappedBy="post")
+	private List<Comment> comments;
 
 	public Post() {
 		super();
@@ -93,6 +96,14 @@ public class Post {
 
 	public List<PostVote> getPostVotes() {
 		return postVotes;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	public void setPostVotes(List<PostVote> postVotes) {

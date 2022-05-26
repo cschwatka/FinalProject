@@ -22,7 +22,7 @@ import com.skilldistillery.booknook.entities.User;
 import com.skilldistillery.booknook.services.UserService;
 
 @RestController
-@CrossOrigin({"*", "http://localhost"})
+@CrossOrigin({ "*", "http://localhost:4209" })
 @RequestMapping("api")
 public class UserController {
 	

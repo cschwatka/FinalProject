@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,64 +14,64 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skilldistillery.booknook.entities.Post;
-import com.skilldistillery.booknook.services.PostService;
+import com.skilldistillery.booknook.entities.Comment;
+import com.skilldistillery.booknook.services.CommentService;
 
 @RestController
 @CrossOrigin({ "*", "http://localhost:4209" })
 @RequestMapping("api")
-public class PostController {
+public class CommentController {
 	
-	@Autowired
-	private PostService postService;
+	private CommentService commentService;
 	
-	@GetMapping("posts/{postId}")
-	public Post getPostById(
-	  @PathVariable Integer postId,
+	@GetMapping("comments/{commentId}")
+	public Comment getBookById(
+	  @PathVariable Integer commentId,
 	  HttpServletResponse res
 	) {
-		Post post = postService.getPostById(postId);
+	  Comment comment = commentService.getCommentById(commentId);
 	  
-	  if (post == null) {
+	  if (comment == null) {
 	    res.setStatus(404);
 	  }
-	  return post;
+	  return comment;
 	}
 	
-	@GetMapping("posts")
-	public List<Post> getListOfPosts(
+	@GetMapping("comments")
+	public List<Comment> getListOfComments(
 			HttpServletResponse res,
 			HttpServletRequest req
 			) {
-		List<Post> posts = postService.index();
-		return posts;
+		List<Comment> comments = commentService.index();
+		return comments;
 	}
 	
-	@PutMapping("posts/{postId}")
-	public Post update(
-			@PathVariable Integer postId,
-			@RequestBody Post post,
+	@PutMapping("comments/{commentId}")
+	public Comment update(
+			@PathVariable Integer commentId,
+			@RequestBody Comment comment,
 			HttpServletResponse res,
 			HttpServletRequest req
 			) {
-		Post newPost = postService.update(postId, post);
-		if (newPost == null) {
+		Comment newComment = commentService.update(commentId, comment);
+		if (newComment == null) {
 			res.setStatus(404);
 		}
-		return newPost;
+		return newComment;
 	}
 	
-	@DeleteMapping("posts/{postId}")
-	public Post destroy(
-			@PathVariable Integer postId,
+	@DeleteMapping("comments/{commentId}")
+	public Comment destroy(
+			@PathVariable Integer commentId,
 			HttpServletResponse res
 			) {
-		Post deletePost = postService.destroy(postId);
-		if (deletePost == null) {
+		Comment deleteComment = commentService.destroy(commentId);
+		if (deleteComment == null) {
 			res.setStatus(404);
 		}
-		return deletePost;
+		return deleteComment;
 	}
+	
 	
 
 }
