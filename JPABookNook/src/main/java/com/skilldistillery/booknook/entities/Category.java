@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
@@ -26,12 +27,20 @@ public class Category {
 	@Column(name="img_url")
 	private String imgUrl;
 	
+//	@ManyToMany
+//	@JoinTable(name = "book_to_category")
+//	private List<Book> books;
+	
 	@ManyToMany
-	@JoinTable(name = "book_to_category")
+	@JoinTable(
+			name = "book_to_category",
+			joinColumns = @JoinColumn(name = "category_id"),
+			inverseJoinColumns = @JoinColumn(name = "book_id")
+	)
 	private List<Book> books;
 	
 	@ManyToMany
-	@JoinTable(name = "favoite_categories")
+	@JoinTable(name = "favorite_categories")
 	private List<User> users;
 	
 	
