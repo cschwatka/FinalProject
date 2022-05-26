@@ -94,7 +94,7 @@ public class User {
 	@JoinTable(name="follow_list",
 			joinColumns = @JoinColumn(name="user_id"),
 			inverseJoinColumns = @JoinColumn(name= "follow_to_user_id"))
-	private List<User> users;
+	private List<User> usersFollowing;
 	
 	@ManyToMany(mappedBy = "users")
 	private List<User> followedUsers;
@@ -408,13 +408,13 @@ public class User {
 
 
 	public List<User> getUsers() {
-		return users;
+		return usersFollowing;
 	}
 
 
 
 	public void setUsers(List<User> users) {
-		this.users = users;
+		this.usersFollowing = users;
 	}
 
 
