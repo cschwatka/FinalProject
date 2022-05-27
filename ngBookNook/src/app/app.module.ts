@@ -24,6 +24,6 @@ import { FormsModule } from '@angular/forms';
     CommonModule
   ],
   providers: [BooknookService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,NookComponent,HomeComponent]
 })
 export class AppModule { }
