@@ -1,4 +1,6 @@
-export class Postvote {
+import { Post } from "./post";
+
+export class PostVote {
 
   post: Post;
   vote: boolean;

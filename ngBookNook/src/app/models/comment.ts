@@ -1,4 +1,6 @@
 import { ContentChild } from "@angular/core";
+import { CommentVote } from "./comment-vote";
+import { Post } from "./post";
 import { User } from "./user";
 
 export class Comment {

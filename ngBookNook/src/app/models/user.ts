@@ -1,4 +1,9 @@
+import { Answer } from "./answer";
+import { Author } from "./author";
 import { Book } from "./book";
+import { Category } from "./category";
+import { Post } from "./post";
+import { Review } from "./review";
 
 export class User {
   id: number;

@@ -1,3 +1,4 @@
+import { Answer } from './answer';
 import { User } from './user';
 export class AnswerVote {
 

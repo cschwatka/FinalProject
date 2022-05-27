@@ -1,3 +1,4 @@
+import { PostVote } from "./postvote";
 import { User } from "./user";
 
 export class Post {

@@ -1,3 +1,6 @@
+import { Author } from "./author";
+import { Category } from "./category";
+import { Language } from "./language";
 import { User } from "./user";
 
 export class Book {
@@ -57,6 +60,7 @@ export class Book {
       this.favoriteUsers = favoriteUsers;
       this.finishedUsers = finishedUsers;
       this.readingUsers = readingUsers;
+      this.wishlistUsers = wishlistUsers;
       this.language = language;
 
   }
