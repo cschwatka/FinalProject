@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class User {
 
@@ -32,6 +34,8 @@ public class User {
 	private String role;
 	
 	private String email;
+	
+	@JsonIgnoreProperties({"usersFollowing"})
 	
 	@Column(name="first_name")
 	private String firstName;
