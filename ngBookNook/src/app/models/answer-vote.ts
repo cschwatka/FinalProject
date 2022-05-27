@@ -4,13 +4,13 @@ export class AnswerVote {
  id: number;
  vote: boolean;
  user: User;
- answer: AnswerVote;
+ answer: Answer;
 
  constructor (
    id: number = 0,
    vote: boolean = false,
    user: User = {},
-   answer: AnswerVote = {}
+   answer: Answer = {}
    ){
      this.id = id;
      this.vote = vote;
