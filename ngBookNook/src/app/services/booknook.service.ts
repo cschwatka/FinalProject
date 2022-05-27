@@ -19,7 +19,7 @@ export class BooknookService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
-  url = environment.baseUrl;
+  url = environment.baseUrl + "api/";
 
   getHttpOptions() {
     let options = {
@@ -477,7 +477,7 @@ export class BooknookService {
     }
 
     showUserFollowers(id: number) {
-      return this.http.get<Book[]>(this.url + "users/" + id + "/followers", this.getHttpOptions())
+      return this.http.get<User[]>(this.url + "users/" + id + "/followers", this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
@@ -487,7 +487,7 @@ export class BooknookService {
     }
 
     showUserFollowing(id: number) {
-      return this.http.get<Book[]>(this.url + "users/" + id + "/followedUsers", this.getHttpOptions())
+      return this.http.get<User[]>(this.url + "users/" + id + "/followedUsers", this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);

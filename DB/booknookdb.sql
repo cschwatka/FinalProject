@@ -716,6 +716,7 @@ COMMIT;
 START TRANSACTION;
 USE `booknookdb`;
 INSERT INTO `currently_reading` (`user_id`, `book_id`) VALUES (1, 1);
+INSERT INTO `currently_reading` (`user_id`, `book_id`) VALUES (2, 2);
 
 COMMIT;
 

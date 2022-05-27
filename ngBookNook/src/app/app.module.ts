@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NookComponent } from './components/nook/nook.component';
 import { HomeComponent } from './components/home/home.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
@@ -36,7 +36,9 @@ import { BookShelfComponent } from './components/book-shelf/book-shelf.component
     FormsModule,
     CommonModule
   ],
-  providers: [BooknookService],
+  providers: [BooknookService,
+              DatePipe
+  ],
   bootstrap: [AppComponent,NookComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent]
 })
 export class AppModule { }

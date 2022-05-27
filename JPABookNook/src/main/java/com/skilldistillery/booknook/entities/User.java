@@ -112,7 +112,7 @@ public class User {
 	
 	@JsonIgnoreProperties({"usersFollowing","followedUsers", "books","categories","authors",
 		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
-		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
+		"favoriteBooks", "finishedBooks","wishlistBooks"})
 	@ManyToMany
 	@JoinTable(name="follow_list",
 			joinColumns = @JoinColumn(name="user_id"),
