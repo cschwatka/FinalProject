@@ -24,7 +24,7 @@ export class Book {
   readingUsers: User[];
   wishlistUsers: User[];
 
-  constructor( id: number,
+  constructor( id: number = 0,
     language: Language[] = [],
     title: string = "",
     description: string = "",

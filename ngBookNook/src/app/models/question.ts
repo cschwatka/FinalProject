@@ -12,7 +12,7 @@ export class Question {
     id: number = 0,
     content: string = '',
     questionDate: string = '',
-    user: User = {},
+    user: User = new User(),
     answers: Answer[] = []
   ){
     this.id = id;

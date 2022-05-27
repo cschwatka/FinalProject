@@ -9,8 +9,8 @@ export class CommentVote {
   constructor (
     id: number = 0,
     vote: boolean = false,
-    user: User = {},
-    comment: Comment = {}
+    user: User = new User(),
+    comment: Comment = new Comment()
     ){
       this.id = id;
       this.vote = vote;

@@ -17,8 +17,8 @@ export class Post {
     content: string='',
     title: string='',
     postDate: string='',
-    enabled: boolean=false,
-    user: User = {},
+    enabled: boolean=true,
+    user: User = new User(),
     postVotes: PostVote[] = [],
     comments: Comment[] = []
 

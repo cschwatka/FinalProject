@@ -10,8 +10,8 @@ export class AnswerVote {
  constructor (
    id: number = 0,
    vote: boolean = false,
-   user: User = {},
-   answer: Answer = {}
+   user: User = new User(),
+   answer: Answer = new Answer()
    ){
      this.id = id;
      this.vote = vote;

@@ -6,7 +6,7 @@ export class Author {
   constructor(
 
     id: number=0,
-    enabled: boolean=false,
+    enabled: boolean= true,
     fullName: string=''
 
   ) {

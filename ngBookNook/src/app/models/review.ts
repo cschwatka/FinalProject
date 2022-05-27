@@ -15,11 +15,11 @@ export class Review {
 
   constructor(
   id: number = 0,
-  book: Book = {},
-  user: User = {},
+  book: Book = new Book(),
+  user: User = new User(),
   content: string = '',
   rating: number = 0,
-  enabled: boolean = false,
+  enabled: boolean = true,
   title: string = '',
   reviewDate: string = ''
   ){

@@ -8,7 +8,7 @@ export class Answer {
     id: number = 0,
     content: string = '',
     answerDate: string = '',
-    enabled: boolean = false
+    enabled: boolean = true
     ) {
       this.id = id;
       this.content = content;
