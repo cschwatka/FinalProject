@@ -13,7 +13,13 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+=======
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+>>>>>>> ee94450e546f965bd79c9d157afb918ec8cb2d2e
 
 @Entity
 public class Review {
@@ -23,11 +29,16 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+<<<<<<< HEAD
 	@JsonIgnoreProperties({"book", "user"})
 	
+=======
+	@JsonIgnore
+>>>>>>> ee94450e546f965bd79c9d157afb918ec8cb2d2e
 	@ManyToOne
 	@JoinColumn(name="book_id")
 	private Book book;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")

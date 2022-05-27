@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="post_vote")
 public class PostVote {
@@ -23,6 +25,7 @@ public class PostVote {
 	@MapsId(value="postId")
 	private Post post;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	@MapsId(value="userId")

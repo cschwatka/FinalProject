@@ -1,6 +1,5 @@
 package com.skilldistillery.booknook.entities;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.EmbeddedId;

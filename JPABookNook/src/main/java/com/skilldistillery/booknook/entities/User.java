@@ -16,7 +16,14 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+=======
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+>>>>>>> ee94450e546f965bd79c9d157afb918ec8cb2d2e
 
 @Entity
 public class User {
@@ -52,54 +59,76 @@ public class User {
 	@CreationTimestamp
 	private LocalDate createDate;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Book> books;
 	
+	@JsonIgnoreProperties({"users", "books"})
 	@ManyToMany(mappedBy = "users")
 	private List<Category> categories;
 	
+	@JsonIgnoreProperties({"users", "books"})
 	@ManyToMany(mappedBy = "users")
 	private List<Author> authors;
 	
+	@JsonIgnoreProperties({"user", "book"})
 	@OneToMany(mappedBy = "user")
 	private List<Review> reviews;
 	
+	@JsonIgnoreProperties({"user", "answers", "answer"})
 	@OneToMany(mappedBy = "user")
 	private List<Answer> answers;
 	
+	@JsonIgnoreProperties({"comments","user"})
 	@OneToMany(mappedBy = "user")
 	private List<Post> posts;
 	
+	@JsonIgnoreProperties({"post","comment", "user","users"})
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<PostVote> postVotes;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<CommentVote> commentVotes;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<AnswerVote> answerVotes;
 	
+	@JsonIgnoreProperties({"users", "reviews", "categories", "favoriteUsers", "finishedUsers", "readingUsers", "wishlistUsers"})
 	@ManyToMany(mappedBy = "favoriteUsers")
 	private List<Book> favoriteBooks;
 	
+	@JsonIgnoreProperties({"users", "reviews", "categories", "favoriteUsers", "finishedUsers", "readingUsers", "wishlistUsers"})
 	@ManyToMany(mappedBy = "finishedUsers")
 	private List<Book> finishedBooks;
 	
+	@JsonIgnoreProperties({"users", "reviews", "categories", "favoriteUsers", "finishedUsers", "readingUsers", "wishlistUsers"})
 	@ManyToMany(mappedBy = "readingUsers")
 	private List<Book> readingBooks;
 	
+	@JsonIgnoreProperties({"users", "reviews", "categories", "favoriteUsers", "finishedUsers", "readingUsers", "wishlistUsers"})
 	@ManyToMany(mappedBy = "wishlistUsers")
 	private List<Book> wishlistBooks;
 	
+	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToMany
 	@JoinTable(name="follow_list",
 			joinColumns = @JoinColumn(name="user_id"),
 			inverseJoinColumns = @JoinColumn(name= "follow_to_user_id"))
 	private List<User> usersFollowing;
 	
+	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToMany(mappedBy = "usersFollowing")
 	private List<User> followedUsers;
 	
@@ -411,14 +440,16 @@ public class User {
 
 
 
-	public List<User> getUsers() {
+
+
+	public List<User> getUsersFollowing() {
 		return usersFollowing;
 	}
 
 
 
-	public void setUsers(List<User> users) {
-		this.usersFollowing = users;
+	public void setUsersFollowing(List<User> usersFollowing) {
+		this.usersFollowing = usersFollowing;
 	}
 
 
