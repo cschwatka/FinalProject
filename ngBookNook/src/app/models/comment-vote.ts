@@ -1,8 +1,10 @@
+import { User } from "./user";
+
 export class CommentVote {
   id: number;
   vote: boolean;
   user: User;
-  comment: Commnet;
+  comment: Comment;
 
   constructor (
     id: number = 0,
