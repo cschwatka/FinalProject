@@ -1,0 +1,7 @@
+<form class="form form-inline">
+  <label for="username">Username: </label>
+  <input class="form-control" type="text" name="username" [(ngModel)]="loginUser.username" /><br>
+  <label for="password">Password: </label>
+  <input class="form-control" type="text" name="password" [(ngModel)]="loginUser.password" /><br>
+  <input class="btn btn-primary" type="submit" value="Login" (click)="login(loginUser)" />
+</form>

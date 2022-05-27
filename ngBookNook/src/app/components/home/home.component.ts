@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BooknookService } from './../../services/booknook.service';
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
@@ -9,27 +10,27 @@ import { Book } from 'src/app/models/book';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private bookSvc: BooknookService) { }
+  constructor(private bookSvc: BooknookService, private router: Router) { }
 
   books: any[] = [];
 
   ngOnInit(): void {
-    this.fetch();
+    // this.fetch();
   }
 
-  fetch() {
-    for (let i = 0; i < 120; i+=40) {
-      this.bookSvc.fetch(i).subscribe(
-        (data) => {this.parseData(data);
-        },
-        (error) => console.log("Observable error fetching book data " + error)
-      )
-    }
-  }
+  // fetch() {
+  //   for (let i = 0; i < 120; i+=40) {
+  //     this.bookSvc.fetch(i).subscribe(
+  //       (data) => {this.parseData(data);
+  //       },
+  //       (error) => console.log("Observable error fetching book data " + error)
+  //     )
+  //   }
+  // }
 
-  parseData(data: any) {
-    for (let i = 0; i < data["items"].length; i++) {
-      console.log(data["items"][i]);
-    }
-  }
+  // parseData(data: any) {
+  //   for (let i = 0; i < data["items"].length; i++) {
+  //     console.log(data["items"][i]);
+  //   }
+  // }
 }

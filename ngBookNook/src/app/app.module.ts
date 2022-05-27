@@ -9,12 +9,25 @@ import { NookComponent } from './components/nook/nook.component';
 import { HomeComponent } from './components/home/home.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { RegisterComponent } from './components/register/register.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { BookShelfComponent } from './components/book-shelf/book-shelf.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NookComponent,
-    HomeComponent
+    BookShelfComponent,
+    HomeComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterComponent,
+    NotfoundComponent,
+    NavigationComponent,
+    BookShelfComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +37,6 @@ import { FormsModule } from '@angular/forms';
     CommonModule
   ],
   providers: [BooknookService],
-  bootstrap: [AppComponent,NookComponent,HomeComponent]
+  bootstrap: [AppComponent,NookComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent]
 })
 export class AppModule { }
