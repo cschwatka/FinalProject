@@ -25,7 +25,6 @@ public class Review {
 	private int id;
 	
 	@JsonIgnoreProperties({"book", "user"})
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="book_id")
 	private Book book;
