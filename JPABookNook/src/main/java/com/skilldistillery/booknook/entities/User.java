@@ -16,8 +16,10 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class User {
@@ -107,7 +109,8 @@ public class User {
 	@ManyToMany(mappedBy = "wishlistUsers")
 	private List<Book> wishlistBooks;
 	
-	@JsonIgnoreProperties({"usersFollowing","followedUsers", "users", "books","categories","authors",
+	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "books","categories","authors",
 		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
 		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
 	@ManyToMany
@@ -116,10 +119,10 @@ public class User {
 			inverseJoinColumns = @JoinColumn(name= "follow_to_user_id"))
 	private List<User> usersFollowing;
 	
-	@JsonIgnoreProperties({"usersFollowing","followedUsers", "users", "books","categories","authors",
+	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "books","categories","authors",
 		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
 		"favoriteBooks", "finishedBooks", "readingBooks","wishlistBooks"})
-	
 	@ManyToMany(mappedBy = "usersFollowing")
 	private List<User> followedUsers;
 	
@@ -431,14 +434,16 @@ public class User {
 
 
 
-	public List<User> getUsers() {
+
+
+	public List<User> getUsersFollowing() {
 		return usersFollowing;
 	}
 
 
 
-	public void setUsers(List<User> users) {
-		this.usersFollowing = users;
+	public void setUsersFollowing(List<User> usersFollowing) {
+		this.usersFollowing = usersFollowing;
 	}
 
 
