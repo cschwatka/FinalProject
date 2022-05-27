@@ -14,9 +14,7 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Review {
@@ -27,7 +25,6 @@ public class Review {
 	private int id;
 	
 	@JsonIgnoreProperties({"book", "user"})
-	
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="book_id")
