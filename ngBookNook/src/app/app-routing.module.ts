@@ -1,6 +1,5 @@
 import { BookShelfComponent } from './components/book-shelf/book-shelf.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { NookComponent } from './components/nook/nook.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,7 +11,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'bookshelf', component: BookShelfComponent },
-  { path: 'nook', component: NookComponent },
+
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },

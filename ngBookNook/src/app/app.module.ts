@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NookComponent } from './components/nook/nook.component';
 import { HomeComponent } from './components/home/home.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,11 +14,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { BookShelfComponent } from './components/book-shelf/book-shelf.component';
+import { BookshelfSearchPipe } from './pipes/bookshelf-search.pipe';
+import { SearchCategoryPipe } from './pipes/search-category.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NookComponent,
     BookShelfComponent,
     HomeComponent,
     LoginComponent,
@@ -27,7 +27,9 @@ import { BookShelfComponent } from './components/book-shelf/book-shelf.component
     RegisterComponent,
     NotfoundComponent,
     NavigationComponent,
-    BookShelfComponent
+    BookShelfComponent,
+    BookshelfSearchPipe,
+    SearchCategoryPipe
   ],
   imports: [
     BrowserModule,
@@ -37,8 +39,9 @@ import { BookShelfComponent } from './components/book-shelf/book-shelf.component
     CommonModule
   ],
   providers: [BooknookService,
-              DatePipe
+              DatePipe,
+              BookshelfSearchPipe
   ],
-  bootstrap: [AppComponent,NookComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent]
+  bootstrap: [AppComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent]
 })
 export class AppModule { }
