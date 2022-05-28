@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NookComponent } from './components/nook/nook.component';
 import { HomeComponent } from './components/home/home.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -21,7 +20,6 @@ import { SearchCategoryPipe } from './pipes/search-category.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    NookComponent,
     BookShelfComponent,
     HomeComponent,
     LoginComponent,
@@ -44,6 +42,6 @@ import { SearchCategoryPipe } from './pipes/search-category.pipe';
               DatePipe,
               BookshelfSearchPipe
   ],
-  bootstrap: [AppComponent,NookComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent]
+  bootstrap: [AppComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent]
 })
 export class AppModule { }
