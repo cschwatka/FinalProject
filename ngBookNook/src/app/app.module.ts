@@ -16,6 +16,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { BookShelfComponent } from './components/book-shelf/book-shelf.component';
 import { BookshelfSearchPipe } from './pipes/bookshelf-search.pipe';
 import { SearchCategoryPipe } from './pipes/search-category.pipe';
+import { BookPageComponent } from './components/book-page/book-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SearchCategoryPipe } from './pipes/search-category.pipe';
     NavigationComponent,
     BookShelfComponent,
     BookshelfSearchPipe,
-    SearchCategoryPipe
+    SearchCategoryPipe,
+    BookPageComponent
   ],
   imports: [
     BrowserModule,
