@@ -1,4 +1,4 @@
-<body class="handheld-toolbar-enabled">
+
   <!-- Sign in / sign up modal-->
   <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -100,7 +100,7 @@
           <!-- Search-->
           <div class="w-100">
             <div class="input-group ms-2 pe-sm-3">
-              <input class="form-control bg-transparent rounded-0 border-0 shadow-none ps-5 py-4" type="text" placeholder="Search collection, title or user..."><i class="ci-search position-absolute top-50 start-0 translate-middle-y zindex-5 ms-3 fs-lg text-muted"></i>
+              <input class="form-control bg-transparent rounded-0 border-0 shadow-none ps-5 py-4" name="searchText" [(ngModel)]="searchText" type="text" placeholder="Search collection, title or user..."><i class="ci-search position-absolute top-50 start-0 translate-middle-y zindex-5 ms-3 fs-lg text-muted"></i>
             </div>
           </div>
           <!-- Sorting-->
@@ -127,7 +127,7 @@
         <div class="d-flex flex-wrap">
           <!-- Categories-->
           <div class="dropdown mb-lg-3 mb-2 me-lg-3 me-2">
-            <button class="btn btn-outline-accent dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Categories</button>
+            <button class="btn btn-outline-accent dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Genre</button>
             <div class="dropdown-menu mt-lg-2 mt-1" style="min-width: 260px;">
               <div class="widget px-3">
                 <ul class="widget-list list-unstyled">
@@ -331,7 +331,7 @@
       <!-- Products grid-->
       <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 gy-sm-4 gy-3 pt-lg-4 pt-2">
         <!-- Product-->
-        <div *ngFor="let book of books" class="col mb-2">
+        <div *ngFor="let book of books | bookshelfSearch: searchText" class="col mb-2">
           <article class="card h-100 border-0 shadow">
             <div class="card-img-top position-relative overflow-hidden"><a class="d-block" (click)="displayBook(book.id)"><img [src]="book.imgUrl" alt="Book image"></a>
             </div>
@@ -522,5 +522,6 @@
   <script src="assets/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
   <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
   <!-- Main theme script-->
-  <script src="assets/js/theme.min.js"></script>
-</body>
+
+
+

@@ -12,6 +12,7 @@ import { User } from 'src/app/models/user';
 export class BookShelfComponent implements OnInit {
   books: Book[] = [];
   following: User[] = [];
+  searchText: string='';
 
   constructor(
     private router: Router,
