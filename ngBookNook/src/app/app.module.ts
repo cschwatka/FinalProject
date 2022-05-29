@@ -17,6 +17,7 @@ import { BookShelfComponent } from './components/book-shelf/book-shelf.component
 import { BookshelfSearchPipe } from './pipes/bookshelf-search.pipe';
 import { SearchCategoryPipe } from './pipes/search-category.pipe';
 import { BookPageComponent } from './components/book-page/book-page.component';
+import { CategoryPipe } from './pipes/category.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BookPageComponent } from './components/book-page/book-page.component';
     BookShelfComponent,
     BookshelfSearchPipe,
     SearchCategoryPipe,
-    BookPageComponent
+    BookPageComponent,
+    CategoryPipe
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { BookPageComponent } from './components/book-page/book-page.component';
   ],
   providers: [BooknookService,
               DatePipe,
-              BookshelfSearchPipe
+              BookshelfSearchPipe,
+              CategoryPipe
   ],
   bootstrap: [AppComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent]
 })

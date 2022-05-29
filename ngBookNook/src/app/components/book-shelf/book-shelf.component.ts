@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { User } from 'src/app/models/user';
+import { Category } from 'src/app/models/category';
 
 @Component({
   selector: 'app-book-shelf',
@@ -13,6 +14,9 @@ export class BookShelfComponent implements OnInit {
   books: Book[] = [];
   following: User[] = [];
   searchText: string='';
+  categories: Category[] = [];
+  filteredCategories: Category[] = [];
+  bookCount: number = 0;
 
   constructor(
     private router: Router,
@@ -27,13 +31,46 @@ export class BookShelfComponent implements OnInit {
     this.router.navigateByUrl("/displaybook/" + id)
   }
 
+  displayCount(num: number) {
+    this.bookCount = num;
+  }
+
+  findCount() {
+    let bookCount = this.bookCount;
+    setTimeout(function() {
+    }
+    , 1)
+    return bookCount + 1;
+  }
+
   reload(){
     this.bnServ.showBookList().subscribe(
       next => this.books = next,
       err => console.log("error retrieving book list" + err)
     )
+    this.bnServ.showCategoryList().subscribe(
+      next => this.categories = next,
+      err => console.log("error retrieving book list" + err)
+    )
 
   }
+
+  check(category: Category) {
+    let checked = false;
+    for (let i in this.filteredCategories) {
+      if (this.filteredCategories[i].name === category.name) {
+        checked = true;
+        this.filteredCategories.splice(parseInt(i), 1);
+      }
+    }
+    if (checked === true) {
+      checked = false;
+    } else {
+      this.filteredCategories.push(category);
+    }
+
+  }
+
 
   checkFollowing(){
     let id = localStorage.getItem("userId");

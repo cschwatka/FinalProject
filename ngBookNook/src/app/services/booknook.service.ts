@@ -496,4 +496,26 @@ export class BooknookService {
       );
     }
 
+    // Category mappings
+
+    showCategory(id: number) {
+      return this.http.get<Category>(this.url + "categories/" + id, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not return the Category');
+        })
+      );
+    }
+
+    showCategoryList() {
+      return this.http.get<Category[]>(this.url + "categories", this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not return the list of Categories');
+        })
+      );
+    }
+
 }
