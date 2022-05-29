@@ -47,6 +47,6 @@ import { CategoryPipe } from './pipes/category.pipe';
               BookshelfSearchPipe,
               CategoryPipe
   ],
-  bootstrap: [AppComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent]
+  bootstrap: [AppComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent,BookPageComponent]
 })
 export class AppModule { }

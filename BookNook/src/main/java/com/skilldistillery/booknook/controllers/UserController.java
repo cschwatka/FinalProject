@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -173,5 +174,102 @@ public class UserController {
 		return users;
 	}
 	
+	@PostMapping("users/{userId}/wishlistbooks")
+	public List<Book> addBookToUserWishlist(
+			@PathVariable Integer userId,
+			@RequestBody Book book,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		List<Book> books = userService.addBookToWishlist(userId, book);
+		if( books == null) {
+			res.setStatus(404);
+		}
+		return books;
+	}
+	
+	@DeleteMapping("users/{userId}/wishlistbooks/{bookId}")
+	public List<Book> deleteBookFromUserWishlist(
+			@PathVariable Integer userId,
+			@PathVariable Integer bookId,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		List<Book> wishlistAfterDelete = userService.removeBookFromWishlist(userId, bookId);
+		return wishlistAfterDelete;
+	}
+	
+	@PostMapping("users/{userId}/readingbooks")
+	public List<Book> addBookToUserReadingBooks(
+			@PathVariable Integer userId,
+			@RequestBody Book book,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		List<Book> books = userService.addBookToCurrentlyReading(userId, book);
+		if( books == null) {
+			res.setStatus(404);
+		}
+		return books;
+	}
+	
+	@DeleteMapping("users/{userId}/readingbooks/{bookId}")
+	public List<Book> deleteBookFromUserReadingBooks(
+			@PathVariable Integer userId,
+			@PathVariable Integer bookId,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		List<Book> wishlistAfterDelete = userService.removeBookFromWishlist(userId, bookId);
+		return wishlistAfterDelete;
+	}
+	@PostMapping("users/{userId}/finishedbooks")
+	public List<Book> addBookToUserFinishedBooks(
+			@PathVariable Integer userId,
+			@RequestBody Book book,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		List<Book> books = userService.addBookToWishlist(userId, book);
+		if( books == null) {
+			res.setStatus(404);
+		}
+		return books;
+	}
+	
+	@DeleteMapping("users/{userId}/finishedbooks/{bookId}")
+	public List<Book> deleteBookFromUserFinishedBooks(
+			@PathVariable Integer userId,
+			@PathVariable Integer bookId,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		List<Book> wishlistAfterDelete = userService.removeBookFromWishlist(userId, bookId);
+		return wishlistAfterDelete;
+	}
+	@PostMapping("users/{userId}/favoritebooks")
+	public List<Book> addBookToUserFavorites(
+			@PathVariable Integer userId,
+			@RequestBody Book book,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		List<Book> books = userService.addBookToWishlist(userId, book);
+		if( books == null) {
+			res.setStatus(404);
+		}
+		return books;
+	}
+	
+	@DeleteMapping("users/{userId}/favoritebooks/{bookId}")
+	public List<Book> deleteBookFromUserFavorites(
+			@PathVariable Integer userId,
+			@PathVariable Integer bookId,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		List<Book> wishlistAfterDelete = userService.removeBookFromWishlist(userId, bookId);
+		return wishlistAfterDelete;
+	}
 	
 }

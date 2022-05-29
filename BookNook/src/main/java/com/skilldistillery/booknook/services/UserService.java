@@ -33,5 +33,20 @@ public interface UserService {
 	
 	public List<User> followedUsers(int userId);
 	
+	public List<Book> addBookToWishlist(int userId, Book book);
+	
+	public List<Book> removeBookFromWishlist(int userId, int bookId);
+	
+	public List<Book> addBookToCurrentlyReading(int userId, Book book);
+	
+	public List<Book> removeBookFromCurrentlyReading(int userId, int bookId);
+	
+	public List<Book> addBookToFinishedBooks(int userId, Book book);
+	
+	public List<Book> removeBookFromFinishedBooks(int userId, int bookId);
+	
+	public List<Book> addBookToFavorites(int userId, Book book);
+	
+	public List<Book> removeBookFromFavorites(int userId, int bookId);
 
 }
