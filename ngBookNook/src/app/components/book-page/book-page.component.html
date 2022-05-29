@@ -80,15 +80,21 @@
               <div class="row row-cols-sm-2 row-cols-1 g-sm-4 g-3 mb-4">
                 <!-- <div class="col"><a class="btn btn-lg btn-accent d-block w-100" href="#">Buy now</a></div> -->
                 <div class="btn-group">
-                  <button class="btn btn-accent btn-lg" type="button">
+                  <button *ngIf="wishlistDisabled == false" (click)="wishlistAdd()" class="btn btn-accent btn-lg" type="button">
+                    Want to read
+                  </button>
+                  <button *ngIf="wishlistDisabled == true" class="btn btn-accent btn-lg" type="button" disabled>
                     Want to read
                   </button>
                   <button type="button" class="btn btn-lg btn-accent dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                   </button>
-                  <ul class="dropdown-menu">
-                    ...
-                  </ul>
+                  <div class="dropdown-menu">
+                    <a href="" *ngIf="readingDisabled === false" class="dropdown-item">Currently Reading</a>
+                    <a href="" *ngIf="readingDisabled === true" class="dropdown-item disabled">Currently Reading</a>
+                    <a href="" *ngIf="finishedDisabled === false" class="dropdown-item">Finished Reading</a>
+                    <a href="" *ngIf="finishedDisabled === true" class="dropdown-item disabled">Finished Reading</a>
+                  </div>
                 </div>
                 <!-- <div class="col"><a class="btn btn-lg btn-outline-accent d-block w-100" href="#">Make an offer</a></div> -->
               </div>
