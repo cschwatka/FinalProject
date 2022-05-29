@@ -1,5 +1,6 @@
 package com.skilldistillery.booknook.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -89,6 +90,74 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> followedUsers(int userId) {
 		return userRepo.findFollowedUsersById(userId);
+	}
+
+	@Override
+	public List<Book> addBookToWishlist(int userId, Book book) {
+		List<Book> wishlistBooks = new ArrayList<>();
+		wishlistBooks = userRepo.findWishlistBooksById(userId);
+		for (Book existingBook : wishlistBooks) {
+			if (book.equals(existingBook)) {
+				return wishlistBooks;
+			}
+		}
+		wishlistBooks.add(book);			
+		return wishlistBooks;
+	}
+
+	@Override
+	public List<Book> removeBookFromWishlist(int userId, int bookId) {
+		List<Book> wishlistBooks = new ArrayList<>();
+		wishlistBooks = userRepo.findWishlistBooksById(userId);
+		for (Book existingBook : wishlistBooks) {
+			if (bookId == existingBook.getId()) {
+				wishlistBooks.remove(existingBook);
+			}
+		}
+		return wishlistBooks;
+	}
+
+	@Override
+	public List<Book> addBookToCurrentlyReading(int userId, Book book) {
+		List<Book> readingBooks = new ArrayList<>();
+		readingBooks = userRepo.findReadingBooksById(userId);
+		for (Book existingBook : readingBooks) {
+			if (book.equals(existingBook)) {
+				return readingBooks;
+			}
+		}
+		readingBooks.add(book);			
+		return readingBooks;
+	}
+
+	@Override
+	public List<Book> removeBookFromCurrentlyReading(int userId, int bookId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Book> addBookToFinishedBooks(int userId, Book book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Book> removeBookFromFinishedBooks(int userId, int bookId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Book> addBookToFavorites(int userId, Book book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Book> removeBookFromFavorites(int userId, int bookId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
