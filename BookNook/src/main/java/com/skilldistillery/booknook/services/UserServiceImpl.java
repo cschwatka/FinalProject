@@ -132,32 +132,64 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<Book> removeBookFromCurrentlyReading(int userId, int bookId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Book> readingBooks = new ArrayList<>();
+		readingBooks = userRepo.findReadingBooksById(userId);
+		for (Book existingBook : readingBooks) {
+			if (bookId == existingBook.getId()) {
+				readingBooks.remove(existingBook);
+			}
+		}
+		return readingBooks;
 	}
 
 	@Override
 	public List<Book> addBookToFinishedBooks(int userId, Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Book> finishedBooks = new ArrayList<>();
+		finishedBooks = userRepo.findFinishedBooksById(userId);
+		for (Book existingBook : finishedBooks) {
+			if (book.equals(existingBook)) {
+				return finishedBooks;
+			}
+		}
+		finishedBooks.add(book);			
+		return finishedBooks;
 	}
 
 	@Override
 	public List<Book> removeBookFromFinishedBooks(int userId, int bookId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Book> finishedBooks = new ArrayList<>();
+		finishedBooks = userRepo.findFinishedBooksById(userId);
+		for (Book existingBook : finishedBooks) {
+			if (bookId == existingBook.getId()) {
+				finishedBooks.remove(existingBook);
+			}
+		}
+		return finishedBooks;
 	}
 
 	@Override
 	public List<Book> addBookToFavorites(int userId, Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Book> favorites = new ArrayList<>();
+		favorites = userRepo.findFavoriteBooksById(userId);
+		for (Book existingBook : favorites) {
+			if (book.equals(existingBook)) {
+				return favorites;
+			}
+		}
+		favorites.add(book);			
+		return favorites;
 	}
 
 	@Override
 	public List<Book> removeBookFromFavorites(int userId, int bookId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Book> favorites = new ArrayList<>();
+		favorites = userRepo.findFavoriteBooksById(userId);
+		for (Book existingBook : favorites) {
+			if (bookId == existingBook.getId()) {
+				favorites.remove(existingBook);
+			}
+		}
+		return favorites;
 	}
 
 	
