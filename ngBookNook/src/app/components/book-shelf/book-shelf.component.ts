@@ -37,9 +37,8 @@ export class BookShelfComponent implements OnInit {
 
   findCount() {
     let bookCount = this.bookCount;
-    setTimeout(function() {
-    }
-    , 1)
+    setTimeout(() => {}
+    , 0)
     return bookCount + 1;
   }
 

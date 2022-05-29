@@ -518,4 +518,92 @@ export class BooknookService {
       );
     }
 
+    // User wishlist mappings
+
+    postWishlist(book: Book, id: number) {
+      return this.http.post<Book[]>(this.url + "users/" + id + "/wishlistbooks", book, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not create the wishlist item');
+        })
+      );
+    }
+
+    removeWishlist(userId: number, bookId: number) {
+      return this.http.delete<Book[]>(this.url + "users/"+userId+"/wishlistbooks/"+bookId, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not remove book from the users wishlist');
+        })
+      );
+    }
+
+    // User reading mappings
+
+    postReading(book: Book, id: number) {
+      return this.http.post<Book[]>(this.url + "users/"+id+"/readingbooks/", book, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not create the reading item');
+        })
+      );
+    }
+
+    removeReading(userId: number, bookId: number) {
+      return this.http.delete<Book[]>(this.url + "users/"+userId+"/readingbooks/"+bookId, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not remove book from the users currently reading');
+        })
+      );
+    }
+
+    // User favorites mappings
+
+    postFavorite(book: Book, id: number) {
+      return this.http.post<Book[]>(this.url + "users/"+id+"/favoritebooks/", book, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not create the favorite item');
+        })
+      );
+    }
+
+    removeFavorite(userId: number, bookId: number) {
+      return this.http.delete<Book[]>(this.url + "users/"+userId+"/favoritebooks/"+bookId, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not remove book from the users favorite books');
+        })
+      );
+    }
+
+    // User finished mappings
+
+    postFinished(book: Book, id: number) {
+      return this.http.post<Book[]>(this.url + "users/"+id+"/finishedbooks/", book, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not create the finished item');
+        })
+      );
+    }
+
+    removeFinished(userId: number, bookId: number) {
+      return this.http.delete<Book[]>(this.url + "users/"+userId+"/finishedbooks/"+bookId, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not remove book from the users finished books');
+        })
+      );
+    }
+
 }
