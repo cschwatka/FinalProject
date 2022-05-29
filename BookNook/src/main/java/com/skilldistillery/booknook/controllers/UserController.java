@@ -220,7 +220,7 @@ public class UserController {
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> wishlistAfterDelete = userService.removeBookFromWishlist(userId, bookId);
+		List<Book> wishlistAfterDelete = userService.removeBookFromCurrentlyReading(userId, bookId);
 		return wishlistAfterDelete;
 	}
 	@PostMapping("users/{userId}/finishedbooks")
@@ -230,7 +230,7 @@ public class UserController {
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> books = userService.addBookToWishlist(userId, book);
+		List<Book> books = userService.addBookToFinishedBooks(userId, book);
 		if( books == null) {
 			res.setStatus(404);
 		}
@@ -244,7 +244,7 @@ public class UserController {
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> wishlistAfterDelete = userService.removeBookFromWishlist(userId, bookId);
+		List<Book> wishlistAfterDelete = userService.removeBookFromFinishedBooks(userId, bookId);
 		return wishlistAfterDelete;
 	}
 	@PostMapping("users/{userId}/favoritebooks")
@@ -254,7 +254,7 @@ public class UserController {
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> books = userService.addBookToWishlist(userId, book);
+		List<Book> books = userService.addBookToFavorites(userId, book);
 		if( books == null) {
 			res.setStatus(404);
 		}
@@ -268,7 +268,7 @@ public class UserController {
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> wishlistAfterDelete = userService.removeBookFromWishlist(userId, bookId);
+		List<Book> wishlistAfterDelete = userService.removeBookFromFavorites(userId, bookId);
 		return wishlistAfterDelete;
 	}
 	
