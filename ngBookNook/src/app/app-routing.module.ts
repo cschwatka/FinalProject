@@ -19,6 +19,8 @@ const routes: Routes = [
   { path: 'myaccount', component: MyAccountComponent },
   { path: 'postlist', component: PostListComponent },
   { path: 'postview', component: PostViewComponent },
+  { path: 'postview/:id', component: PostViewComponent },
+  { path: 'postview/:comments/:id', component: PostViewComponent },
 
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
