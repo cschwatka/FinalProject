@@ -18,6 +18,9 @@ import { BookshelfSearchPipe } from './pipes/bookshelf-search.pipe';
 import { SearchCategoryPipe } from './pipes/search-category.pipe';
 import { BookPageComponent } from './components/book-page/book-page.component';
 import { CategoryPipe } from './pipes/category.pipe';
+import { MyAccountComponent } from './components/my-account/my-account.component';
+import { PostListComponent } from './components/post-list/post-list.component';
+import { PostViewComponent } from './components/post-view/post-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { CategoryPipe } from './pipes/category.pipe';
     BookshelfSearchPipe,
     SearchCategoryPipe,
     BookPageComponent,
-    CategoryPipe
+    CategoryPipe,
+    MyAccountComponent,
+    PostListComponent,
+    PostViewComponent
   ],
   imports: [
     BrowserModule,
