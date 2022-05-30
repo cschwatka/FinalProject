@@ -11,6 +11,7 @@ import { Category } from '../models/category';
 import { Post } from '../models/post';
 import { Review } from '../models/review';
 import { User } from '../models/user';
+import { Language } from '../models/language';
 
 @Injectable({
   providedIn: 'root'
@@ -602,6 +603,18 @@ export class BooknookService {
         catchError((err: any) => {
           console.log(err);
           return throwError('Could not remove book from the users finished books');
+        })
+      );
+    }
+
+    // Language mappings
+
+    showLanguageList() {
+      return this.http.get<Language[]>(this.url + "languages", this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not return the list of Language');
         })
       );
     }

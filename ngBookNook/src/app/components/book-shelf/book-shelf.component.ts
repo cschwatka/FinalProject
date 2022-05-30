@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { User } from 'src/app/models/user';
 import { Category } from 'src/app/models/category';
+import { Language } from 'src/app/models/language';
 
 @Component({
   selector: 'app-book-shelf',
@@ -16,7 +17,9 @@ export class BookShelfComponent implements OnInit {
   searchText: string='';
   categories: Category[] = [];
   filteredCategories: Category[] = [];
+  filteredLanguages: Language[] =  [];
   bookCount: number = 0;
+  languages: Language[] = [];
 
   constructor(
     private router: Router,
@@ -47,9 +50,13 @@ export class BookShelfComponent implements OnInit {
       next => this.books = next,
       err => console.log("error retrieving book list" + err)
     )
+    this.bnServ.showLanguageList().subscribe(
+      next => this.languages = next,
+      err => console.log("error retrieving language list" + err)
+    )
     this.bnServ.showCategoryList().subscribe(
       next => this.categories = next,
-      err => console.log("error retrieving book list" + err)
+      err => console.log("error retrieving category list" + err)
     )
 
   }
@@ -66,6 +73,22 @@ export class BookShelfComponent implements OnInit {
       checked = false;
     } else {
       this.filteredCategories.push(category);
+    }
+
+  }
+
+  checkLanguage(language: Language) {
+    let checked = false;
+    for (let i in this.filteredLanguages) {
+      if (this.filteredLanguages[i].name === language.name) {
+        checked = true;
+        this.filteredLanguages.splice(parseInt(i), 1);
+      }
+    }
+    if (checked === true) {
+      checked = false;
+    } else {
+      this.filteredLanguages.push(language);
     }
 
   }
