@@ -6,7 +6,7 @@ import { User } from "./user";
 export class Book {
 
   id: number;
-  language: Language[];
+  language: Language;
   title: string;
   description: string;
   enabled: boolean;
@@ -25,7 +25,7 @@ export class Book {
   wishlistUsers: User[];
 
   constructor( id: number = 0,
-    language: Language[] = [],
+    language: Language = new Language(),
     title: string = "",
     description: string = "",
     enabled: boolean = true,

@@ -21,6 +21,7 @@ import { CategoryPipe } from './pipes/category.pipe';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostViewComponent } from './components/post-view/post-view.component';
+import { LanguagePipe } from './pipes/language.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PostViewComponent } from './components/post-view/post-view.component';
     CategoryPipe,
     MyAccountComponent,
     PostListComponent,
-    PostViewComponent
+    PostViewComponent,
+    LanguagePipe
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,9 @@ import { PostViewComponent } from './components/post-view/post-view.component';
   providers: [BooknookService,
               DatePipe,
               BookshelfSearchPipe,
-              CategoryPipe
+              CategoryPipe,
+              LanguagePipe
+
   ],
   bootstrap: [AppComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent,BookPageComponent]
 })
