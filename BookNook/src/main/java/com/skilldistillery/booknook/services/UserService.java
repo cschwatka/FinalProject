@@ -33,7 +33,7 @@ public interface UserService {
 	
 	public List<User> followedUsers(int userId);
 	
-	public List<Book> addBookToWishlist(int userId, Book book);
+	public List<Book> addBookToWishlist(int userId, List<Book> books);
 	
 	public List<Book> removeBookFromWishlist(int userId, int bookId);
 	

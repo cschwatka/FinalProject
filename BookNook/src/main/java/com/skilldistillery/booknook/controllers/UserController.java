@@ -174,18 +174,19 @@ public class UserController {
 		return users;
 	}
 	
-	@PostMapping("users/{userId}/wishlistbooks")
+	@PutMapping("users/{userId}/wishlistbooks")
 	public List<Book> addBookToUserWishlist(
 			@PathVariable Integer userId,
-			@RequestBody Book book,
+			@RequestBody List<Book> books,
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> books = userService.addBookToWishlist(userId, book);
-		if( books == null) {
+		System.out.println("You hit the controller!");
+		List<Book> newBooks = userService.addBookToWishlist(userId, books);
+		if( newBooks == null) {
 			res.setStatus(404);
 		}
-		return books;
+		return newBooks;
 	}
 	
 	@DeleteMapping("users/{userId}/wishlistbooks/{bookId}")

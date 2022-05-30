@@ -397,7 +397,7 @@ export class BooknookService {
     }
 
     updateUser(user: User, id: number) {
-      return this.http.put<Book>(this.url + "users/" + id, user, this.getHttpOptions())
+      return this.http.put<User>(this.url + "users/" + id, user, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
@@ -407,7 +407,7 @@ export class BooknookService {
     }
 
     removeUser(id: number) {
-      return this.http.delete<Book>(this.url + "users/" + id, this.getHttpOptions())
+      return this.http.delete<User>(this.url + "users/" + id, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
@@ -520,8 +520,8 @@ export class BooknookService {
 
     // User wishlist mappings
 
-    postWishlist(book: Book, id: number) {
-      return this.http.post<Book[]>(this.url + "users/" + id + "/wishlistbooks", book, this.getHttpOptions())
+    postWishlist(books: Book[], id: number) {
+      return this.http.put<Book[]>(this.url + "users/" + id + "/wishlistbooks", books, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);

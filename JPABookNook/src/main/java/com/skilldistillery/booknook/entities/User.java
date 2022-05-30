@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,8 +18,8 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class User {
@@ -425,15 +427,10 @@ public class User {
 	public List<Book> getWishlistBooks() {
 		return wishlistBooks;
 	}
-
-
-
+	
 	public void setWishlistBooks(List<Book> wishlistBooks) {
 		this.wishlistBooks = wishlistBooks;
 	}
-
-
-
 
 
 	public List<User> getUsersFollowing() {

@@ -32,6 +32,7 @@
 		<!-- End Entities Here -->
 
 		<properties>
+		<property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost:3306/booknookdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
 			<property name="javax.persistence.jdbc.user" 

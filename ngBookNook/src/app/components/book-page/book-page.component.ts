@@ -16,6 +16,7 @@ wishlistDisabled: boolean = false;
 readingDisabled: boolean = false;
 finishedDisabled: boolean = false;
 favoriteDisabled: boolean = false;
+user: User | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,8 +30,40 @@ show(id: number){
   )
 }
 
-wishlistAdd() {
+wishlistAdd(book: Book) {
+  let userId = localStorage.getItem("userId");
+  let id = 0;
+  let rejected = false;
+  if (userId !== null && this.user !== null) {
+    id = parseInt(userId);
+    for (let book1 of this.user.wishlistBooks) {
+      if (book1.id === book.id) {
+        rejected = true;
+        break;
+      }
+    }
+  }
+  if (rejected === false && this.user !== null) {
+    this.user.wishlistBooks.push(book);
 
+    // this.service.postWishlist(this.user.wishlistBooks, id).subscribe(
+    //   (success) => this.checkUser(book.id, id),
+    //   (err) => console.log(err)
+    // )
+
+    this.service.updateUser(this.user, this.user.id).subscribe(
+      (success) => this.user = success,
+      (err) => console.log(err)
+    )
+  }
+}
+
+showUser(id: number) {
+  this.service.showUser(id).subscribe(
+    (data) => {this.user = data;
+    },
+    (err) => console.log(err)
+  )
 }
 
 checkUser(id: number, userId: number) {
@@ -101,7 +134,7 @@ checkLists(id: number, user: User) {
     let userId = localStorage.getItem("userId");
     if (id !== null && userId !== null) {
       console.log(id + " " + userId);
-
+      this.showUser(parseInt(userId));
       this.checkUser(parseInt(id), parseInt(userId));
     }
   }

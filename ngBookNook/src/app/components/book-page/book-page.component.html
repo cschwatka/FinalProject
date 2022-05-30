@@ -80,7 +80,7 @@
               <div class="row row-cols-sm-2 row-cols-1 g-sm-4 g-3 mb-4">
                 <!-- <div class="col"><a class="btn btn-lg btn-accent d-block w-100" href="#">Buy now</a></div> -->
                 <div class="btn-group">
-                  <button *ngIf="wishlistDisabled == false" (click)="wishlistAdd()" class="btn btn-accent btn-lg" type="button">
+                  <button *ngIf="wishlistDisabled == false" (click)="wishlistAdd(selected)" class="btn btn-accent btn-lg" type="button">
                     Want to read
                   </button>
                   <button *ngIf="wishlistDisabled == true" class="btn btn-accent btn-lg" type="button" disabled>

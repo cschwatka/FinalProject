@@ -93,24 +93,23 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<Book> addBookToWishlist(int userId, Book book) {
+	public List<Book> addBookToWishlist(int userId, List<Book> books) {
 		List<Book> wishlistBooks = new ArrayList<>();
-		wishlistBooks = userRepo.findWishlistBooksById(userId);
-		for (Book existingBook : wishlistBooks) {
-			if (book.equals(existingBook)) {
-				return wishlistBooks;
-			}
-		}
-		wishlistBooks.add(book);			
+		User user = getUserById(userId);
+		user.setWishlistBooks(books);
+		wishlistBooks = user.getWishlistBooks();
+		update(user.getId(), user);
 		return wishlistBooks;
 	}
 
 	@Override
 	public List<Book> removeBookFromWishlist(int userId, int bookId) {
 		List<Book> wishlistBooks = new ArrayList<>();
-		wishlistBooks = userRepo.findWishlistBooksById(userId);
+		User user = getUserById(userId);
+		wishlistBooks = user.getWishlistBooks();
 		for (Book existingBook : wishlistBooks) {
 			if (bookId == existingBook.getId()) {
+//				user.removeWishlistBooks(existingBook);
 				wishlistBooks.remove(existingBook);
 			}
 		}
@@ -120,7 +119,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Book> addBookToCurrentlyReading(int userId, Book book) {
 		List<Book> readingBooks = new ArrayList<>();
-		readingBooks = userRepo.findReadingBooksById(userId);
+		readingBooks = getUserById(userId).getReadingBooks();
 		for (Book existingBook : readingBooks) {
 			if (book.equals(existingBook)) {
 				return readingBooks;
@@ -133,7 +132,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Book> removeBookFromCurrentlyReading(int userId, int bookId) {
 		List<Book> readingBooks = new ArrayList<>();
-		readingBooks = userRepo.findReadingBooksById(userId);
+		readingBooks = getUserById(userId).getReadingBooks();
 		for (Book existingBook : readingBooks) {
 			if (bookId == existingBook.getId()) {
 				readingBooks.remove(existingBook);
@@ -145,7 +144,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Book> addBookToFinishedBooks(int userId, Book book) {
 		List<Book> finishedBooks = new ArrayList<>();
-		finishedBooks = userRepo.findFinishedBooksById(userId);
+		finishedBooks = getUserById(userId).getFinishedBooks();
 		for (Book existingBook : finishedBooks) {
 			if (book.equals(existingBook)) {
 				return finishedBooks;
@@ -158,7 +157,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Book> removeBookFromFinishedBooks(int userId, int bookId) {
 		List<Book> finishedBooks = new ArrayList<>();
-		finishedBooks = userRepo.findFinishedBooksById(userId);
+		finishedBooks = getUserById(userId).getFinishedBooks();
 		for (Book existingBook : finishedBooks) {
 			if (bookId == existingBook.getId()) {
 				finishedBooks.remove(existingBook);
@@ -170,7 +169,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Book> addBookToFavorites(int userId, Book book) {
 		List<Book> favorites = new ArrayList<>();
-		favorites = userRepo.findFavoriteBooksById(userId);
+		favorites = getUserById(userId).getFavoriteBooks();
 		for (Book existingBook : favorites) {
 			if (book.equals(existingBook)) {
 				return favorites;
@@ -183,7 +182,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Book> removeBookFromFavorites(int userId, int bookId) {
 		List<Book> favorites = new ArrayList<>();
-		favorites = userRepo.findFavoriteBooksById(userId);
+		favorites = getUserById(userId).getFavoriteBooks();
 		for (Book existingBook : favorites) {
 			if (bookId == existingBook.getId()) {
 				favorites.remove(existingBook);
