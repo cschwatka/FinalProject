@@ -32,6 +32,7 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@JsonIgnoreProperties({"books"})
 	@ManyToOne
 	@JoinColumn(name="language_id")
 	private Language language;

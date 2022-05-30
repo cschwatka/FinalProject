@@ -33,7 +33,7 @@ public class Question {
 	
 	private boolean enabled;
 	
-	@JsonIgnore
+	@JsonIgnoreProperties({"wishlistUsers","readingUsers", "finishedUsers", "favoriteUsers", "reviews", "authors","categories"})
 	@ManyToOne
 	@JoinColumn(name="book_id")
 	private Book book;
