@@ -40,12 +40,14 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public Post destroy(int postId) {
-		if(getPostById(postId) != null) {
-			Post post = getPostById(postId);
+		Optional<Post> postOpt = postRepo.findById(postId);
+		Post post = null;
+		if (postOpt.isPresent()) {
+			post = postOpt.get();
 			post.setEnabled(false);
-			return post;
+			postRepo.saveAndFlush(post);
 		}
-			return null;
+			return post;
 	}
 	
 
