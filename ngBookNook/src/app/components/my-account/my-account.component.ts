@@ -185,4 +185,15 @@ export class MyAccountComponent implements OnInit {
     this.router.navigateByUrl("/postview/"+post.id);
   }
 
+
+  updateUser(userToUpdate: User) {
+    console.log(userToUpdate);
+
+    this.service.updateUser(userToUpdate, userToUpdate.id).subscribe(
+      (success) => this.showUser(userToUpdate.id),
+      (err) => console.log(err)
+    )
+
+  }
+
 }

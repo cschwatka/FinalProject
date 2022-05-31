@@ -37,7 +37,6 @@ public class User {
 	
 	private String email;
 	
-	@JsonIgnoreProperties({"usersFollowing"})
 	
 	@Column(name="first_name")
 	private String firstName;

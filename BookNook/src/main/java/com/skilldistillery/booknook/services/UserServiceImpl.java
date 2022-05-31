@@ -39,6 +39,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User update(int userId, User user) {
+		User managedUser = getUserById(userId);
+		user.setUsersFollowing(managedUser.getUsersFollowing()); //PATCH for property removal in frontend service
+		
 		if( getUserById(userId) != null) {
 			user.setId(userId);
 			return userRepo.saveAndFlush(user);

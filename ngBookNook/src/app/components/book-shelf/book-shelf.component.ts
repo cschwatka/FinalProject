@@ -51,7 +51,11 @@ export class BookShelfComponent implements OnInit {
 
   reload(){
     this.bnServ.showBookList().subscribe(
-      next => this.books = next,
+      next => {for(let book of next) {
+          if( book.enabled == true ){
+            this.books.push(book);
+          }
+      }},
       err => console.log("error retrieving book list" + err)
     )
     this.bnServ.showLanguageList().subscribe(
