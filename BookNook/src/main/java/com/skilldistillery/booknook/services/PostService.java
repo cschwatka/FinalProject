@@ -13,5 +13,7 @@ public interface PostService {
 	public Post update(int postId, Post post);
 	
 	public Post destroy(int postId);
+	
+	public Post create(Post post);
 
 }

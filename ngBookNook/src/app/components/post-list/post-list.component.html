@@ -37,39 +37,62 @@
                   <!-- <div class="fs-sm text-muted pe-2 mb-2">in <a href='#' class='blog-entry-meta-link'>Travel</a>, <a href='#' class='blog-entry-meta-link'>Personal finance</a></div> -->
                   <div class="fs-sm mb-2"><a class="blog-entry-meta-link text-nowrap" [routerLink]="['/postview', {'id': post.id, 'comments':'comments'}]"><i class="ci-message"></i>{{post.comments.length}}</a></div>
                 </div>
-            <p class="fs-sm">{{post.content}}<a href='blog-single-sidebar.html' class='blog-entry-meta-link fw-medium' [routerLink]="['/postview', post.id]">[Read more]</a></p>
+            <p class="fs-sm">{{post.content}} <a href='blog-single-sidebar.html' class='blog-entry-meta-link fw-medium' [routerLink]="['/postview', post.id]"> [Read more]</a></p>
           </div>
         </article>
         </div>
-        <!-- Pagination-->
-        <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#"><i class="ci-arrow-left me-2"></i>Prev</a></li>
-          </ul>
-          <ul class="pagination">
-            <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
-            <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span></li>
-            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
-            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
-            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
-            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">5</a></li>
-          </ul>
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next<i class="ci-arrow-right ms-2"></i></a></li>
-          </ul>
-        </nav>
-      </section>
-      <aside class="col-lg-4">
-        <!-- Sidebar-->
-        <div class="offcanvas offcanvas-collapse offcanvas-end border-start ms-lg-auto" id="blog-sidebar" style="max-width: 22rem;">
-          <div class="offcanvas-header align-items-center shadow-sm">
-            <h2 class="h5 mb-0">Sidebar</h2>
-            <button class="btn-close ms-auto" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="container py-5 mt-md-2 mb-md-4">
+          <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-9">
+              <form class="needs-validation" novalidate>
+                <div class="row gx-4 gy-3">
+                  <div class="col-sm-12">
+                    <label class="form-label" for="help-subject">Post Header <strong class='text-danger'>*</strong></label>
+                    <input class="form-control" type="text" id="help-subject" name="title" [(ngModel)]="newPost.title">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="help-message">Post Message <strong class='text-danger'>*</strong></label>
+                    <textarea class="form-control" rows="6" required id="help-message"  name="title" [(ngModel)]="newPost.content"></textarea>
+                  </div>
+                  <div class="col-12 pt-2">
+                    <button class="btn btn-primary me-4" (click)="makePost()">Submit Post</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-          <div class="offcanvas-body py-grid-gutter py-lg-1 px-lg-4" data-simplebar data-simplebar-auto-hide="true">
-            <!-- Categories-->
-            <div class="widget widget-links mb-grid-gutter pb-grid-gutter border-bottom mx-lg-2">
-              <h3 class="widget-title">Blog categories</h3>
+          <!-- Pagination-->
+          <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#"><i class="ci-arrow-left me-2"></i>Prev</a></li>
+            </ul>
+            <ul class="pagination">
+              <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
+              <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span></li>
+              <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
+              <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
+              <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
+              <li class="page-item d-none d-sm-block"><a class="page-link" href="#">5</a></li>
+            </ul>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next<i class="ci-arrow-right ms-2"></i></a></li>
+            </ul>
+          </nav>
+        </section>
+        <aside class="col-lg-4">
+          <!-- Sidebar-->
+          <div class="offcanvas offcanvas-collapse offcanvas-end border-start ms-lg-auto" id="blog-sidebar" style="max-width: 22rem;">
+            <div class="offcanvas-header align-items-center shadow-sm">
+              <h2 class="h5 mb-0">Sidebar</h2>
+              <button class="btn-close ms-auto" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body py-grid-gutter py-lg-1 px-lg-4" data-simplebar data-simplebar-auto-hide="true">
+              <!-- Categories-->
+              <div class="widget widget-links mb-grid-gutter pb-grid-gutter border-bottom mx-lg-2">
+                <h3 class="widget-title">Blog categories</h3>
               <ul class="widget-list">
                 <li class="widget-list-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span>Online shopping</span><span class="fs-xs text-muted ms-3">18</span></a></li>
                 <li class="widget-list-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span>Fashion</span><span class="fs-xs text-muted ms-3">25</span></a></li>

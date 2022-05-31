@@ -49,6 +49,11 @@ public class PostServiceImpl implements PostService {
 		}
 			return post;
 	}
+
+	@Override
+	public Post create(Post post) {
+		return postRepo.saveAndFlush(post);
+	}
 	
 
 }

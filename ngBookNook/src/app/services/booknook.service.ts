@@ -232,7 +232,7 @@ export class BooknookService {
   }
 
   postPost(post: Post) {
-    return this.http.post<Post>(this.url + "answers", post, this.getHttpOptions())
+    return this.http.post<Post>(this.url + "posts", post, this.getHttpOptions())
     .pipe(
       catchError((err: any) => {
         console.log(err);
