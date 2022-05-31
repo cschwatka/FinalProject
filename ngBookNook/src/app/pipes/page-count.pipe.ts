@@ -9,7 +9,7 @@ export class PageCountPipe implements PipeTransform {
   transform(books: Book[], lowest: number, highest: number): Book[] {
     if (highest !== 0) {
       return books.filter((book) =>
-        book.pageCount > lowest && book.pageCount < highest
+        book.pageCount >= lowest && book.pageCount <= highest
       );
     } else {
       return books;

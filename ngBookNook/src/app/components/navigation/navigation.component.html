@@ -21,13 +21,14 @@
           <li *ngIf="loggedIn() == false" class="nav-item dropdown"><a class="nav-link" [routerLink]="['/login']">Log In</a></li>
           <li *ngIf="loggedIn() == false" class="nav-item dropdown"><a class="nav-link" [routerLink]="['/register']">Register</a></li>
 
-          <li *ngIf="loggedIn()" class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Account</a>
+          <li *ngIf="loggedIn() && user !== null" class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Account</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="nft-account-settings.html">Profile Settings</a></li>
-              <li><a class="dropdown-item" href="nft-account-my-items.html">My Items</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/myaccount']">My Wishlist</a></li>
-              <li><a class="dropdown-item" href="nft-account-favorites.html">Favorites</a></li>
-              <li><a class="dropdown-item" href="nft-account-notifications.html">Notifications</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/myaccount', 'profile']">Profile Settings</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/myaccount', 'posts']">My Posts</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/myaccount', 'wishlist']">My Wishlist</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/myaccount', 'favorites']">My Favorites</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/myaccount', 'finished']">My Finished Books</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/myaccount', 'reading']">Books I'm Reading</a></li>
             </ul>
           </li>
           <li *ngIf="loggedIn()" class="nav-item dropdown"><a class="nav-link" [routerLink]="['/logout']">Log Out</a></li>
