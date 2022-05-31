@@ -522,8 +522,8 @@ export class BooknookService {
 
     // User wishlist mappings
 
-    postWishlist(books: Book[], id: number) {
-      return this.http.put<Book[]>(this.url + "users/" + id + "/wishlistbooks", books, this.getHttpOptions())
+    postWishlist(book: Book, id: number) {
+      return this.http.put<Book>(this.url + "users/" + id + "/wishlistbooks", book, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);

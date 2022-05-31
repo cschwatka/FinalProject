@@ -11,6 +11,7 @@ import com.skilldistillery.booknook.entities.Author;
 import com.skilldistillery.booknook.entities.Book;
 import com.skilldistillery.booknook.entities.Category;
 import com.skilldistillery.booknook.entities.User;
+import com.skilldistillery.booknook.repositories.BookRepository;
 import com.skilldistillery.booknook.repositories.UserRepository;
 
 @Service
@@ -18,6 +19,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserRepository userRepo;
+	
+	@Autowired
+	private BookRepository bookRepo;
 
 	@Override
 	public User getUserById(int userId) {
@@ -93,104 +97,139 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<Book> addBookToWishlist(int userId, List<Book> books) {
-		List<Book> wishlistBooks = new ArrayList<>();
-		User user = getUserById(userId);
-		user.setWishlistBooks(books);
-		wishlistBooks = user.getWishlistBooks();
-		update(user.getId(), user);
-		return wishlistBooks;
+	public Book addBookToWishlist(int userId, Book book) {
+		Optional<User> userOpt = userRepo.findById(userId);
+		User user = null;
+		if (userOpt.isPresent()) {
+			user = userOpt.get();
+		}
+		Optional<Book> bookOpt = bookRepo.findById(book.getId());
+		Book managedBook = null;
+		if (bookOpt.isPresent()) {
+			managedBook = bookOpt.get();
+		}
+
+		managedBook.addUserToWishlist(user);
+		bookRepo.saveAndFlush(managedBook);
+		return managedBook;
 	}
 
 	@Override
-	public List<Book> removeBookFromWishlist(int userId, int bookId) {
-		List<Book> wishlistBooks = new ArrayList<>();
-		User user = getUserById(userId);
-		wishlistBooks = user.getWishlistBooks();
-		for (Book existingBook : wishlistBooks) {
-			if (bookId == existingBook.getId()) {
-//				user.removeWishlistBooks(existingBook);
-				wishlistBooks.remove(existingBook);
-			}
+	public void removeBookFromWishlist(int userId, int bookId) {
+		Optional<User> userOpt = userRepo.findById(userId);
+		User user = null;
+		if (userOpt.isPresent()) {
+			user = userOpt.get();
 		}
-		return wishlistBooks;
-	}
-
-	@Override
-	public List<Book> addBookToCurrentlyReading(int userId, Book book) {
-		List<Book> readingBooks = new ArrayList<>();
-		readingBooks = getUserById(userId).getReadingBooks();
-		for (Book existingBook : readingBooks) {
-			if (book.equals(existingBook)) {
-				return readingBooks;
-			}
+		Optional<Book> bookOpt = bookRepo.findById(bookId);
+		Book managedBook = null;
+		if (bookOpt.isPresent()) {
+			managedBook = bookOpt.get();
 		}
-		readingBooks.add(book);			
-		return readingBooks;
+		managedBook.removeUserFromWishlist(user);
+		bookRepo.saveAndFlush(managedBook);
 	}
-
-	@Override
-	public List<Book> removeBookFromCurrentlyReading(int userId, int bookId) {
-		List<Book> readingBooks = new ArrayList<>();
-		readingBooks = getUserById(userId).getReadingBooks();
-		for (Book existingBook : readingBooks) {
-			if (bookId == existingBook.getId()) {
-				readingBooks.remove(existingBook);
-			}
-		}
-		return readingBooks;
-	}
-
-	@Override
-	public List<Book> addBookToFinishedBooks(int userId, Book book) {
-		List<Book> finishedBooks = new ArrayList<>();
-		finishedBooks = getUserById(userId).getFinishedBooks();
-		for (Book existingBook : finishedBooks) {
-			if (book.equals(existingBook)) {
-				return finishedBooks;
-			}
-		}
-		finishedBooks.add(book);			
-		return finishedBooks;
-	}
-
-	@Override
-	public List<Book> removeBookFromFinishedBooks(int userId, int bookId) {
-		List<Book> finishedBooks = new ArrayList<>();
-		finishedBooks = getUserById(userId).getFinishedBooks();
-		for (Book existingBook : finishedBooks) {
-			if (bookId == existingBook.getId()) {
-				finishedBooks.remove(existingBook);
-			}
-		}
-		return finishedBooks;
-	}
-
-	@Override
-	public List<Book> addBookToFavorites(int userId, Book book) {
-		List<Book> favorites = new ArrayList<>();
-		favorites = getUserById(userId).getFavoriteBooks();
-		for (Book existingBook : favorites) {
-			if (book.equals(existingBook)) {
-				return favorites;
-			}
-		}
-		favorites.add(book);			
-		return favorites;
-	}
-
-	@Override
-	public List<Book> removeBookFromFavorites(int userId, int bookId) {
-		List<Book> favorites = new ArrayList<>();
-		favorites = getUserById(userId).getFavoriteBooks();
-		for (Book existingBook : favorites) {
-			if (bookId == existingBook.getId()) {
-				favorites.remove(existingBook);
-			}
-		}
-		return favorites;
-	}
-
 	
+	@Override
+	public Book addBookToFavorites(int userId, Book book) {
+		Optional<User> userOpt = userRepo.findById(userId);
+		User user = null;
+		if (userOpt.isPresent()) {
+			user = userOpt.get();
+		}
+		Optional<Book> bookOpt = bookRepo.findById(book.getId());
+		Book managedBook = null;
+		if (bookOpt.isPresent()) {
+			managedBook = bookOpt.get();
+		}
+
+		managedBook.addUserToFavorites(user);
+		bookRepo.saveAndFlush(managedBook);
+		return managedBook;
+	}
+
+	@Override
+	public void removeBookFromFavorites(int userId, int bookId) {
+		Optional<User> userOpt = userRepo.findById(userId);
+		User user = null;
+		if (userOpt.isPresent()) {
+			user = userOpt.get();
+		}
+		Optional<Book> bookOpt = bookRepo.findById(bookId);
+		Book managedBook = null;
+		if (bookOpt.isPresent()) {
+			managedBook = bookOpt.get();
+		}
+		managedBook.removeUserFromFavorites(user);
+		bookRepo.saveAndFlush(managedBook);
+	}
+	
+	@Override
+	public Book addBookToReading(int userId, Book book) {
+		Optional<User> userOpt = userRepo.findById(userId);
+		User user = null;
+		if (userOpt.isPresent()) {
+			user = userOpt.get();
+		}
+		Optional<Book> bookOpt = bookRepo.findById(book.getId());
+		Book managedBook = null;
+		if (bookOpt.isPresent()) {
+			managedBook = bookOpt.get();
+		}
+
+		managedBook.addUserToReading(user);
+		bookRepo.saveAndFlush(managedBook);
+		return managedBook;
+	}
+
+	@Override
+	public void removeBookFromReading(int userId, int bookId) {
+		Optional<User> userOpt = userRepo.findById(userId);
+		User user = null;
+		if (userOpt.isPresent()) {
+			user = userOpt.get();
+		}
+		Optional<Book> bookOpt = bookRepo.findById(bookId);
+		Book managedBook = null;
+		if (bookOpt.isPresent()) {
+			managedBook = bookOpt.get();
+		}
+		managedBook.removeUserFromReading(user);
+		bookRepo.saveAndFlush(managedBook);
+	}
+	
+	@Override
+	public Book addBookToFinished(int userId, Book book) {
+		Optional<User> userOpt = userRepo.findById(userId);
+		User user = null;
+		if (userOpt.isPresent()) {
+			user = userOpt.get();
+		}
+		Optional<Book> bookOpt = bookRepo.findById(book.getId());
+		Book managedBook = null;
+		if (bookOpt.isPresent()) {
+			managedBook = bookOpt.get();
+		}
+
+		managedBook.addUserToFinished(user);
+		bookRepo.saveAndFlush(managedBook);
+		return managedBook;
+	}
+
+	@Override
+	public void removeBookFromFinished(int userId, int bookId) {
+		Optional<User> userOpt = userRepo.findById(userId);
+		User user = null;
+		if (userOpt.isPresent()) {
+			user = userOpt.get();
+		}
+		Optional<Book> bookOpt = bookRepo.findById(bookId);
+		Book managedBook = null;
+		if (bookOpt.isPresent()) {
+			managedBook = bookOpt.get();
+		}
+		managedBook.removeUserFromFinished(user);
+		bookRepo.saveAndFlush(managedBook);
+	}
 
 }

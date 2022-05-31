@@ -2,13 +2,12 @@ package com.skilldistillery.booknook.entities;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -89,8 +88,8 @@ public class Book {
 	@ManyToMany
 	@JoinTable(
 			name = "favorite_book",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "book_id")
+			joinColumns = @JoinColumn(name = "book_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id")
 	)
 	private List<User> favoriteUsers;
 	
@@ -100,8 +99,8 @@ public class Book {
 	@ManyToMany
 	@JoinTable(
 			name = "finished",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "book_id")
+			joinColumns = @JoinColumn(name = "book_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id")
 	)
 	private List<User> finishedUsers;
 	
@@ -111,8 +110,8 @@ public class Book {
 	@ManyToMany
 	@JoinTable(
 			name = "currently_reading",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "book_id")
+			joinColumns = @JoinColumn(name = "book_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id")
 	)
 	private List<User> readingUsers;
 	
@@ -122,8 +121,8 @@ public class Book {
 	@ManyToMany
 	@JoinTable(
 			name = "wishlist",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "book_id")
+			joinColumns = @JoinColumn(name = "book_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id")
 	)
 	private List<User> wishlistUsers;
 
@@ -300,7 +299,77 @@ public class Book {
 	}
 
 
-
+	public void addUserToWishlist(User user) {
+		if (this.wishlistUsers == null) {
+			this.wishlistUsers = new ArrayList<>();
+		}
+		
+		if (! this.wishlistUsers.contains(user)) {
+			this.wishlistUsers.add(user);
+			user.addBookToWishlist(this);
+		}
+	}
+	
+	public void removeUserFromWishlist(User user) {
+		if (this.wishlistUsers != null && this.wishlistUsers.contains(user)) {
+			this.wishlistUsers.remove(user);
+			user.removeBookFromWishlist(this);
+		}
+	}
+	
+	public void addUserToFavorites(User user) {
+		if (this.favoriteUsers == null) {
+			this.favoriteUsers = new ArrayList<>();
+		}
+		
+		if (! this.favoriteUsers.contains(user)) {
+			this.favoriteUsers.add(user);
+			user.addBookToFavorites(this);
+		}
+	}
+	
+	public void removeUserFromFavorites(User user) {
+		if (this.favoriteUsers != null && this.favoriteUsers.contains(user)) {
+			this.favoriteUsers.remove(user);
+			user.removeBookFromFavorites(this);
+		}
+	}
+	
+	public void addUserToReading(User user) {
+		if (this.readingUsers == null) {
+			this.readingUsers = new ArrayList<>();
+		}
+		
+		if (! this.readingUsers.contains(user)) {
+			this.readingUsers.add(user);
+			user.addBookToReading(this);
+		}
+	}
+	
+	public void removeUserFromReading(User user) {
+		if (this.readingUsers != null && this.readingUsers.contains(user)) {
+			this.readingUsers.remove(user);
+			user.removeBookFromReading(this);
+		}
+	}
+	
+	public void addUserToFinished(User user) {
+		if (this.finishedUsers == null) {
+			this.finishedUsers = new ArrayList<>();
+		}
+		
+		if (! this.finishedUsers.contains(user)) {
+			this.finishedUsers.add(user);
+			user.addBookToFinished(this);
+		}
+	}
+	
+	public void removeUserFromFinished(User user) {
+		if (this.finishedUsers != null && this.finishedUsers.contains(user)) {
+			this.finishedUsers.remove(user);
+			user.removeBookFromFinished(this);
+		}
+	}
 
 
 	public LocalDate getDateAdded() {
@@ -482,9 +551,10 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", description=" + description + ", isbn10=" + isbn10
-				+ ", pageCount=" + pageCount + ", imgUrl=" + imgUrl + ", publishDate=" + publishDate + ", isbn13="
-				+ isbn13 + ", dateAdded=" + dateAdded + ", lastUpdated=" + lastUpdated + "]";
+		return "Book [id=" + id + ", language=" + language + ", user=" + user + ", title=" + title + ", description="
+				+ description + ", enabled=" + enabled + ", isbn10=" + isbn10 + ", pageCount=" + pageCount + ", imgUrl="
+				+ imgUrl + ", publishDate=" + publishDate + ", isbn13=" + isbn13 + ", dateAdded=" + dateAdded
+				+ ", lastUpdated=" + lastUpdated + "]";
 	}
 
 	

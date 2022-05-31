@@ -1,13 +1,12 @@
 package com.skilldistillery.booknook.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -181,7 +180,79 @@ public class User {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-
+	
+	
+	public void addBookToWishlist(Book book) {
+		if (this.wishlistBooks == null) {
+			this.wishlistBooks = new ArrayList<>();
+		}
+		
+		if (! this.wishlistBooks.contains(book)) {
+			this.wishlistBooks.add(book);
+			book.addUserToWishlist(this);
+		}
+	}
+	
+	public void removeBookFromWishlist(Book book) {
+		if (this.wishlistBooks != null && this.wishlistBooks.contains(book)) {
+			this.wishlistBooks.remove(book);
+			book.removeUserFromWishlist(this);
+		}
+	}
+	
+	public void addBookToFavorites(Book book) {
+		if (this.favoriteBooks == null) {
+			this.favoriteBooks = new ArrayList<>();
+		}
+		
+		if (! this.favoriteBooks.contains(book)) {
+			this.favoriteBooks.add(book);
+			book.addUserToFavorites(this);
+		}
+	}
+	
+	public void removeBookFromFavorites(Book book) {
+		if (this.favoriteBooks != null && this.favoriteBooks.contains(book)) {
+			this.favoriteBooks.remove(book);
+			book.removeUserFromFavorites(this);
+		}
+	}
+	
+	public void addBookToReading(Book book) {
+		if (this.readingBooks == null) {
+			this.readingBooks = new ArrayList<>();
+		}
+		
+		if (! this.readingBooks.contains(book)) {
+			this.readingBooks.add(book);
+			book.addUserToReading(this);
+		}
+	}
+	
+	public void removeBookFromReading(Book book) {
+		if (this.readingBooks != null && this.readingBooks.contains(book)) {
+			this.readingBooks.remove(book);
+			book.removeUserFromReading(this);
+		}
+	}
+	
+	public void addBookToFinished(Book book) {
+		if (this.finishedBooks == null) {
+			this.finishedBooks = new ArrayList<>();
+		}
+		
+		if (! this.finishedBooks.contains(book)) {
+			this.finishedBooks.add(book);
+			book.addUserToFinished(this);
+		}
+	}
+	
+	public void removeBookFromFinished(Book book) {
+		if (this.finishedBooks != null && this.finishedBooks.contains(book)) {
+			this.finishedBooks.remove(book);
+			book.removeUserFromFinished(this);
+		}
+	}
 
 
 	public String getRole() {

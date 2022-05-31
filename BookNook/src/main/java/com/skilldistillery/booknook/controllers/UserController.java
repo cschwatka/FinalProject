@@ -143,7 +143,7 @@ public class UserController {
 			@PathVariable Integer userId,
 			HttpServletResponse res
 			) {
-		List<Book> books = userService.favoriteBooks(userId);
+		List<Book> books = userService.wishlistBooks(userId);
 		if(books == null) {
 			res.setStatus(404);
 		}
@@ -175,14 +175,14 @@ public class UserController {
 	}
 	
 	@PutMapping("users/{userId}/wishlistbooks")
-	public List<Book> addBookToUserWishlist(
+	public Book addBookToUserWishlist(
 			@PathVariable Integer userId,
-			@RequestBody List<Book> books,
+			@RequestBody Book books,
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
 		System.out.println("You hit the controller!");
-		List<Book> newBooks = userService.addBookToWishlist(userId, books);
+		Book newBooks = userService.addBookToWishlist(userId, books);
 		if( newBooks == null) {
 			res.setStatus(404);
 		}
@@ -190,24 +190,23 @@ public class UserController {
 	}
 	
 	@DeleteMapping("users/{userId}/wishlistbooks/{bookId}")
-	public List<Book> deleteBookFromUserWishlist(
+	public void deleteBookFromUserWishlist(
 			@PathVariable Integer userId,
 			@PathVariable Integer bookId,
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> wishlistAfterDelete = userService.removeBookFromWishlist(userId, bookId);
-		return wishlistAfterDelete;
+		userService.removeBookFromWishlist(userId, bookId);
 	}
 	
 	@PostMapping("users/{userId}/readingbooks")
-	public List<Book> addBookToUserReadingBooks(
+	public Book addBookToUserReadingBooks(
 			@PathVariable Integer userId,
 			@RequestBody Book book,
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> books = userService.addBookToCurrentlyReading(userId, book);
+		Book books = userService.addBookToReading(userId, book);
 		if( books == null) {
 			res.setStatus(404);
 		}
@@ -215,23 +214,22 @@ public class UserController {
 	}
 	
 	@DeleteMapping("users/{userId}/readingbooks/{bookId}")
-	public List<Book> deleteBookFromUserReadingBooks(
+	public void deleteBookFromUserReadingBooks(
 			@PathVariable Integer userId,
 			@PathVariable Integer bookId,
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> wishlistAfterDelete = userService.removeBookFromCurrentlyReading(userId, bookId);
-		return wishlistAfterDelete;
+		userService.removeBookFromReading(userId, bookId);
 	}
 	@PostMapping("users/{userId}/finishedbooks")
-	public List<Book> addBookToUserFinishedBooks(
+	public Book addBookToUserFinishedBooks(
 			@PathVariable Integer userId,
 			@RequestBody Book book,
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> books = userService.addBookToFinishedBooks(userId, book);
+		Book books = userService.addBookToFinished(userId, book);
 		if( books == null) {
 			res.setStatus(404);
 		}
@@ -239,23 +237,22 @@ public class UserController {
 	}
 	
 	@DeleteMapping("users/{userId}/finishedbooks/{bookId}")
-	public List<Book> deleteBookFromUserFinishedBooks(
+	public void deleteBookFromUserFinishedBooks(
 			@PathVariable Integer userId,
 			@PathVariable Integer bookId,
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> wishlistAfterDelete = userService.removeBookFromFinishedBooks(userId, bookId);
-		return wishlistAfterDelete;
+		userService.removeBookFromFinished(userId, bookId);
 	}
 	@PostMapping("users/{userId}/favoritebooks")
-	public List<Book> addBookToUserFavorites(
+	public Book addBookToUserFavorites(
 			@PathVariable Integer userId,
 			@RequestBody Book book,
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> books = userService.addBookToFavorites(userId, book);
+		Book books = userService.addBookToFavorites(userId, book);
 		if( books == null) {
 			res.setStatus(404);
 		}
@@ -263,14 +260,13 @@ public class UserController {
 	}
 	
 	@DeleteMapping("users/{userId}/favoritebooks/{bookId}")
-	public List<Book> deleteBookFromUserFavorites(
+	public void deleteBookFromUserFavorites(
 			@PathVariable Integer userId,
 			@PathVariable Integer bookId,
 			HttpServletResponse res,
 			HttpServletRequest req
 			){
-		List<Book> wishlistAfterDelete = userService.removeBookFromFavorites(userId, bookId);
-		return wishlistAfterDelete;
+		userService.removeBookFromFavorites(userId, bookId);
 	}
 	
 }
