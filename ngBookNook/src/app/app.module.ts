@@ -22,6 +22,7 @@ import { MyAccountComponent } from './components/my-account/my-account.component
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostViewComponent } from './components/post-view/post-view.component';
 import { LanguagePipe } from './pipes/language.pipe';
+import { PageCountPipe } from './pipes/page-count.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LanguagePipe } from './pipes/language.pipe';
     MyAccountComponent,
     PostListComponent,
     PostViewComponent,
-    LanguagePipe
+    LanguagePipe,
+    PageCountPipe
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { LanguagePipe } from './pipes/language.pipe';
               DatePipe,
               BookshelfSearchPipe,
               CategoryPipe,
-              LanguagePipe
+              LanguagePipe,
+              PageCountPipe
 
   ],
   bootstrap: [AppComponent,BookShelfComponent,HomeComponent,LoginComponent,LogoutComponent,RegisterComponent,BookPageComponent]

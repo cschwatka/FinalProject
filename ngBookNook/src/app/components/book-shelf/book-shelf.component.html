@@ -183,23 +183,16 @@
           </div>
           <!-- Price range-->
           <div class="dropdown mb-lg-3 mb-2 me-lg-3 me-2">
-            <button class="btn btn-outline-accent dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Price range</button>
+            <button class="btn btn-outline-accent dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Page Count</button>
             <div class="dropdown-menu mt-lg-2 mt-1 p-3" style="min-width: 260px;">
-              <form>
-                <select class="form-select form-select-sm mb-3">
-                  <option selected disabled>ETH</option>
-                  <option>BNB</option>
-                  <option>BUSD</option>
-                </select>
                 <div class="d-flex align-items-center">
                   <div class="w-50">
-                    <input class="form-control form-control-sm" type="text" placeholder="From">
+                    <input [(ngModel)]="lowestPageCount" name="lowestPageCount" class="form-control form-control-sm" type="text" placeholder="From">
                   </div><span class="d-inline-block mx-2">–</span>
                   <div class="w-50">
-                    <input class="form-control form-control-sm" type="text" placeholder="To">
+                    <input  [(ngModel)]="highestPageCount" name="highestPageCount" class="form-control form-control-sm" type="text" placeholder="To">
                   </div>
                 </div>
-              </form>
             </div>
           </div>
           <!-- Collections-->
@@ -302,7 +295,7 @@
       <div>
         <!-- Product-->
         <div *ngIf="recentlyAdded==true" class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 gy-sm-4 gy-3 pt-lg-4 pt-2">
-          <div *ngFor="let book of books.slice().reverse()| bookshelfSearch: searchText | category:filteredCategories | language:filteredLanguages; let i = index" class="col mb-2">{{displayCount(i)}}
+          <div *ngFor="let book of books.slice().reverse()| bookshelfSearch: searchText | category:filteredCategories | language:filteredLanguages | pageCount:lowestPageCount:highestPageCount; let i = index" class="col mb-2">{{displayCount(i)}}
             <article class="card h-100 border-0 shadow">
               <div class="card-img-top position-relative overflow-hidden"><a class="d-block" (click)="displayBook(book.id)"><img [src]="book.imgUrl" alt="Book image"></a>
             </div>
