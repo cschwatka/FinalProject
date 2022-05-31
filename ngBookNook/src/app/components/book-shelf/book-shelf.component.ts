@@ -22,6 +22,8 @@ export class BookShelfComponent implements OnInit {
   languages: Language[] = [];
   recentlyAdded: boolean = true;
   oldest: boolean = false;
+  lowestPageCount: number = 0;
+  highestPageCount: number = 1000000;
 
   constructor(
     private router: Router,
