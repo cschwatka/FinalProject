@@ -78,13 +78,13 @@
           <div class="collapse" [attr.id]="'collapseExample'+comment.id">
             <div class="card border-0 shadow mt-2 mb-4">
               <div class="card-body">
-                <div class="d-flex align-items-start"><img class="rounded-circle" src="assets/img/testimonials/01.jpg" width="50" alt="Mary Alice">
+                <div class="d-flex align-items-start"><img class="rounded-circle" [src]="user?.imgUrl" width="50" alt="Mary Alice">
                   <form class="w-100 needs-validation ms-3" novalidate>
                     <div class="mb-3">
-                      <textarea name="content" [(ngModel)]="newComment.content" class="form-control" rows="4" placeholder="Write comment..." required></textarea>
-                      <div class="invalid-feedback">Please write your comment.</div>
+                      <textarea name="content" [(ngModel)]="newComment.content" class="form-control" rows="4" placeholder="Write reply..." required></textarea>
+                      <div class="invalid-feedback">Please write your reply.</div>
                     </div>
-                    <button class="btn btn-primary btn-sm" type="submit" (click)="postComment(comment)">Post comment</button>
+                    <button class="btn btn-primary btn-sm" type="submit" (click)="postCommentReply(comment)">Post comment</button>
                   </form>
                 </div>
               </div>
@@ -110,16 +110,16 @@
               </div>
             </div>
           </div>
-          <!-- Post comment form-->
+          <!-- Post first comment form-->
           <div class="card border-0 shadow mt-2 mb-4">
             <div class="card-body">
-              <div class="d-flex align-items-start"><img class="rounded-circle" src="assets/img/testimonials/01.jpg" width="50" alt="Mary Alice">
+              <div class="d-flex align-items-start"><img class="rounded-circle" [src]="user?.imgUrl"  width="50" alt="Mary Alice">
                 <form class="w-100 needs-validation ms-3" novalidate>
                   <div class="mb-3">
-                    <textarea class="form-control" rows="4" placeholder="Write comment..." required></textarea>
-                    <div class="invalid-feedback">Please write your comment.</div>
+                    <textarea name="content" [(ngModel)]="newComment.content" class="form-control" rows="4" placeholder="Write comment..." required></textarea>
+                    <div class="invalid-feedback">Post a comment.</div>
                   </div>
-                  <button class="btn btn-primary btn-sm" type="submit">Post comment</button>
+                  <button class="btn btn-primary btn-sm" type="submit" (click)="postComment()">Post comment</button>
                 </form>
               </div>
             </div>

@@ -60,10 +60,18 @@ public class CommentServiceImpl implements CommentService {
 	
 	@Override
 	public Comment post(Comment comment, int postId, int commentId, int userId) {
-		comment.setPost(getPostById(postId));
-		comment.setComment(getCommentById(commentId));
-		comment.setUser(getUserById(userId));
-		return commentRepo.saveAndFlush(comment);
+		if (commentId != 0 ) {
+			comment.setPost(getPostById(postId));
+			comment.setComment(getCommentById(commentId));
+			comment.setUser(getUserById(userId));
+			return commentRepo.saveAndFlush(comment);
+		} else {
+			comment.setPost(getPostById(postId));
+			comment.setComment(null);
+			comment.setUser(getUserById(userId));
+			return commentRepo.saveAndFlush(comment);
+		}
+		
 	}
 
 	@Override

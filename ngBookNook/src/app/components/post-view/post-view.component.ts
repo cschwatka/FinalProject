@@ -57,7 +57,22 @@ export class PostViewComponent implements OnInit {
     }
   }
 
-  postComment(comment: Comment) {
+  postComment() {
+    if (this.selected != null && this.user != null) {
+      this.service.postComment(this.newComment, this.selected.id, 0, this.user.id).subscribe(
+        (success) => {if (this.selected != null) {
+          this.show(this.selected.id)
+          this.newComment = new Comment();
+        }},
+        (err) => console.log(err)
+
+      )
+    }
+
+  }
+
+
+  postCommentReply(comment: Comment) {
     if (this.selected != null && this.user != null) {
       this.service.postComment(this.newComment, this.selected.id, comment.id, this.user.id).subscribe(
         (success) => {if (this.selected != null) {
