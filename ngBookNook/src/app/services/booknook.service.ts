@@ -399,6 +399,8 @@ export class BooknookService {
     }
 
     updateUser(user: User, id: number) {
+      console.log(user);
+      delete user.usersFollowing; // neuter the problem json field
       return this.http.put<User>(this.url + "users/" + id, user, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {

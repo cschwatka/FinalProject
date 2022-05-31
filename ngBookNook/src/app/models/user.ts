@@ -27,7 +27,7 @@ export class User {
   finishedBooks: Book[];
   readingBooks: Book[];
   wishlistBooks: Book[];
-  usersFollowing: User[];
+  usersFollowing?: User[];
   followedUsers: User[];
 
   constructor(  id: number = 0,
