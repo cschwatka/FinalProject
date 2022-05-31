@@ -54,6 +54,54 @@ wishlistAdd(book: Book) {
   }
 }
 
+readingAdd(book: Book) {
+  let userId = localStorage.getItem("userId");
+  let id = 0;
+  let rejected = false;
+  if (userId !== null && this.user !== null) {
+    id = parseInt(userId);
+    for (let book1 of this.user.readingBooks) {
+      if (book1.id === book.id) {
+        rejected = true;
+        break;
+      }
+    }
+  }
+  if (rejected === false && this.user !== null) {
+
+   this.service.postReading(book, this.user.id).subscribe(
+     (data) => {if (this.selected !== null && this.user !== null) {
+        this.checkUser(this.selected.id, this.user.id);
+     }},
+     (err) => console.log(err)
+   )
+  }
+}
+
+finishedAdd(book: Book) {
+  let userId = localStorage.getItem("userId");
+  let id = 0;
+  let rejected = false;
+  if (userId !== null && this.user !== null) {
+    id = parseInt(userId);
+    for (let book1 of this.user.finishedBooks) {
+      if (book1.id === book.id) {
+        rejected = true;
+        break;
+      }
+    }
+  }
+  if (rejected === false && this.user !== null) {
+
+   this.service.postFinished(book, this.user.id).subscribe(
+     (data) => {if (this.selected !== null && this.user !== null) {
+        this.checkUser(this.selected.id, this.user.id);
+     }},
+     (err) => console.log(err)
+   )
+  }
+}
+
 showUser(id: number) {
   this.service.showUser(id).subscribe(
     (data) => {this.user = data;

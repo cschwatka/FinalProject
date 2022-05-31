@@ -90,10 +90,10 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu">
-                    <a href="" *ngIf="readingDisabled === false" class="dropdown-item">Currently Reading</a>
-                    <a href="" *ngIf="readingDisabled === true" class="dropdown-item disabled">Currently Reading</a>
-                    <a href="" *ngIf="finishedDisabled === false" class="dropdown-item">Finished Reading</a>
-                    <a href="" *ngIf="finishedDisabled === true" class="dropdown-item disabled">Finished Reading</a>
+                    <a *ngIf="readingDisabled === false" class="dropdown-item" (click)="readingAdd(selected)">Currently Reading</a>
+                    <a *ngIf="readingDisabled === true" class="dropdown-item disabled">Currently Reading</a>
+                    <a *ngIf="finishedDisabled === false" class="dropdown-item" (click)="finishedAdd(selected)">Finished Reading</a>
+                    <a *ngIf="finishedDisabled === true" class="dropdown-item disabled">Finished Reading</a>
                   </div>
                 </div>
                 <!-- <div class="col"><a class="btn btn-lg btn-outline-accent d-block w-100" href="#">Make an offer</a></div> -->

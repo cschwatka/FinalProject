@@ -20,6 +20,8 @@ export class BookShelfComponent implements OnInit {
   filteredLanguages: Language[] =  [];
   bookCount: number = 0;
   languages: Language[] = [];
+  recentlyAdded: boolean = true;
+  oldest: boolean = false;
 
   constructor(
     private router: Router,

@@ -533,7 +533,7 @@ export class BooknookService {
     }
 
     removeWishlist(userId: number, bookId: number) {
-      return this.http.delete<Book[]>(this.url + "users/"+userId+"/wishlistbooks/"+bookId, this.getHttpOptions())
+      return this.http.delete<void>(this.url + "users/"+userId+"/wishlistbooks/"+bookId, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
@@ -545,7 +545,7 @@ export class BooknookService {
     // User reading mappings
 
     postReading(book: Book, id: number) {
-      return this.http.post<Book[]>(this.url + "users/"+id+"/readingbooks/", book, this.getHttpOptions())
+      return this.http.post<Book>(this.url + "users/"+id+"/readingbooks/", book, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
@@ -555,7 +555,7 @@ export class BooknookService {
     }
 
     removeReading(userId: number, bookId: number) {
-      return this.http.delete<Book[]>(this.url + "users/"+userId+"/readingbooks/"+bookId, this.getHttpOptions())
+      return this.http.delete<void>(this.url + "users/"+userId+"/readingbooks/"+bookId, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
@@ -567,7 +567,7 @@ export class BooknookService {
     // User favorites mappings
 
     postFavorite(book: Book, id: number) {
-      return this.http.post<Book[]>(this.url + "users/"+id+"/favoritebooks/", book, this.getHttpOptions())
+      return this.http.post<Book>(this.url + "users/"+id+"/favoritebooks/", book, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
@@ -577,7 +577,7 @@ export class BooknookService {
     }
 
     removeFavorite(userId: number, bookId: number) {
-      return this.http.delete<Book[]>(this.url + "users/"+userId+"/favoritebooks/"+bookId, this.getHttpOptions())
+      return this.http.delete<void>(this.url + "users/"+userId+"/favoritebooks/"+bookId, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
@@ -589,7 +589,7 @@ export class BooknookService {
     // User finished mappings
 
     postFinished(book: Book, id: number) {
-      return this.http.post<Book[]>(this.url + "users/"+id+"/finishedbooks/", book, this.getHttpOptions())
+      return this.http.post<Book>(this.url + "users/"+id+"/finishedbooks/", book, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
@@ -599,7 +599,7 @@ export class BooknookService {
     }
 
     removeFinished(userId: number, bookId: number) {
-      return this.http.delete<Book[]>(this.url + "users/"+userId+"/finishedbooks/"+bookId, this.getHttpOptions())
+      return this.http.delete<void>(this.url + "users/"+userId+"/finishedbooks/"+bookId, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
