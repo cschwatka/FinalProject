@@ -53,7 +53,7 @@ export class PostViewComponent implements OnInit {
   navigateToSection(section: string | null) {
 
     if (section != null) {
-      this.scroller.scrollToAnchor(section)
+      this.scroller.scrollToAnchor(section);
     }
   }
 

@@ -13,6 +13,7 @@ export class PostListComponent implements OnInit {
   posts: Post[] = [];
   newPost: Post = new Post();
   user: User | null = null;
+  popularPosts: Post[] = [];
 
   constructor(private svc: BooknookService) { }
 
@@ -36,7 +37,7 @@ export class PostListComponent implements OnInit {
   reload() {
     this.svc.showPostList().subscribe(
       (data) => {
-        this.posts = data; console.log(this.posts)},
+        this.posts = data; console.log(this.posts); this.popularPostRetrieval()},
       (err) => console.log(err)
     )
   }
@@ -49,6 +50,14 @@ export class PostListComponent implements OnInit {
       (success) => {this.reload(); this.newPost = new Post()},
       (err) => console.log(err)
     )
+  }
+
+  popularPostRetrieval() {
+
+    this.popularPosts = this.posts.sort((a, b) => (b.comments.length - a.comments.length));
+
+    this.popularPosts = this.popularPosts.slice(0,3);
+
   }
 
 }
