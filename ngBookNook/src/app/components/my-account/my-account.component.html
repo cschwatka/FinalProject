@@ -129,34 +129,8 @@
           </div>
         </div>
       </section>
-       <!-- Content  -->
-       <section *ngIf="reading === true" class="col-lg-8">
-        <!-- Toolbar-->
-        <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
-          <h6 *ngIf="reading === true" class="fs-base text-light mb-0">List of books you added to your favorites:</h6><a class="btn btn-primary btn-sm" [routerLink]="['/logout']"><i class="ci-sign-out me-2"></i>Sign out</a>
-        </div>
-        <!-- Wishlist-->
-        <!-- Item-->
-        <div *ngFor="let book of readingBooks.slice().reverse()" class="d-sm-flex justify-content-between mt-lg-4 mb-4 pb-3 pb-sm-2 border-bottom">
-          <div class="d-block d-sm-flex align-items-start text-center text-sm-start"><a class="d-block flex-shrink-0 mx-auto me-sm-4" (click)="displayBook(book)" style="width: 10rem;"><img [src]="book.imgUrl" alt="Product"></a>
-            <div class="pt-2">
-              <h3 class="product-title fs-base mb-2"><a (click)="displayBook(book)">{{book.title}}</a></h3>
-              <div class="fs-sm" *ngFor="let author of book.authors"><span class="text-muted me-2">Author:</span>{{author.fullName}}</div>
-              <div class="fs-sm" *ngFor="let category of book.categories"><span class="text-muted me-2">Genre:</span>{{category.name}}</div>
-              <div class="fs-sm"><span class="text-muted me-2">Description:</span>{{book.description}}</div>
-            </div>
-          </div>
-          <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center">
-            <button class="btn btn-outline-danger btn-sm" type="button" (click)="removeFromReading(book)"><i class="ci-trash me-2"></i>Remove</button>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <!-- Update Profile Section  -->
-
-  <section class="col-lg-8" *ngIf="favorites === true">
+      <!-- Update Profile Section  -->
+  <section class="col-lg-8" *ngIf="profile === true">
     <!-- Toolbar-->
     <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
       <h6 class="fs-base text-light mb-0">Update you profile details below:</h6><a class="btn btn-primary btn-sm" href="account-signin.html"><i class="ci-sign-out me-2"></i>Sign out</a>
@@ -205,6 +179,32 @@
       </div>
     </form>
   </section>
+       <!-- Content  -->
+       <section *ngIf="reading === true" class="col-lg-8">
+        <!-- Toolbar-->
+        <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
+          <h6 *ngIf="reading === true" class="fs-base text-light mb-0">List of books you added to your favorites:</h6><a class="btn btn-primary btn-sm" [routerLink]="['/logout']"><i class="ci-sign-out me-2"></i>Sign out</a>
+        </div>
+        <!-- Wishlist-->
+        <!-- Item-->
+        <div *ngFor="let book of readingBooks.slice().reverse()" class="d-sm-flex justify-content-between mt-lg-4 mb-4 pb-3 pb-sm-2 border-bottom">
+          <div class="d-block d-sm-flex align-items-start text-center text-sm-start"><a class="d-block flex-shrink-0 mx-auto me-sm-4" (click)="displayBook(book)" style="width: 10rem;"><img [src]="book.imgUrl" alt="Product"></a>
+            <div class="pt-2">
+              <h3 class="product-title fs-base mb-2"><a (click)="displayBook(book)">{{book.title}}</a></h3>
+              <div class="fs-sm" *ngFor="let author of book.authors"><span class="text-muted me-2">Author:</span>{{author.fullName}}</div>
+              <div class="fs-sm" *ngFor="let category of book.categories"><span class="text-muted me-2">Genre:</span>{{category.name}}</div>
+              <div class="fs-sm"><span class="text-muted me-2">Description:</span>{{book.description}}</div>
+            </div>
+          </div>
+          <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center">
+            <button class="btn btn-outline-danger btn-sm" type="button" (click)="removeFromReading(book)"><i class="ci-trash me-2"></i>Remove</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
 
 
 
