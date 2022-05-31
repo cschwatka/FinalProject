@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'bookshelf', component: BookShelfComponent },
   { path: 'displaybook/:id', component: BookPageComponent },
-  { path: 'myaccount', component: MyAccountComponent },
+  { path: 'myaccount/:bind', component: MyAccountComponent },
   { path: 'postlist', component: PostListComponent },
   { path: 'postview', component: PostViewComponent },
   { path: 'postview/:id', component: PostViewComponent },
