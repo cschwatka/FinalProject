@@ -23,6 +23,7 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { PostViewComponent } from './components/post-view/post-view.component';
 import { LanguagePipe } from './pipes/language.pipe';
 import { PageCountPipe } from './pipes/page-count.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { PageCountPipe } from './pipes/page-count.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    NgbModule
   ],
   providers: [BooknookService,
               DatePipe,

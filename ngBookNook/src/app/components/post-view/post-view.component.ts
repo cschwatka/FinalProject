@@ -17,6 +17,8 @@ export class PostViewComponent implements OnInit {
   comments: Comment[] = [];
   newComment: Comment = new Comment();
   user: User | null = null;
+  popularPosts: Post[] = [];
+  posts: Post[] = [];
 
   constructor(private route: ActivatedRoute, private service: BooknookService, private scroller: ViewportScroller) { }
 
@@ -34,6 +36,7 @@ export class PostViewComponent implements OnInit {
     if (userId != null) {
       this.showUser(parseInt(userId));
     }
+    this.reload();
   }
 
   showUser(id: number){
@@ -55,6 +58,14 @@ export class PostViewComponent implements OnInit {
     if (section != null) {
       this.scroller.scrollToAnchor(section);
     }
+  }
+
+  reload() {
+    this.service.showPostList().subscribe(
+      (data) => {
+        this.posts = data; console.log(this.posts); this.popularPostRetrieval()},
+      (err) => console.log(err)
+    )
   }
 
   postComment() {
@@ -83,6 +94,14 @@ export class PostViewComponent implements OnInit {
 
       )
     }
+
+  }
+
+  popularPostRetrieval() {
+
+    this.popularPosts = this.posts.sort((a, b) => (b.comments.length - a.comments.length));
+
+    this.popularPosts = this.popularPosts.slice(0,3);
 
   }
 

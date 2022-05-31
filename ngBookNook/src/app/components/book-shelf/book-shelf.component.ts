@@ -24,6 +24,7 @@ export class BookShelfComponent implements OnInit {
   oldest: boolean = false;
   lowestPageCount: number = 0;
   highestPageCount: number = 1000000;
+  page: number = 1;
 
   constructor(
     private router: Router,
