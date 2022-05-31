@@ -12,6 +12,7 @@ import { Post } from '../models/post';
 import { Review } from '../models/review';
 import { User } from '../models/user';
 import { Language } from '../models/language';
+import { Comment } from '../models/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -178,8 +179,8 @@ export class BooknookService {
     );
   }
 
-  postComment(comment: Comment) {
-    return this.http.post<Answer>(this.url + "comments", comment, this.getHttpOptions())
+  postComment(comment: Comment, postId: number, commentId: number, userId: number) {
+    return this.http.post<Comment>(this.url + "comments/"+postId+"/"+commentId+"/"+userId, comment, this.getHttpOptions())
     .pipe(
       catchError((err: any) => {
         console.log(err);

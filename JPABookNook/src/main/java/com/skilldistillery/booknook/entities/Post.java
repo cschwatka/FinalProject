@@ -49,7 +49,7 @@ public class Post {
 	@OneToMany(mappedBy="post")
 	private List<PostVote> postVotes;
 	
-	@JsonIgnoreProperties({"post","comment","users"})
+	@JsonIgnoreProperties({"post","users"})
 	@OneToMany(mappedBy="post")
 	private List<Comment> comments;
 

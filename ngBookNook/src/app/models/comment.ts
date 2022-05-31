@@ -10,7 +10,7 @@ export class Comment {
   enabled: boolean;
   user: User;
   post: Post;
-  comment: Comment;
+  comment: Comment | null;
   comments: Comment[];
   users: User[];
   commentVotes: CommentVote[];
@@ -22,7 +22,7 @@ export class Comment {
     enabled: boolean = true,
     user: User = new User(),
     post: Post = new Post(),
-    comment: Comment = new Comment(),
+    comment: Comment | null = null,
     comments: Comment[] = [],
     users: User[] = [],
     commentVotes: CommentVote[] = []

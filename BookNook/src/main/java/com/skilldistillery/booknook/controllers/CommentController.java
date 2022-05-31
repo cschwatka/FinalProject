@@ -5,10 +5,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,7 @@ import com.skilldistillery.booknook.services.CommentService;
 @RequestMapping("api")
 public class CommentController {
 	
+	@Autowired
 	private CommentService commentService;
 	
 	@GetMapping("comments/{commentId}")
@@ -44,6 +47,22 @@ public class CommentController {
 			) {
 		List<Comment> comments = commentService.index();
 		return comments;
+	}
+	
+	@PostMapping("comments/{postId}/{commentId}/{userId}")
+	public Comment post(
+			@RequestBody Comment comment,
+			@PathVariable Integer postId,
+			@PathVariable Integer commentId,
+			@PathVariable Integer userId,
+			HttpServletResponse res,
+			HttpServletRequest req
+			) {
+		Comment newComment = commentService.post(comment, postId, commentId, userId);
+		if (newComment == null) {
+			res.setStatus(404);
+		}
+		return newComment;
 	}
 	
 	@PutMapping("comments/{commentId}")

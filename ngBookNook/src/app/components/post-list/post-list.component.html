@@ -35,21 +35,12 @@
               <div class="blog-end-column">
                 <div class="d-flex justify-content-between mb-1">
                   <!-- <div class="fs-sm text-muted pe-2 mb-2">in <a href='#' class='blog-entry-meta-link'>Travel</a>, <a href='#' class='blog-entry-meta-link'>Personal finance</a></div> -->
-                  <p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="collapseExample">
-                      <i class="ci-message"></i>
-                    </button>
-                  </p>8
+                  <div class="fs-sm mb-2"><a class="blog-entry-meta-link text-nowrap" [routerLink]="['/postview', {'id': post.id, 'comments':'comments'}]"><i class="ci-message"></i>{{post.comments.length}}</a></div>
                 </div>
-            <p class="fs-sm">{{post.content}}<a href='blog-single-sidebar.html' class='blog-entry-meta-link fw-medium' [routerLink]="['/postview/comments/', post.id ]">[Read more]</a></p>
+            <p class="fs-sm">{{post.content}}<a href='blog-single-sidebar.html' class='blog-entry-meta-link fw-medium' [routerLink]="['/postview', post.id]">[Read more]</a></p>
           </div>
         </article>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-          </div>
         </div>
-      </div>
         <!-- Entry-->
         <article class="blog-list border-bottom pb-4 mb-5">
           <div class="blog-start-column">

@@ -1,3 +1,4 @@
+import { Comment } from './comment';
 import { PostVote } from "./postvote";
 import { User } from "./user";
 

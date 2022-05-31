@@ -46,11 +46,12 @@ public class Comment {
 	@JoinColumn(name="post_id")
 	private Post post;
 	
+	@JsonIgnoreProperties({"comments", "post", "users"})
 	@ManyToOne
 	@JoinColumn(name="in_reply_to_id")
 	private Comment comment;
 	
-	@JsonIgnore
+	@JsonIgnoreProperties({"comment","post","users"})
 	@OneToMany(mappedBy="comment")
 	private List<Comment> comments;
 	
