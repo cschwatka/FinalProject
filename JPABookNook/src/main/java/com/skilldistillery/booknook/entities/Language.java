@@ -21,7 +21,8 @@ public class Language {
 	
 	private String name;
 	
-	@JsonIgnore
+	@JsonIgnoreProperties({"categories", "authors", "reviews", "favoriteUsers", "finishedUsers", "readingUsers",
+		"wishlistUsers"})
 	@OneToMany(mappedBy = "language")
 	private List<Book> books;
 
