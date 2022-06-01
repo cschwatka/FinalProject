@@ -72,8 +72,6 @@
     </div>
   </div>
   <main class="page-wrapper">
-    <!-- Navbar for NFT Marketplace demo-->
-    <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
 
     <!-- Page Title-->
     <div class="bg-accent pt-4" style="padding-bottom: 35px;">
@@ -106,16 +104,6 @@
               <div *ngIf="recentlyAdded == true" class="dropdown-menu w-100"><a (click)="recentlyAdded=true; oldest=false;" class="dropdown-item active" href="#" style="white-space: normal;">Recently added</a><a (click)="oldest=true; recentlyAdded=false;" class="dropdown-item" href="#" style="white-space: normal;">Oldest</a></div>
               <div *ngIf="oldest == true" class="dropdown-menu w-100"><a (click)="recentlyAdded=true; oldest=false;" class="dropdown-item" href="#" style="white-space: normal;">Recently added</a><a (click)="oldest=true; recentlyAdded=false;" class="dropdown-item active" href="#" style="white-space: normal;">Oldest</a></div>
             </div>
-          </div>
-          <div class="d-md-flex d-none">
-            <!-- Pages-->
-            <div class="border-start">
-              <div class="p-4 fs-md text-nowrap">Pages 1/5</div>
-            </div>
-            <!-- Back-->
-            <div class="border-start"><a class="btn border-0 p-4 fw-medium" href="#"><i class="ci-arrow-left"></i></a></div>
-            <!-- Forward-->
-            <div class="border-start"><a class="btn border-0 p-4 fw-medium" href="#"><i class="ci-arrow-right"></i></a></div>
           </div>
         </div>
       </div>
@@ -153,28 +141,6 @@
               </div>
             </div>
           </div>
-          <!-- Sale Types-->
-          <div class="dropdown mb-lg-3 mb-2 me-lg-3 me-2">
-            <button class="btn btn-outline-accent dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Sale Types</button>
-            <div class="dropdown-menu mt-lg-2 mt-1" style="min-width: 260px;">
-              <div class="widget px-3">
-                <ul class="widget-list list-unstyled">
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="fixed-price">
-                      <label class="form-check-label" for="fixed-price">Fixed Price</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="live-auction">
-                      <label class="form-check-label" for="live-auction">Live auction</label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
           <!-- Price range-->
           <div class="dropdown mb-lg-3 mb-2 me-lg-3 me-2">
             <button class="btn btn-outline-accent dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Page Count</button>
@@ -187,98 +153,6 @@
                     <input  [(ngModel)]="highestPageCount" name="highestPageCount" class="form-control form-control-sm" type="text" placeholder="To">
                   </div>
                 </div>
-            </div>
-          </div>
-          <!-- Collections-->
-          <div class="dropdown mb-lg-3 mb-2 me-lg-3 me-2">
-            <button class="btn btn-outline-accent dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Collections</button>
-            <div class="dropdown-menu mt-lg-2 mt-1" style="min-width: 260px;">
-              <div class="widget px-3">
-                <ul class="widget-list list-unstyled">
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="contemporary-art-collage">
-                      <label class="form-check-label" for="contemporary-art-collage">Contemporary art collage</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="3d-digital-abstract-art">
-                      <label class="form-check-label" for="3d-digital-abstract-art">3D digital abstract art</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="clone-x-mini-monsters">
-                      <label class="form-check-label" for="clone-x-mini-monsters">Clone X Mini Monsters</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="ocean-and-sky">
-                      <label class="form-check-label" for="ocean-and-sky">Ocean and sky</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="aesthetic-art-collage">
-                      <label class="form-check-label" for="aesthetic-art-collage">Aesthetic art collage</label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- Creators-->
-          <div class="dropdown mb-lg-3 mb-2 me-lg-3 me-2">
-            <button class="btn btn-outline-accent dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Creators</button>
-            <div class="dropdown-menu mt-lg-2 mt-1" style="min-width: 260px;">
-              <div class="widget px-3">
-                <ul class="widget-list list-unstyled">
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="foxnet_creator">
-                      <label class="form-check-label" for="foxnet_creator">@foxnet_creator</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="YunusKullebi">
-                      <label class="form-check-label" for="YunusKullebi">@YunusKullebi</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="lulucollages">
-                      <label class="form-check-label" for="lulucollages">@lulucollages</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="DistroKid">
-                      <label class="form-check-label" for="DistroKid">@DistroKid</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Sharan_Pagadala">
-                      <label class="form-check-label" for="Sharan_Pagadala">@Sharan_Pagadala</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Simonlee">
-                      <label class="form-check-label" for="Simonlee">@Simonlee</label>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center mb-1">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Shubham_Dhage">
-                      <label class="form-check-label" for="Shubham_Dhage">@Shubham_Dhage</label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -307,7 +181,6 @@
                   <div class="d-flex align-items-center position-relative mb-1 py-3 border-top"><img class="me-2 rounded-circle" src="assets/img/nft/catalog/avatars/01.png" width="32" alt="Avatar"><a class="nav-link-style fs-sm stretched-link" href="nft-vendor.html">{{followingBooks(book)}}</a></div>
                 </div>
               </article>
-
         </div>
       </div>
       <div *ngIf="oldest==true" class="col mb-2" class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 gy-sm-4 gy-3 pt-lg-4 pt-2">
@@ -332,153 +205,5 @@
       </div>
     </div>
       </div>
-      <hr class="mt-4 mb-3">
-      <!-- Pagination-->
-      <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
-        <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="#"><i class="ci-arrow-left me-2"></i>Prev</a></li>
-        </ul>
-        <ul class="pagination">
-          <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
-          <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span></li>
-          <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
-          <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
-          <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
-          <li class="page-item d-none d-sm-block"><a class="page-link" href="#">5</a></li>
-        </ul>
-        <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next<i class="ci-arrow-right ms-2"></i></a></li>
-        </ul>
-      </nav>
     </div>
   </main>
-  <!-- Bg shape-->
-  <div class="pt-4 bg-secondary">
-    <!-- Features-->
-    <section class="container py-lg-5 py-4">
-      <h2 class="mb-4 pb-md-3 pb-2">Begin your NFT journey with us!</h2>
-      <!-- Features carousel-->
-      <div class="tns-carousel mb-4">
-        <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;nav&quot;: true, &quot;gutter&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1,&quot;controls&quot;: false},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}, &quot;1100&quot;:{&quot;items&quot;:4}, &quot;1278&quot;:{&quot;controls&quot;: true}}}">
-          <!-- Carousel item-->
-          <div><img class="mb-4" src="img/nft/features/wallet.svg" width="60" alt="Icon">
-            <h4 class="mb-2 fs-lg text-body">Set up your wallet</h4>
-            <p class="mb-0 fs-sm text-muted">Quam nulla in id nibh. Morbi eget elit eget dui est pretium, blandit penatibus blandit. Amet mattis blandit urna volutpat.</p>
-          </div>
-          <!-- Carousel item-->
-          <div><img class="mb-4" src="img/nft/features/add.svg" width="60" alt="Icon">
-            <h4 class="mb-2 fs-lg text-body">Create your collection</h4>
-            <p class="mb-0 fs-sm text-muted">Fringilla ullamcorper aenean tellus ullamcorper neque, malesuada. Aliquam consequat nunc.</p>
-          </div>
-          <!-- Carousel item-->
-          <div><img class="mb-4" src="img/nft/features/image.svg" width="60" alt="Icon">
-            <h4 class="mb-2 fs-lg text-body">Add your NFTs</h4>
-            <p class="mb-0 fs-sm text-muted">Platea eu aliquam pellentesque parturient. Volutpat, fermentum suspendisse at nisi cras mattis augue.</p>
-          </div>
-          <!-- Carousel item-->
-          <div><img class="mb-4" src="img/nft/features/shopping-cart.svg" width="60" alt="Icon">
-            <h4 class="mb-2 fs-lg text-body">List them for sale</h4>
-            <p class="mb-0 fs-sm text-muted">In eget nulla id feugiat ut placerat sapien malesuada. Sed id risus non accumsan eu amet ut pellentesque.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Mail subscription-->
-    <section class="container">
-      <div class="card py-5 border-0 shadow">
-        <div class="card-body py-md-4 py-3 px-4 text-center">
-          <h3 class="mb-3">Never miss a drop!</h3>
-          <p class="mb-4 pb-2">Subscribe to our ultra-exclusive drop list and be the first to know about upcoming drops.</p>
-          <div class="widget mx-auto" style="max-width: 500px;">
-            <form class="subscription-form validate" action="https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=29ca296126" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-              <div class="input-group flex-nowrap"><i class="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
-                <input class="form-control rounded-start" type="email" name="EMAIL" placeholder="Your email" required>
-                <button class="btn btn-accent" type="submit" name="subscribe">Subscribe*</button>
-              </div>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                <input class="subscription-form-antispam" type="text" name="b_c7103e2c981361a6639545bd5_29ca296126" tabindex="-1">
-              </div>
-              <div class="form-text mt-3">*Receive early discount offers, updates and new products info.</div>
-              <div class="subscription-status"></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-  <!-- Footer-->
-  <footer class="footer bg-darker">
-    <div class="mt-n10 pt-10 bg-dark">
-      <div class="container py-5">
-        <div class="row py-lg-4">
-          <div class="col-lg-4 mb-lg-0 mb-4">
-            <div class="widget pb-3 mb-lg-4">
-              <h3 class="widget-title text-light pb-1">Stay informed</h3>
-              <form class="subscription-form validate" action="https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=29ca296126" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-                <div class="input-group flex-nowrap"><i class="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
-                  <input class="form-control rounded-start" type="email" name="EMAIL" placeholder="Your email" required>
-                  <button class="btn btn-accent" type="submit" name="subscribe">Subscribe*</button>
-                </div>
-                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                  <input class="subscription-form-antispam" type="text" name="b_c7103e2c981361a6639545bd5_29ca296126" tabindex="-1">
-                </div>
-                <div class="form-text text-light opacity-50">*Subscribe to our newsletter to receive early discount offers, updates and new products info.</div>
-                <div class="subscription-status"></div>
-              </form>
-            </div>
-            <div><a class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook me-2 mb-2" href="#"><i class="ci-facebook"></i></a><a class="btn-social bs-light bs-instagram me-2 mb-2" href="#"><i class="ci-instagram"></i></a><a class="btn-social bs-light bs-pinterest me-2 mb-2" href="#"><i class="ci-pinterest"></i></a><a class="btn-social bs-light bs-youtube me-2 mb-2" href="#"><i class="ci-youtube"></i></a></div>
-          </div>
-          <div class="col-lg-6 offset-lg-1">
-            <div class="d-flex flex-sm-row flex-column justify-content-sm-between mt-n4 mx-lg-n3">
-              <div class="widget widget-links widget-light mt-4 px-lg-3 px-sm-n2">
-                <h3 class="widget-title text-light">Company</h3>
-                <ul class="widget-list">
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">About Us</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">How It Works</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">Create an NFT With Us</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">Support</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">Blog</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">My Account</a></li>
-                </ul>
-              </div>
-              <div class="widget widget-links widget-light mt-4 px-lg-3 px-sm-n2">
-                <h3 class="widget-title text-light">Marketplace</h3>
-                <ul class="widget-list">
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">All NFTs</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">New</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">Art</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">Music</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">Photography</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">Utility</a></li>
-                </ul>
-              </div>
-              <div class="widget widget-links widget-light mt-4 px-lg-3 px-sm-n2">
-                <h3 class="widget-title text-light">Help</h3>
-                <ul class="widget-list">
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">Terms and Conditions</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">Privacy Policy</a></li>
-                  <li class="widget-list-item"><a class="widget-list-link" href="#">FAQ</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container my-lg-4 my-3 py-2">
-      <div class="d-flex flex-md-row flex-column-reverse align-items-center justify-content-md-between">
-        <div class="fs-xs text-light opacity-50">&copy; All rights reserved. Made by <a class="text-light" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a></div>
-        <div class="d-flex align-items-start mb-md-0 mb-3 mx-n1">
-          <div class="px-1"><a class="btn-market btn-apple bg-dark" href="#"><span class="btn-market-subtitle">Download on the</span><span class="btn-market-title">App Store</span></a></div>
-          <div class="px-1"><a class="btn-market btn-google bg-dark" href="#"><span class="btn-market-subtitle">Download on the</span><span class="btn-market-title">Google Play</span></a></div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Toolbar for handheld devices (NFT Marketplace)-->
-  <div class="handheld-toolbar">
-    <div class="d-table table-layout-fixed w-100"><a class="d-none handheld-toolbar-item" href="#vendor-sidebar" data-bs-toggle="offcanvas"><span class="handheld-toolbar-icon"><i class="ci-sign-in"></i></span><span class="handheld-toolbar-label">Sidebar</span></a><a class="d-table-cell handheld-toolbar-item" href="#signin-modal" data-bs-toggle="modal"><span class="handheld-toolbar-icon"><i class="ci-user"></i></span><span class="handheld-toolbar-label">Account</span></a><a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item" href="nft-connect-wallet.html"><span class="handheld-toolbar-icon"><i class="ci-wallet"></i></span><span class="handheld-toolbar-label text-nowrap">Connect wallet</span></a>
-    </div>
-  </div>
