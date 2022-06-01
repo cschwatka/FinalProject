@@ -10,10 +10,12 @@ public interface ReviewService {
 	
 	List<Review> index();
 	
-	Review create(Review review);
+	Review create(Review review, int id);
 	
 	Review update(int reviewId, Review review);
 	
 	Review destroy(int reviewId);
+	
+	
 
 }
