@@ -26,6 +26,7 @@ export class MyAccountComponent implements OnInit {
   reading: boolean = false;
   postsEnabled: boolean = false;
   profile: boolean = false;
+  friends: boolean = false;
 
   constructor(private service: BooknookService, private auth: AuthService, private router: Router, private route: ActivatedRoute) { }
 
@@ -53,6 +54,7 @@ export class MyAccountComponent implements OnInit {
       this.postsEnabled = false;
       this.finished = false;
       this.reading = false;
+      this.friends = false;
     } else if (bind === "profile") {
       this.profile = true;
       this.wishlist = false;
@@ -60,6 +62,7 @@ export class MyAccountComponent implements OnInit {
       this.postsEnabled = false;
       this.finished = false;
       this.reading = false;
+      this.friends = false;
     } else if (bind === "posts") {
       this.profile = false;
       this.wishlist = false;
@@ -67,6 +70,7 @@ export class MyAccountComponent implements OnInit {
       this.postsEnabled = true;
       this.finished = false;
       this.reading = false;
+      this.friends = false;
     } else if (bind === "wishlist") {
       this.profile = false;
       this.wishlist = true;
@@ -74,6 +78,7 @@ export class MyAccountComponent implements OnInit {
       this.postsEnabled = false;
       this.finished = false;
       this.reading = false;
+      this.friends = false;
     } else if (bind === "favorites") {
       this.profile = false;
       this.wishlist = false;
@@ -81,6 +86,7 @@ export class MyAccountComponent implements OnInit {
       this.postsEnabled = false;
       this.finished = false;
       this.reading = false;
+      this.friends = false;
     } else if (bind === "finished") {
       this.profile = false;
       this.wishlist = false;
@@ -88,6 +94,7 @@ export class MyAccountComponent implements OnInit {
       this.postsEnabled = false;
       this.finished = true;
       this.reading = false;
+      this.friends = false;
     } else if (bind === "reading") {
       this.profile = false;
       this.wishlist = false;
@@ -95,6 +102,15 @@ export class MyAccountComponent implements OnInit {
       this.postsEnabled = false;
       this.finished = false;
       this.reading = true;
+      this.friends = false;
+    } else if (bind === "friends") {
+      this.profile = false;
+      this.wishlist = false;
+      this.favorites = false;
+      this.postsEnabled = false;
+      this.finished = false;
+      this.reading = false;
+      this.friends = true;
     } else {
       this.profile = true;
       this.wishlist = false;
@@ -102,6 +118,7 @@ export class MyAccountComponent implements OnInit {
       this.postsEnabled = false;
       this.finished = false;
       this.reading = false;
+      this.friends = false;
     }
   }
 
@@ -194,6 +211,45 @@ export class MyAccountComponent implements OnInit {
       (err) => console.log(err)
     )
 
+  }
+
+  checkUser(id: number, userId: number) {
+    this.service.showUser(userId).subscribe(
+      (data) => (this.user = data),
+      (err) => console.log(err)
+    );
+  }
+
+  usersFollowingRemove(userToFollowId: number) {
+    let userDoingTheFollowing = localStorage.getItem('userId');
+    let userDoingTheFollowingId = 0;
+    let rejected = false;
+    if (
+      userToFollowId !== null &&
+      userDoingTheFollowing !== null &&
+      this.user !== null
+    ) {
+      userDoingTheFollowingId = parseInt(userDoingTheFollowing);
+      for (let userCheck of this.user.followedUsers) {
+        if (userCheck.id === this.user.id) {
+          rejected = true;
+          break;
+        }
+      }
+      if (rejected === false && userDoingTheFollowing !== null) {
+        this.service
+          .removeUserFollowing(userToFollowId, userDoingTheFollowingId)
+          .subscribe(
+            (data) => {
+              if (userToFollowId !== null && this.user !== null) {
+                this.checkUser(userToFollowId, this.user.id);
+                // this.refresh();
+              }
+            },
+            (err) => console.log(err)
+          );
+      }
+    }
   }
 
 }
