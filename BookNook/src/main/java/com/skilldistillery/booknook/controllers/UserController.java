@@ -245,6 +245,7 @@ public class UserController {
 			){
 		userService.removeBookFromFinished(userId, bookId);
 	}
+	
 	@PostMapping("users/{userId}/favoritebooks")
 	public Book addBookToUserFavorites(
 			@PathVariable Integer userId,
@@ -267,6 +268,33 @@ public class UserController {
 			HttpServletRequest req
 			){
 		userService.removeBookFromFavorites(userId, bookId);
+	}
+	
+	
+	@PostMapping("users/{userId}/userfollow/{userToFollowId}")
+	public User addUserToUserUsersFollowing(
+			@PathVariable Integer userId,
+			@RequestBody User user,
+			@PathVariable Integer userToFollowId,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		User userDoingTheFollowing = userService.addUserToUsersFollowing(userId, userToFollowId, user);
+		if( userDoingTheFollowing == null) {
+			res.setStatus(404);
+		}
+		return userDoingTheFollowing;
+	}
+	
+	@DeleteMapping("users/{userId}/userfollow/{userToFollowId}")
+	public void deleteUserFromUserUsersFollowing(
+			@PathVariable Integer userId,
+			@PathVariable Integer userToFollowId,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		userService.deleteUserFromUserUsersFollowing(userId, userToFollowId);
+		
 	}
 	
 }

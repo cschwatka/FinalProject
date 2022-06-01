@@ -29,7 +29,8 @@
           <article class="blog-list border-bottom pb-4 mb-5" *ngIf="post.enabled === true">
             <div class="blog-start-column">
               <div class="d-flex align-items-center fs-sm pb-2 mb-1"><a class="blog-entry-meta-link">
-                <div class="blog-entry-author-ava"><img [src]="post.user.imgUrl"></div>{{post.user.username}}</a><span class="blog-entry-meta-divider"></span><a class="blog-entry-meta-link">{{post.postDate | date:"short"}}</a></div>
+                <div class="blog-entry-author-ava"><img [src]="post.user.imgUrl"></div>{{post.user.username}}</a><span class="blog-entry-meta-divider"></span><a name="following" *ngIf="checkLists(post)" class="blog-entry-meta-link" (click)="usersFollowingAdd(post.user.id)">Follow</a><a name="following" *ngIf="!checkLists(post)" class="blog-entry-meta-link" (click)="usersFollowingRemove(post.user.id)">Marked Followed</a></div>
+                <div><a class="blog-entry-meta-link">{{post.postDate | date:"short"}}</a></div>
                 <h2 class="h5 blog-entry-title"><a [routerLink]="['/postview', post.id]">{{post.title}}</a></h2>
               </div>
               <div class="blog-end-column">
