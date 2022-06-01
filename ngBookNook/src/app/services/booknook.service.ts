@@ -400,7 +400,7 @@ export class BooknookService {
 
     updateUser(user: User, id: number) {
       console.log(user);
-      delete user.usersFollowing; // neuter the problem json field
+        delete user.usersFollowing; // neuter the problem json field causing controller to fail parse
       return this.http.put<User>(this.url + "users/" + id, user, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
@@ -496,6 +496,19 @@ export class BooknookService {
         catchError((err: any) => {
           console.log(err);
           return throwError('Could not return the list of users following');
+        })
+      );
+    }
+
+
+    // addUserFollowing(userToFollowId: number, userDoingTheFollowingId: number) {
+    addUserFollowing(userToFollowId: number, userDoingTheFollowingId: number, user: User) {
+      delete user.usersFollowing;
+      return this.http.post<User>(this.url + "users/" + userDoingTheFollowingId + "/userfollow/" + userToFollowId, user, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not follow the User');
         })
       );
     }

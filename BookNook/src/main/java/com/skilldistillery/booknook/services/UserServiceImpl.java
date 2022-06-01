@@ -16,10 +16,10 @@ import com.skilldistillery.booknook.repositories.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserRepository userRepo;
-	
+
 	@Autowired
 	private BookRepository bookRepo;
 
@@ -40,9 +40,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User update(int userId, User user) {
 		User managedUser = getUserById(userId);
-		user.setUsersFollowing(managedUser.getUsersFollowing()); //PATCH for property removal in frontend service
-		
-		if( getUserById(userId) != null) {
+		user.setUsersFollowing(managedUser.getUsersFollowing()); // PATCH for property removal in frontend service
+
+		if (getUserById(userId) != null) {
 			user.setId(userId);
 			return userRepo.saveAndFlush(user);
 		}
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User destroy(int userId) {
-		if( getUserById(userId) != null) {
+		if (getUserById(userId) != null) {
 			User user = getUserById(userId);
 			user.setEnabled(false);
 			return user;
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
 	public List<Category> categories(int userId) {
 		return userRepo.findCategoriesById(userId);
 	}
-	
+
 	@Override
 	public List<Author> authors(int userId) {
 		return userRepo.findAuthorsById(userId);
@@ -132,7 +132,7 @@ public class UserServiceImpl implements UserService {
 		managedBook.removeUserFromWishlist(user);
 		bookRepo.saveAndFlush(managedBook);
 	}
-	
+
 	@Override
 	public Book addBookToFavorites(int userId, Book book) {
 		Optional<User> userOpt = userRepo.findById(userId);
@@ -166,7 +166,7 @@ public class UserServiceImpl implements UserService {
 		managedBook.removeUserFromFavorites(user);
 		bookRepo.saveAndFlush(managedBook);
 	}
-	
+
 	@Override
 	public Book addBookToReading(int userId, Book book) {
 		Optional<User> userOpt = userRepo.findById(userId);
@@ -200,7 +200,7 @@ public class UserServiceImpl implements UserService {
 		managedBook.removeUserFromReading(user);
 		bookRepo.saveAndFlush(managedBook);
 	}
-	
+
 	@Override
 	public Book addBookToFinished(int userId, Book book) {
 		Optional<User> userOpt = userRepo.findById(userId);
@@ -233,6 +233,29 @@ public class UserServiceImpl implements UserService {
 		}
 		managedBook.removeUserFromFinished(user);
 		bookRepo.saveAndFlush(managedBook);
+	}
+
+	@Override
+//	public User addUserToUsersFollowing(int userId, int userToFollowId) {
+	public User addUserToUsersFollowing(int userId, int userToFollowId, User user) {
+
+		Optional<User> userOptFollow = userRepo.findById(userToFollowId);
+		User userToFollow = null;
+		if (userOptFollow.isPresent()) {
+			userToFollow = userOptFollow.get();
+		}
+
+		Optional<User> userOpt = userRepo.findById(userId);
+		User userDoingTheFollowing = null;
+		if (userOpt.isPresent()) {
+			userDoingTheFollowing = userOpt.get();
+		}
+
+		userDoingTheFollowing.addUserToUsersFollowing(userToFollow);
+
+		userRepo.saveAndFlush(userDoingTheFollowing);
+
+		return userDoingTheFollowing;
 	}
 
 }

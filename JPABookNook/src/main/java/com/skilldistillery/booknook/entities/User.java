@@ -252,6 +252,30 @@ public class User {
 			book.removeUserFromFinished(this);
 		}
 	}
+	
+	public void addUserToUsersFollowing(User user) {
+		if (this.usersFollowing == null) {
+			this.usersFollowing = new ArrayList<>();
+		}
+		if (! this.usersFollowing.contains(user)) {
+			this.usersFollowing.add(user);
+			user.addUserToFollowedUsers(this);
+			}
+	}
+	
+	public void addUserToFollowedUsers(User user) {
+		
+		if (this.followedUsers == null) {
+			this.followedUsers = new ArrayList<>();
+		}
+		
+		if (! this.followedUsers.contains(user)) {
+			this.followedUsers.add(user);
+			user.addUserToUsersFollowing(this);
+		}
+		
+		
+	}
 
 
 	public String getRole() {

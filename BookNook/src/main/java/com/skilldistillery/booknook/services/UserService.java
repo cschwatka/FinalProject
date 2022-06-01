@@ -48,4 +48,6 @@ public interface UserService {
 	public Book addBookToFinished(int userId, Book books);
 	
 	public void removeBookFromFinished(int userId, int bookId);
+	
+	public User addUserToUsersFollowing(int userId, int userToFollowId, User user);
 }

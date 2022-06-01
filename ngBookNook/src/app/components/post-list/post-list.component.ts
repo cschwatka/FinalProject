@@ -60,4 +60,64 @@ export class PostListComponent implements OnInit {
 
   }
 
-}
+  checkUser(id: number, userId: number) {
+    let user: User = new User();
+
+    this.svc.showUser(userId).subscribe(
+      (data) => user = data,
+      (err) => console.log(err)
+      )
+    }
+
+  usersFollowingAdd(userToFollowId: number) {
+    let userDoingTheFollowing = localStorage.getItem("userId");
+    let userDoingTheFollowingId = 0;
+    let rejected = false;
+    if (userToFollowId !== null && userDoingTheFollowing !== null && this.user !== null) {
+      userDoingTheFollowingId = parseInt(userDoingTheFollowing);
+      for (let userCheck of this.user.followedUsers) {
+        if (userCheck.id === this.user.id) {
+          rejected = true;
+          break;
+        }
+      }
+      if (rejected === false && userDoingTheFollowing !== null) {
+        this.svc.addUserFollowing(userToFollowId, userDoingTheFollowingId, this.user).subscribe(
+          (data) => {if (userToFollowId !== null && this.user !== null) {
+             this.checkUser(userToFollowId, this.user.id);
+          }},
+          (err) => console.log(err)
+        )
+
+
+      }
+  }
+
+
+
+
+  // readingAdd(book: Book) {
+  //   let userId = localStorage.getItem("userId");
+  //   let id = 0;
+  //   let rejected = false;
+  //   if (userId !== null && this.user !== null) {
+  //     id = parseInt(userId);
+  //     for (let book1 of this.user.readingBooks) {
+  //       if (book1.id === book.id) {
+  //         rejected = true;
+  //         break;
+  //       }
+  //     }
+  //   }
+  //   if (rejected === false && this.user !== null) {
+
+  //    this.service.postReading(book, this.user.id).subscribe(
+  //      (data) => {if (this.selected !== null && this.user !== null) {
+  //         this.checkUser(this.selected.id, this.user.id);
+  //      }},
+  //      (err) => console.log(err)
+  //    )
+  //   }
+  // }
+
+}}
