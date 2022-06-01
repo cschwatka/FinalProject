@@ -102,6 +102,52 @@ finishedAdd(book: Book) {
   }
 }
 
+favoritesAdd(book: Book) {
+  let userId = localStorage.getItem("userId");
+  let id = 0;
+  let rejected = false;
+    if (userId !== null && this.user !== null) {
+      id = parseInt(userId);
+      for (let book1 of this.user.favoriteBooks) {
+        if (book1.id === book.id) {
+          rejected = true;
+          break;
+        }
+      }
+    }
+    if (rejected === false && this.user !== null) {
+      this.service.postFavorite(book, this.user.id).subscribe(
+        (data) => {if (this.selected !== null && this.user !== null) {
+          this.checkUser(this.selected.id, this.user.id);
+       }},
+       (err) => console.log(err)
+     )
+  }
+}
+
+favoritesRemove(book: Book) {
+  let userId = localStorage.getItem("userId");
+  let id = 0;
+  let rejected = false;
+    if (userId !== null && this.user !== null) {
+      id = parseInt(userId);
+      for (let book1 of this.user.favoriteBooks) {
+        if (book1.id === book.id) {
+          rejected = true;
+          break;
+        }
+      }
+    }
+    if (rejected === true && this.user !== null) {
+      this.service.removeFavorite(this.user.id, book.id).subscribe(
+        (data) => {if (this.selected !== null && this.user !== null) {
+          this.checkUser(this.selected.id, this.user.id);
+       }},
+       (err) => console.log(err)
+     )
+  }
+}
+
 showUser(id: number) {
   this.service.showUser(id).subscribe(
     (data) => {this.user = data;
@@ -125,7 +171,7 @@ checkUser(id: number, userId: number) {
     if (user !== null) {
 
       let list: Book[] = user.wishlistBooks;
-
+      this.wishlistDisabled = false;
       if (this.selected !== null) {
         for (let book of list) {
           if (book.id === this.selected.id) {
@@ -134,7 +180,7 @@ checkUser(id: number, userId: number) {
           }
         }
       }
-
+      this.readingDisabled = false;
       list = user.readingBooks;
       if (this.selected !== null) {
         for (let book of list) {
@@ -148,6 +194,7 @@ checkUser(id: number, userId: number) {
       list = user.finishedBooks;
       console.log(user.finishedBooks);
 
+      this.finishedDisabled = false;
       if (this.selected !== null) {
         for (let book of list) {
           if (book.id === this.selected.id) {
@@ -157,6 +204,7 @@ checkUser(id: number, userId: number) {
         }
       }
 
+      this.favoriteDisabled = false;
       list = user.favoriteBooks;
       if (this.selected !== null) {
         for (let book of list) {
