@@ -99,8 +99,8 @@
           <!-- Sorting-->
           <div class="flex-shrink-0 border-start">
             <div class="dropdown">
-              <button *ngIf="recentlyAdded == true" class="btn border-0 p-4 fw-medium" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-sm-inline d-none">Recently added</span><i class="ci-arrow-down ms-sm-2 fs-sm"></i></button>
-              <button *ngIf="oldest == true" class="btn border-0 p-4 fw-medium" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-sm-inline d-none">Oldest</span><i class="ci-arrow-down ms-sm-2 fs-sm"></i></button>
+              <button *ngIf="recentlyAdded == true" class="btn border-0 p-4 fw-medium" style="color:black;" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-sm-inline d-none">Recently added</span><i class="ci-arrow-down ms-sm-2 fs-sm"></i></button>
+              <button *ngIf="oldest == true" class="btn border-0 p-4 fw-medium" style="color:black;" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-sm-inline d-none">Oldest</span><i class="ci-arrow-down ms-sm-2 fs-sm"></i></button>
               <div *ngIf="recentlyAdded == true" class="dropdown-menu w-100"><a (click)="recentlyAdded=true; oldest=false;" class="dropdown-item active" href="#" style="white-space: normal;">Recently added</a><a (click)="oldest=true; recentlyAdded=false;" class="dropdown-item" href="#" style="white-space: normal;">Oldest</a></div>
               <div *ngIf="oldest == true" class="dropdown-menu w-100"><a (click)="recentlyAdded=true; oldest=false;" class="dropdown-item" href="#" style="white-space: normal;">Recently added</a><a (click)="oldest=true; recentlyAdded=false;" class="dropdown-item active" href="#" style="white-space: normal;">Oldest</a></div>
             </div>

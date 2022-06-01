@@ -415,9 +415,9 @@ legend {
     font-size: 1.5rem;
   }
 }
-legend + * {
+/* legend + * {
   clear: left;
-}
+} */
 
 ::-webkit-datetime-edit-fields-wrapper,
 ::-webkit-datetime-edit-text,
@@ -15092,13 +15092,21 @@ div.code-toolbar > .toolbar > .toolbar-item > button > span {
   background-color: #f6f9fc;
 }
 
-.table > :not(:last-child) > :last-child > * {
+/* .table > :not(:last-child) > :last-child > * {
+  border-bottom-color: #bccad9;
+} */
+
+/* .table.table-dark > :not(:last-child) > :last-child > * {
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+} */
+
+/* .table > :not(:last-child) > :last-child  {
   border-bottom-color: #bccad9;
 }
 
-.table.table-dark > :not(:last-child) > :last-child > * {
+ .table.table-dark > :not(:last-child) > :last-child  {
   border-bottom-color: rgba(255, 255, 255, 0.5);
-}
+} */
 
 .col-form-label {
   font-size: 0.875rem;
@@ -18877,9 +18885,9 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
 .page-title-overlap {
   padding-bottom: 6.375rem;
 }
-.page-title-overlap + * {
+/* .page-title-overlap + * {
   margin-top: -4.875rem;
-}
+} */
 @media (max-width: 767.98px) {
   .page-title-overlap {
     padding-bottom: 5.5rem;
