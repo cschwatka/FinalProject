@@ -82,6 +82,25 @@ export class PostViewComponent implements OnInit {
 
   }
 
+  removeComment(comment: Comment) {
+    this.service.removeComment(comment.id).subscribe(
+      (success) => { if (this.selected !== null) {
+        this.show(this.selected.id)
+      }},
+      (err) => console.log(err)
+    )
+  }
+
+  commentCount(): number {
+    let count = 0;
+    for (let comment of this.comments) {
+      if (comment.enabled === true) {
+        count++;
+      }
+    }
+    return count;
+  }
+
 
   postCommentReply(comment: Comment) {
     if (this.selected != null && this.user != null) {

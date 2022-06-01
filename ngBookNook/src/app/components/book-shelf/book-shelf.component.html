@@ -112,7 +112,6 @@
             <div class="border-start">
               <div class="p-4 fs-md text-nowrap">Pages 1/5</div>
             </div>
-            <p>Default pagination:</p>
             <!-- Back-->
             <div class="border-start"><a class="btn border-0 p-4 fw-medium" href="#"><i class="ci-arrow-left"></i></a></div>
             <!-- Forward-->
@@ -133,7 +132,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" (change)="check(category)">
                       <label class="form-check-label" for="all">{{category.name}}</label>
-                    </div><span class="fs-xs text-muted">{{category.books.length}}</span>
+                    </div><span class="fs-xs text-muted">{{categoryNumber(category)}}</span>
                   </li>
                 </ul>
               </div>
@@ -148,7 +147,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" (change)="checkLanguage(language)">
                       <label class="form-check-label" for="all">{{language.name}}</label>
-                    </div><span class="fs-xs text-muted">{{language.books.length}}</span>
+                    </div><span class="fs-xs text-muted">{{languageNumber(language)}}</span>
                   </li>
                 </ul>
               </div>

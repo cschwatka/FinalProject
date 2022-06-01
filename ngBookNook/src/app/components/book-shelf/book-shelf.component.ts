@@ -39,6 +39,26 @@ export class BookShelfComponent implements OnInit {
     this.router.navigateByUrl("/displaybook/" + id)
   }
 
+  categoryNumber(category: Category): number {
+    let count = 0;
+    for (let book of category.books) {
+      if (book.enabled === true) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  languageNumber(language: Language): number {
+    let count = 0;
+    for (let book of language.books) {
+      if (book.enabled === true) {
+        count++;
+      }
+    }
+    return count;
+  }
+
   displayCount(num: number) {
     this.bookCount = num;
   }

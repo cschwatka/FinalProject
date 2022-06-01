@@ -16,7 +16,7 @@
         <div class="d-flex flex-wrap justify-content-between align-items-center pb-4 mt-n1" *ngIf="selected != null">
           <div class="d-flex align-items-center fs-sm mb-2"><a class="blog-entry-meta-link">
               <div class="blog-entry-author-ava"><img [src]="selected.user.imgUrl"></div>{{selected.user.username}}</a><span class="blog-entry-meta-divider"></span><a class="blog-entry-meta-link" href="#">{{selected.postDate | date:"medium"}}</a></div>
-          <div class="fs-sm mb-2"><a class="blog-entry-meta-link text-nowrap" data-scroll><i class="ci-message"></i>{{selected.comments.length}}</a></div>
+          <div class="fs-sm mb-2"><a class="blog-entry-meta-link text-nowrap" data-scroll><i class="ci-message"></i>{{commentCount()}}</a></div>
         </div>
         <!-- Post content-->
         <h2 *ngIf="selected != null">{{selected.title}}</h2>
@@ -27,20 +27,27 @@
         </blockquote>
         <!-- Comments-->
         <div class="pt-2 mt-5">
-          <h2 class="h4">Comments<span class="badge bg-secondary fs-sm text-body align-middle ms-2">{{comments.length}}</span></h2>
+          <h2 class="h4">Comments<span class="badge bg-secondary fs-sm text-body align-middle ms-2">{{commentCount()}}</span></h2>
           <div *ngFor="let comment of comments">
           <!-- comment-->
-          <div class="d-flex align-items-start py-4 border-bottom" *ngIf="comment.comment === null"><img class="rounded-circle" [src]="comment.user.imgUrl" width="50">
+          <div class="d-flex align-items-start py-4 border-bottom" *ngIf="comment.comment === null && comment.enabled === true"><img class="rounded-circle" [src]="comment.user.imgUrl" width="50">
             <div class="ps-3" >
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <h6 class="fs-md mb-0">{{comment.user.username}}</h6><a class="nav-link-style fs-sm fw-medium" [attr.data-bs-target]="'#collapseExample'+comment.id" data-bs-toggle="collapse" [attr.aria-controls]="'collapseExample'+ comment.id"><i class="ci-reply me-2"></i>Reply</a>
+                <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center" *ngIf="user?.id === comment.user.id || user?.role === 'ROLE_ADMIN'">
+                  <button class="btn btn-outline-danger btn-sm" type="button" (click)="removeComment(comment)" ><i class="ci-trash me-2"></i>Remove</button>
+                </div>
               </div>
               <p class="fs-md mb-1">{{comment.content}}</p><span class="fs-ms text-muted"><i class="ci-time align-middle me-2"></i>{{comment.commentDate | date:"medium"}}</span>
               <!-- comment reply-->
-              <div class="d-flex align-items-start border-top pt-4 mt-4" *ngFor="let reply of comment.comments"><img class="rounded-circle" [src]="reply.user.imgUrl" width="50">
-                <div class="ps-3">
+              <div class="d-flex align-items-start border-top pt-4 mt-4" *ngFor="let reply of comment.comments">
+                <div class="ps-3" *ngIf="reply.enabled === true">
+                  <img class="rounded-circle" [src]="reply.user.imgUrl" width="50">
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fs-md mb-0">{{reply.user.username}}</h6>
+                    <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center" *ngIf="user?.id === comment.user.id || user?.role === 'ROLE_ADMIN'">
+                      <button class="btn btn-outline-danger btn-sm" type="button" (click)="removeComment(reply)" ><i class="ci-trash me-2"></i>Remove</button>
+                    </div>
                   </div>
                   <p class="fs-md mb-1">{{reply.content}}</p><span class="fs-ms text-muted"><i class="ci-time align-middle me-2"></i>{{reply.commentDate | date:"medium"}}</span>
                 </div>
