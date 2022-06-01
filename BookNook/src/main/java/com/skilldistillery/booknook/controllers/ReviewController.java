@@ -49,11 +49,11 @@ public class ReviewController {
 		return reviews;
 	}
 	
-	@PostMapping("reviews")
+	@PostMapping("reviews/{id}")
 	public Review create(@RequestBody Review review, HttpServletResponse res,
-			HttpServletRequest req) {
+			HttpServletRequest req, @PathVariable Integer id) {
 		
-		Review newReview = reviewService.create(review);
+		Review newReview = reviewService.create(review, id);
 		if (newReview == null) {
 			res.setStatus(404);
 		}

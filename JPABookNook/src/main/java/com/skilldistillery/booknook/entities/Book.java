@@ -78,7 +78,7 @@ public class Book {
 	@ManyToMany(mappedBy = "books")
 	private List<Author> authors;
 	
-	@JsonIgnore
+	@JsonIgnoreProperties({"book"})
 	@OneToMany(mappedBy = "book")
 	private List<Review> reviews;
 	

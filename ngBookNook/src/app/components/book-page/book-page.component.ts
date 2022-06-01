@@ -29,7 +29,8 @@ reviews: Review[] = [];
 
 show(id: number){
   this.service.showBook(id).subscribe(
-    (data) => this.selected = data,
+    (data) => {this.selected = data;
+    this.reviews = this.selected.reviews},
     (error) => console.log("Observable error showing book for selected book: " + error)
   )
 }
@@ -236,28 +237,63 @@ checkUser(id: number, userId: number) {
       this.showUser(parseInt(userId));
       this.checkUser(parseInt(id), parseInt(userId));
     }
+    if(this.selected != null){
+    this.show(this.selected.id)
+    }
   }
 
-
-  reload() {
-    this.svc.showReviewList().subscribe(
-      (data) => {
-        this.reviews = data;
-         console.log(this.reviews)},
-      (err) => console.log(err)
-    )
-  }
 
   makeReview() {
     if(this.user != null){
       this.newReview.user = this.user;
     }
-    this.service.postReview(this.newReview).subscribe(
-      (success) => {this.reload(); this. newReview = new Review()},
+    if(this.selected != null){
+  this.service.postReview(this.newReview, this.selected.id).subscribe(
+      (success) => {if(this.selected != null){
+        this.show(this.selected.id)
+        }
+        this.newReview = new Review()},
       (err) => console.log(err)
     )
   }
+}
 
+progressBar(num: number){
+  let count = 0;
+  for(let review of this.reviews){
+    if(review.rating === num){
+      count++
+    }
+  }
+  let sum = (count/this.reviews.length) * 100
+  return sum;
+}
+
+progressCount(num: number){
+  let count = 0;
+  for(let review of this.reviews){
+    if(review.rating === num){
+      count++
+    }
+  }
+  return count;
+}
+
+overallRating(){
+  let sum = 0;
+  for(let review of this.reviews){
+    sum += review.rating;
+  }
+  return sum/this.reviews.length;
+}
+
+overallRatingFlat(){
+  let sum = 0;
+  for(let review of this.reviews){
+    sum += review.rating;
+  }
+  return Math.floor(sum/this.reviews.length);
+}
 
 
 }

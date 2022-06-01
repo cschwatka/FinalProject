@@ -24,13 +24,15 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@JsonIgnoreProperties({"book", "user"})
-	
+	@JsonIgnoreProperties({"users", "reviews", "categories", "favoriteUsers", "finishedUsers", "readingUsers", "wishlistUsers"})
 	@ManyToOne
 	@JoinColumn(name="book_id")
 	private Book book;
 	
 	
+	@JsonIgnoreProperties({"usersFollowing","followedUsers", "books","categories","authors",
+		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+		"favoriteBooks", "finishedBooks","wishlistBooks", "readingBooks"})
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
