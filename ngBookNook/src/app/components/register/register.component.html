@@ -10,12 +10,12 @@
     <div class="row gx-4 gy-3">
       <div class="col-sm-6">
         <label class="form-label" for="reg-fn">First Name</label>
-        <input class="form-control" type="text" required id="reg-fn">
+        <input class="form-control" type="text" required id="reg-fn" name="firstName" [(ngModel)]="newUser.firstName">
         <div class="invalid-feedback">Please enter your first name!</div>
       </div>
       <div class="col-sm-6">
         <label class="form-label" for="reg-ln">Last Name</label>
-        <input class="form-control" type="text" required id="reg-ln">
+        <input class="form-control" type="text" required id="reg-ln" name="lastName" [(ngModel)]="newUser.lastName">
         <div class="invalid-feedback">Please enter your last name!</div>
       </div>
 
