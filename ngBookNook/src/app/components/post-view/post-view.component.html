@@ -59,7 +59,7 @@
                 <div class="d-flex align-items-start"><img class="rounded-circle" [src]="user?.imgUrl" width="50" alt="Mary Alice">
                   <form class="w-100 needs-validation ms-3" novalidate>
                     <div class="mb-3">
-                      <textarea name="content" [(ngModel)]="newComment.content" class="form-control" rows="4" placeholder="Write reply..." required></textarea>
+                      <textarea name="content" [(ngModel)]="newComment2.content" class="form-control" rows="4" placeholder="Write reply..." required></textarea>
                       <div class="invalid-feedback">Please write your reply.</div>
                     </div>
                     <button class="btn btn-primary btn-sm" type="submit" (click)="postCommentReply(comment)">Post comment</button>

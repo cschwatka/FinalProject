@@ -16,6 +16,7 @@ export class PostViewComponent implements OnInit {
   selected: Post | null = null;
   comments: Comment[] = [];
   newComment: Comment = new Comment();
+  newComment2: Comment = new Comment();
   user: User | null = null;
   popularPosts: Post[] = [];
   posts: Post[] = [];
@@ -104,10 +105,10 @@ export class PostViewComponent implements OnInit {
 
   postCommentReply(comment: Comment) {
     if (this.selected != null && this.user != null) {
-      this.service.postComment(this.newComment, this.selected.id, comment.id, this.user.id).subscribe(
+      this.service.postComment(this.newComment2, this.selected.id, comment.id, this.user.id).subscribe(
         (success) => {if (this.selected != null) {
           this.show(this.selected.id)
-          this.newComment = new Comment();
+          this.newComment2 = new Comment();
         }},
         (err) => console.log(err)
 
