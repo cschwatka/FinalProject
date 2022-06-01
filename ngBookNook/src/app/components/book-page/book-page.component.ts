@@ -20,6 +20,7 @@ favoriteDisabled: boolean = false;
 user: User | null = null;
 newReview: Review = new Review();
 reviews: Review[] = [];
+searchText: string='';
 
   constructor(
     private route: ActivatedRoute,
