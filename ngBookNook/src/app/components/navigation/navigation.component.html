@@ -2,8 +2,7 @@
   <div class="container"><a class="navbar-brand d-none d-sm-block me-4 order-lg-1" href="index.html"><img src="assets/img/BookNookLogo.jpg" width="142" alt="Cartzilla"></a><a class="navbar-brand d-sm-none me-2 order-lg-1" href="index.html"><img src="img/logo-icon.png" width="74" alt="Cartzilla"></a>
     <div class="navbar-toolbar d-flex align-items-center order-lg-3">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button><a class="navbar-tool d-none d-lg-flex" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#searchBox" role="button" aria-expanded="false" aria-controls="searchBox"><span class="navbar-tool-tooltip">Search</span>
-        <div *ngIf="loggedIn() == false" class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-search"></i></div></a><a class="navbar-tool ms-lg-2" [routerLink]="['/home']" data-bs-toggle="modal"><span class="navbar-tool-tooltip">Account</span>
-        <div *ngIf="loggedIn() == true" class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-search"></i></div></a><a class="navbar-tool ms-lg-2" [routerLink]="['/myaccount/profile']" data-bs-toggle="modal"><span class="navbar-tool-tooltip">Account</span>
+        <div *ngIf="loggedIn() == true" class="navbar-tool-icon-box"></div></a><a class="navbar-tool ms-lg-2" [routerLink]="['/myaccount/profile']" data-bs-toggle="modal"><span class="navbar-tool-tooltip">Account</span>
         <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-user"></i></div></a>
       </div>
       <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
