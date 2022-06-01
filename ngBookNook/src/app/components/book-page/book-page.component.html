@@ -47,7 +47,7 @@
 
               <div class="d-flex align-items-center flex-wrap text-nowrap mb-sm-4 mb-3 fs-sm">
                 <div class="mb-2 me-sm-3 me-2 text-muted">Published: {{selected.publishDate | date: 'mediumDate'}}</div>
-                <div class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i class="ci-eye me-1 fs-base mt-n1 align-middle"></i>{{selected.favoriteUsers.length}} favorites</div>
+                <!-- <div class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i class="ci-eye me-1 fs-base mt-n1 align-middle"></i>{{favoriteCount()}} favorites</div> -->
                 <div class="favorites indicator" >
                   <div *ngIf="favoriteDisabled == false" (click)="favoritesAddOrRemove(selected)" class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i class="ci-heart me-1 fs-base mt-n1 align-middle"></i>Add to favorites</div>
                   <div *ngIf="favoriteDisabled == true" (click)="favoritesAddOrRemove(selected)" class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i *ngIf="favoriteDisabled == true" class="ci-heart me-1 fs-base mt-n1 align-middle"></i>Favorited!</div>
@@ -103,20 +103,20 @@
                 <!-- <div class="col"><a class="btn btn-lg btn-outline-accent d-block w-100" href="#">Make an offer</a></div> -->
               </div>
               <!-- Product info-->
-              <div class="pt-3">
+              <!-- <div class="pt-3"> -->
                 <!-- Nav tabs-->
-                <div class="mb-4" style="overflow-x: auto;">
+                <!-- <div class="mb-4" style="overflow-x: auto;">
                   <ul class="nav nav-tabs nav-fill flex-nowrap text-nowrap mb-1" role="tablist">
                     <li class="nav-item"><a class="nav-link active" href="#details" data-bs-toggle="tab" role="tab">Details</a></li>
                     <li class="nav-item"><a class="nav-link" href="#properties" data-bs-toggle="tab" role="tab">Properties</a></li>
                     <li class="nav-item"><a class="nav-link" href="#bids" data-bs-toggle="tab" role="tab">Bid History</a></li>
                     <li class="nav-item"><a class="nav-link" href="#provenance" data-bs-toggle="tab" role="tab">Provenance</a></li>
                   </ul>
-                </div>
+                </div> -->
                 <!-- Tabs content-->
-                <div class="tab-content">
+                <!-- <div class="tab-content"> -->
                   <!-- Details-->
-                  <div class="tab-pane fade show active" id="details" role="tabpanel">
+                  <!-- <div class="tab-pane fade show active" id="details" role="tabpanel">
                     <ul class="list-unstyled mb-0">
                       <li class="d-flex flex-sm-row flex-column align-items-sm-center justify-content-between mb-2 fs-sm"><span>Contract Address</span>
                         <div><a class="text-decoration-none" href="#"><span class="fw-medium text-body">0x1dDB2C08s97...9Ec</span><i class="ci-external-link ms-3 text-accent"></i></a></div>
@@ -134,9 +134,9 @@
                         <div><span class="text-body">Editable</span></div>
                       </li>
                     </ul>
-                  </div>
+                  </div> -->
                   <!-- Properties-->
-                  <div class="tab-pane fade" id="properties" role="tabpanel">
+                  <!-- <div class="tab-pane fade" id="properties" role="tabpanel">
                     <div class="row row-cols-md-3 row-cols-2 g-3">
                       <div class="col">
                         <div class="card h-100">
@@ -187,12 +187,12 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- Bid History-->
-                  <div class="tab-pane fade" id="bids" role="tabpanel">
-                    <ul class="list-unstyled mb-0">
+                  <!-- <div class="tab-pane fade" id="bids" role="tabpanel">
+                    <ul class="list-unstyled mb-0"> -->
                       <!-- Bid-->
-                      <li class="d-flex align-items-sm-center align-items-start w-100 mb-3 pb-3 border-bottom"><img class="rounded-circle me-2" src="img/nft/catalog/avatars/16.png" width="32" alt="Avatar">
+                      <!-- <li class="d-flex align-items-sm-center align-items-start w-100 mb-3 pb-3 border-bottom"><img class="rounded-circle me-2" src="img/nft/catalog/avatars/16.png" width="32" alt="Avatar">
                         <div class="d-sm-flex align-items-sm-center w-100">
                           <div class="mb-sm-0 mb-2">
                             <h6 class="mb-1 fs-sm"><a href='nft-vendor.html' class='text-decoration-none text-accent'>@distrokid</a> placed a bid</h6><span class="fs-sm fw-normal text-muted">2 hours ago</span>
@@ -201,9 +201,9 @@
                             <h6 class="mb-0 fs-lg fw-medium text-darker">2.80 ETH</h6><span class="fs-sm text-muted">(≈ $ 795.48)</span>
                           </div>
                         </div>
-                      </li>
+                      </li> -->
                       <!-- Bid-->
-                      <li class="d-flex align-items-sm-center align-items-start w-100 mb-3 pb-3 border-bottom"><img class="rounded-circle me-2" src="img/nft/catalog/avatars/02.png" width="32" alt="Avatar">
+                      <!-- <li class="d-flex align-items-sm-center align-items-start w-100 mb-3 pb-3 border-bottom"><img class="rounded-circle me-2" src="img/nft/catalog/avatars/02.png" width="32" alt="Avatar">
                         <div class="d-sm-flex align-items-sm-center w-100">
                           <div class="mb-sm-0 mb-2">
                             <h6 class="mb-1 fs-sm"><a href='nft-vendor.html' class='text-decoration-none text-accent'>@Simonlee</a> placed a bid</h6><span class="fs-sm fw-normal text-muted">Dec 22 at 3:41 pm</span>
@@ -212,9 +212,9 @@
                             <h6 class="mb-0 fs-lg fw-medium text-darker">1.65 ETH</h6><span class="fs-sm text-muted">(≈ $ 575.02)</span>
                           </div>
                         </div>
-                      </li>
+                      </li> -->
                       <!-- Bid-->
-                      <li class="d-flex align-items-sm-center align-items-start w-100"><img class="rounded-circle me-2" src="img/nft/catalog/avatars/03.png" width="32" alt="Avatar">
+                      <!-- <li class="d-flex align-items-sm-center align-items-start w-100"><img class="rounded-circle me-2" src="img/nft/catalog/avatars/03.png" width="32" alt="Avatar">
                         <div class="d-sm-flex align-items-sm-center w-100">
                           <div class="mb-sm-0 mb-2">
                             <h6 class="mb-1 fs-sm"><a href='nft-vendor.html' class='text-decoration-none text-accent'>@Sharan_Pagadala</a> placed a bid</h6><span class="fs-sm fw-normal text-muted">Oct 29 at 3:41 pm</span>
@@ -225,31 +225,31 @@
                         </div>
                       </li>
                     </ul>
-                  </div>
+                  </div> -->
                   <!-- Provenance-->
-                  <div class="tab-pane fade" id="provenance" role="tabpanel">
-                    <ul class="list-unstyled mb-4">
+                  <!-- <div class="tab-pane fade" id="provenance" role="tabpanel">
+                    <ul class="list-unstyled mb-4"> -->
                       <!-- Provenance item-->
-                      <li class="position-relative mb-0 ps-4 pb-4 border-start"><span class="d-inline-block position-absolute start-0 top-0 mt-1 p-1 bg-primary rounded-circle" style="transform: translateX(-50%);"></span>
+                      <!-- <li class="position-relative mb-0 ps-4 pb-4 border-start"><span class="d-inline-block position-absolute start-0 top-0 mt-1 p-1 bg-primary rounded-circle" style="transform: translateX(-50%);"></span>
                         <h6 class="mb-1 fs-sm">Listed by <a href='nft-vendor.html' class='text-decoration-none text-accent'>@distrokid</a></h6><span class="fs-sm text-muted">Dec 3 at 9:36 am</span>
-                      </li>
+                      </li> -->
                       <!-- Provenance item-->
-                      <li class="position-relative mb-0 ps-4 pb-4 border-start"><span class="d-inline-block position-absolute start-0 top-0 mt-1 p-1 bg-primary rounded-circle" style="transform: translateX(-50%);"></span>
+                      <!-- <li class="position-relative mb-0 ps-4 pb-4 border-start"><span class="d-inline-block position-absolute start-0 top-0 mt-1 p-1 bg-primary rounded-circle" style="transform: translateX(-50%);"></span>
                         <h6 class="mb-1 fs-sm">Purchased by <a href='nft-vendor.html' class='text-decoration-none text-accent'>@distrokid</a></h6><span class="fs-sm text-muted">Nov 15 at 11:20 am</span>
-                      </li>
+                      </li> -->
                       <!-- Provenance item-->
-                      <li class="position-relative mb-0 ps-4 pb-4 border-start"><span class="d-inline-block position-absolute start-0 top-0 mt-1 p-1 bg-primary rounded-circle" style="transform: translateX(-50%);"></span>
+                      <!-- <li class="position-relative mb-0 ps-4 pb-4 border-start"><span class="d-inline-block position-absolute start-0 top-0 mt-1 p-1 bg-primary rounded-circle" style="transform: translateX(-50%);"></span>
                         <h6 class="mb-1 fs-sm">Listed by <a href='nft-vendor.html' class='text-decoration-none text-accent'>@foxnet_creator</a></h6><span class="fs-sm text-muted">Oct 29 at 6:29 pm</span>
-                      </li>
+                      </li> -->
                       <!-- Provenance item-->
-                      <li class="position-relative mb-0 ps-4 border-start"><span class="d-inline-block position-absolute start-0 top-0 mt-1 p-1 bg-primary rounded-circle" style="transform: translateX(-50%);"></span>
+                      <!-- <li class="position-relative mb-0 ps-4 border-start"><span class="d-inline-block position-absolute start-0 top-0 mt-1 p-1 bg-primary rounded-circle" style="transform: translateX(-50%);"></span>
                         <h6 class="mb-1 fs-sm">Minted by <a href='nft-vendor.html' class='text-decoration-none text-accent'>@foxnet_creator</a></h6><span class="fs-sm text-muted">Oct 29 at 3:41 pm</span>
                       </li>
                     </ul>
                     <button class="btn btn-outline-accent d-block w-100"><i class="ci-loading me-2"></i>Load more</button>
                   </div>
-                </div>
-              </div>
+                </div> -->
+              <!-- </div> -->
             </div>
           </div>
         </div>
@@ -417,19 +417,19 @@
 
 
   <!-- Recent products-->
-  <section class="container mb-5 pb-md-4">
+  <!-- <section class="container mb-5 pb-md-4">
     <div class="d-flex flex-sm-row flex-column align-items-sm-center justify-content-sm-between mb-sm-4 mb-3">
       <h2 class="h3 mb-sm-0">More from this collection</h2><a class="btn btn-outline-accent ms-sm-3" href="nft-catalog-v2.html">View collection<i class="ci-arrow-right ms-2"></i></a>
-    </div>
+    </div> -->
     <!-- Product carousel-->
-    <div class="tns-carousel tns-controls-static tns-controls-outside mx-xl-n4 mx-n2 px-xl-4 px-0">
-      <div class="tns-carousel-inner row gx-xl-0 gx-3 mx-0" data-carousel-options="{&quot;items&quot;: 2, &quot;nav&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1,&quot;controls&quot;: false, &quot;gutter&quot;: 0},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}, &quot;1100&quot;:{&quot;items&quot;:4}, &quot;1278&quot;:{&quot;controls&quot;: true, &quot;gutter&quot;: 30}}}">
+    <!-- <div class="tns-carousel tns-controls-static tns-controls-outside mx-xl-n4 mx-n2 px-xl-4 px-0">
+      <div class="tns-carousel-inner row gx-xl-0 gx-3 mx-0" data-carousel-options="{&quot;items&quot;: 2, &quot;nav&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1,&quot;controls&quot;: false, &quot;gutter&quot;: 0},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}, &quot;1100&quot;:{&quot;items&quot;:4}, &quot;1278&quot;:{&quot;controls&quot;: true, &quot;gutter&quot;: 30}}}"> -->
         <!-- Product item-->
-        <div class="col py-3">
+        <!-- <div class="col py-3">
           <article class="card h-100 border-0 shadow">
-            <div class="card-img-top position-relative overflow-hidden"><a class="d-block" href="nft-single-buy.html"><img src="img/nft/catalog/05.jpg" alt="Product image"></a>
+            <div class="card-img-top position-relative overflow-hidden"><a class="d-block" href="nft-single-buy.html"><img src="img/nft/catalog/05.jpg" alt="Product image"></a> -->
               <!-- Wishlist button-->
-              <button class="btn-wishlist btn-sm position-absolute top-0 end-0" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites" style="margin: 12px;"><i class="ci-heart"></i></button>
+              <!-- <button class="btn-wishlist btn-sm position-absolute top-0 end-0" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites" style="margin: 12px;"><i class="ci-heart"></i></button>
             </div>
             <div class="card-body">
               <h3 class="product-title mb-2 fs-base"><a class="d-block text-truncate" href="nft-single-buy.html">Aesthetic art collage</a></h3><span class="fs-sm text-muted">Reserve price:</span>
@@ -441,17 +441,17 @@
               <div class="d-flex align-items-center position-relative mb-1 py-3 border-top"><img class="me-2 rounded-circle" src="img/nft/catalog/avatars/05.png" width="32" alt="Avatar"><a class="nav-link-style fs-sm stretched-link" href="nft-vendor.html">@Sharan_Pagadala</a></div>
             </div>
           </article>
-        </div>
+        </div> -->
         <!-- Product item-->
-        <div class="col py-3">
+        <!-- <div class="col py-3">
           <article class="card h-100 border-0 shadow">
-            <div class="card-img-top position-relative overflow-hidden"><a class="d-block" href="nft-single-auction-live.html"><img src="img/nft/catalog/06.jpg" alt="Product image"></a>
+            <div class="card-img-top position-relative overflow-hidden"><a class="d-block" href="nft-single-auction-live.html"><img src="img/nft/catalog/06.jpg" alt="Product image"></a> -->
               <!-- Countdown timer-->
-              <div class="badge bg-dark m-3 fs-sm position-absolute top-0 start-0 zindex-5"><i class="ci-time me-1"></i>
+              <!-- <div class="badge bg-dark m-3 fs-sm position-absolute top-0 start-0 zindex-5"><i class="ci-time me-1"></i>
                 <div class="countdown d-inline" data-countdown="12/31/2022 12:00:00 PM"><span class="countdown-hours mb-0 me-0"><span class="countdown-value">0</span><span class="countdown-label fs-lg">:</span></span><span class="countdown-minutes mb-0 me-0"><span class="countdown-value">0</span><span class="countdown-label fs-lg">:</span></span><span class="countdown-seconds mb-0 me-0"><span class="countdown-value">0</span></span></div>
-              </div>
+              </div> -->
               <!-- Wishlist button-->
-              <button class="btn-wishlist btn-sm position-absolute top-0 end-0" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites" style="margin: 12px;"><i class="ci-heart"></i></button>
+              <!-- <button class="btn-wishlist btn-sm position-absolute top-0 end-0" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites" style="margin: 12px;"><i class="ci-heart"></i></button>
             </div>
             <div class="card-body">
               <h3 class="product-title mb-2 fs-base"><a class="d-block text-truncate" href="nft-single-auction-live.html">Ocean and sky</a></h3><span class="fs-sm text-muted">Current bid:</span>
@@ -463,17 +463,17 @@
               <div class="d-flex align-items-center position-relative mb-1 py-3 border-top"><img class="me-2 rounded-circle" src="img/nft/catalog/avatars/06.png" width="32" alt="Avatar"><a class="nav-link-style fs-sm stretched-link" href="nft-vendor.html">@Simonlee</a></div>
             </div>
           </article>
-        </div>
+        </div> -->
         <!-- Product item-->
-        <div class="col py-3">
+        <!-- <div class="col py-3">
           <article class="card h-100 border-0 shadow">
-            <div class="card-img-top position-relative overflow-hidden"><a class="d-block" href="nft-single-auction-live.html"><img src="img/nft/catalog/07.jpg" alt="Product image"></a>
+            <div class="card-img-top position-relative overflow-hidden"><a class="d-block" href="nft-single-auction-live.html"><img src="img/nft/catalog/07.jpg" alt="Product image"></a> -->
               <!-- Countdown timer-->
-              <div class="badge bg-dark m-3 fs-sm position-absolute top-0 start-0 zindex-5"><i class="ci-time me-1"></i>
+              <!-- <div class="badge bg-dark m-3 fs-sm position-absolute top-0 start-0 zindex-5"><i class="ci-time me-1"></i>
                 <div class="countdown d-inline" data-countdown="12/31/2022 12:00:00 PM"><span class="countdown-hours mb-0 me-0"><span class="countdown-value">0</span><span class="countdown-label fs-lg">:</span></span><span class="countdown-minutes mb-0 me-0"><span class="countdown-value">0</span><span class="countdown-label fs-lg">:</span></span><span class="countdown-seconds mb-0 me-0"><span class="countdown-value">0</span></span></div>
-              </div>
+              </div> -->
               <!-- Wishlist button-->
-              <button class="btn-wishlist btn-sm position-absolute top-0 end-0" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites" style="margin: 12px;"><i class="ci-heart"></i></button>
+              <!-- <button class="btn-wishlist btn-sm position-absolute top-0 end-0" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites" style="margin: 12px;"><i class="ci-heart"></i></button>
             </div>
             <div class="card-body">
               <h3 class="product-title mb-2 fs-base"><a class="d-block text-truncate" href="nft-single-auction-live.html">3d aesthetics with shapes</a></h3><span class="fs-sm text-muted">Current bid:</span>
@@ -485,13 +485,13 @@
               <div class="d-flex align-items-center position-relative mb-1 py-3 border-top"><img class="me-2 rounded-circle" src="img/nft/catalog/avatars/07.png" width="32" alt="Avatar"><a class="nav-link-style fs-sm stretched-link" href="nft-vendor.html">@Shubham_Dhage</a></div>
             </div>
           </article>
-        </div>
+        </div> -->
         <!-- Product item-->
-        <div class="col py-3">
+        <!-- <div class="col py-3">
           <article class="card h-100 border-0 shadow">
-            <div class="card-img-top position-relative overflow-hidden"><a class="d-block" href="nft-single-auction-live.html"><img src="img/nft/catalog/08.jpg" alt="Product image"></a>
+            <div class="card-img-top position-relative overflow-hidden"><a class="d-block" href="nft-single-auction-live.html"><img src="img/nft/catalog/08.jpg" alt="Product image"></a> -->
               <!-- Wishlist button-->
-              <button class="btn-wishlist btn-sm position-absolute top-0 end-0" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites" style="margin: 12px;"><i class="ci-heart"></i></button>
+              <!-- <button class="btn-wishlist btn-sm position-absolute top-0 end-0" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites" style="margin: 12px;"><i class="ci-heart"></i></button>
             </div>
             <div class="card-body">
               <h3 class="product-title mb-2 fs-base"><a class="d-block text-truncate" href="nft-single-auction-live.html">Astronaut surrounded by lights</a></h3><span class="fs-sm text-muted">Reserve price:</span>
@@ -502,43 +502,43 @@
             <div class="card-footer mt-n1 py-0 border-0">
               <div class="d-flex align-items-center position-relative mb-1 py-3 border-top"><img class="me-2 rounded-circle" src="img/nft/catalog/avatars/08.png" width="32" alt="Avatar"><a class="nav-link-style fs-sm stretched-link" href="nft-vendor.html">@DistroKid</a></div>
             </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
+          </article> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </section> -->
 </main>
 <!-- Bg shape-->
 <div class="pt-4 bg-secondary">
   <!-- Features-->
-  <section class="container py-lg-5 py-4">
-    <h2 class="mb-4 pb-md-3 pb-2">Begin your NFT journey with us!</h2>
+  <!-- <section class="container py-lg-5 py-4">
+    <h2 class="mb-4 pb-md-3 pb-2">Begin your NFT journey with us!</h2> -->
     <!-- Features carousel-->
-    <div class="tns-carousel mb-4">
-      <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;nav&quot;: true, &quot;gutter&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1,&quot;controls&quot;: false},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}, &quot;1100&quot;:{&quot;items&quot;:4}, &quot;1278&quot;:{&quot;controls&quot;: true}}}">
+    <!-- <div class="tns-carousel mb-4">
+      <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;nav&quot;: true, &quot;gutter&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1,&quot;controls&quot;: false},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}, &quot;1100&quot;:{&quot;items&quot;:4}, &quot;1278&quot;:{&quot;controls&quot;: true}}}"> -->
         <!-- Carousel item-->
-        <div><img class="mb-4" src="img/nft/features/wallet.svg" width="60" alt="Icon">
+        <!-- <div><img class="mb-4" src="img/nft/features/wallet.svg" width="60" alt="Icon">
           <h4 class="mb-2 fs-lg text-body">Set up your wallet</h4>
           <p class="mb-0 fs-sm text-muted">Quam nulla in id nibh. Morbi eget elit eget dui est pretium, blandit penatibus blandit. Amet mattis blandit urna volutpat.</p>
-        </div>
+        </div> -->
         <!-- Carousel item-->
-        <div><img class="mb-4" src="img/nft/features/add.svg" width="60" alt="Icon">
+        <!-- <div><img class="mb-4" src="img/nft/features/add.svg" width="60" alt="Icon">
           <h4 class="mb-2 fs-lg text-body">Create your collection</h4>
           <p class="mb-0 fs-sm text-muted">Fringilla ullamcorper aenean tellus ullamcorper neque, malesuada. Aliquam consequat nunc.</p>
-        </div>
+        </div> -->
         <!-- Carousel item-->
-        <div><img class="mb-4" src="img/nft/features/image.svg" width="60" alt="Icon">
+        <!-- <div><img class="mb-4" src="img/nft/features/image.svg" width="60" alt="Icon">
           <h4 class="mb-2 fs-lg text-body">Add your NFTs</h4>
           <p class="mb-0 fs-sm text-muted">Platea eu aliquam pellentesque parturient. Volutpat, fermentum suspendisse at nisi cras mattis augue.</p>
-        </div>
+        </div> -->
         <!-- Carousel item-->
-        <div><img class="mb-4" src="img/nft/features/shopping-cart.svg" width="60" alt="Icon">
+        <!-- <div><img class="mb-4" src="img/nft/features/shopping-cart.svg" width="60" alt="Icon">
           <h4 class="mb-2 fs-lg text-body">List them for sale</h4>
           <p class="mb-0 fs-sm text-muted">In eget nulla id feugiat ut placerat sapien malesuada. Sed id risus non accumsan eu amet ut pellentesque.</p>
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- Mail subscription-->
   <section class="container">
     <div class="card py-5 border-0 shadow">

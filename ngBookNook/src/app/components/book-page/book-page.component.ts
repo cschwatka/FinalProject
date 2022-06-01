@@ -64,6 +64,45 @@ wishlistAdd(book: Book) {
   }
 }
 
+checkWishlist(book: Book){
+  let userId = localStorage.getItem("userId");
+      let id = 0;
+      let rejected = false;
+      if (userId !== null && this.user !== null) {
+        id = parseInt(userId);
+        for (let book1 of this.user.wishlistBooks) {
+          if (book1.id === book.id) {
+            rejected = true;
+            break;
+          }
+        }
+      }
+      return rejected;
+}
+
+wishlistAddOrRemove(book: Book){
+  // let userId = localStorage.getItem("userId");
+  // let id = 0;
+    if (this.checkWishlist(book) === false && this.user !== null) {
+      console.log("inside if statement")
+      this.service.postWishlist(book, this.user.id).subscribe(
+        (data) => {if (this.selected !== null && this.user !== null) {
+          this.checkUser(this.selected.id, this.user.id);
+        }},
+        (err) => console.log(err)
+        )
+      }
+      else if (this.checkWishlist(book) === true && this.user !== null) {
+      console.log("inside else-if statement")
+      this.service.removeWishlist(this.user.id, book.id).subscribe(
+        (data) => {if (this.selected !== null && this.user !== null) {
+          this.checkUser(this.selected.id, this.user.id);
+     }},
+     (err) => console.log(err)
+   )
+}
+}
+
 readingAdd(book: Book) {
   let userId = localStorage.getItem("userId");
   let id = 0;
@@ -197,7 +236,15 @@ favoritesAddOrRemove(book: Book){
      (err) => console.log(err)
    )
 }
+}
 
+favoriteCount(): number {
+  if (this.selected != null){
+    return this.selected.favoriteUsers.length;
+  }
+  else {
+    return 0;
+  }
 }
 
 showUser(id: number) {
