@@ -36,7 +36,10 @@
               <div class="blog-end-column">
                 <div class="d-flex justify-content-between mb-1">
                   <!-- <div class="fs-sm text-muted pe-2 mb-2">in <a href='#' class='blog-entry-meta-link'>Travel</a>, <a href='#' class='blog-entry-meta-link'>Personal finance</a></div> -->
-                  <div class="fs-sm mb-2"><a class="blog-entry-meta-link text-nowrap" [routerLink]="['/postview', {'id': post.id, 'comments':'comments'}]"><i class="ci-message"></i>{{post.comments.length}}</a></div>
+                  <div class="fs-sm mb-2"><a class="blog-entry-meta-link text-nowrap" [routerLink]="['/postview', {'id': post.id, 'comments':'comments'}]"><i class="ci-message"></i>{{commentCount(post)}}</a></div>
+                  <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center" *ngIf="user?.id === post.user.id || user?.role === 'ROLE_ADMIN'">
+                    <button class="btn btn-outline-danger btn-sm" type="button" (click)="removePost(post)" ><i class="ci-trash me-2"></i>Remove</button>
+                  </div>
                 </div>
             <p class="fs-sm">{{post.content}} <a href='blog-single-sidebar.html' class='blog-entry-meta-link fw-medium' [routerLink]="['/postview', post.id]"> [Read more]</a></p>
           </div>
@@ -98,7 +101,7 @@
                 <div class="ps-3">
                   <h6 class="blog-entry-title fs-sm mb-0"><a [routerLink]="['/postview', post.id]">{{post.title}}</a></h6><span class="fs-ms text-muted">by <a [routerLink]="['/postview', post.id]" class='blog-entry-meta-link'>{{post.user.username}}</a></span>
                   <br>
-                  <span class="fs-ms text-muted"><i class="ci-message"></i> {{post.comments.length}}</span>
+                  <span class="fs-ms text-muted"><i class="ci-message"></i> {{commentCount(post)}}</span>
                 </div>
               </div>
             </div>

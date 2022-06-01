@@ -59,12 +59,15 @@ export class PostListComponent implements OnInit {
   }
 
   reload() {
+    this.posts = [];
     this.svc.showPostList().subscribe(
-      (data) => {
-        this.posts = data;
-        console.log(this.posts);
-        this.popularPostRetrieval();
-      },
+
+      (data) => { for (let post of data) {
+        if (post.enabled === true) {
+          this.posts.push(post);
+        }
+      }
+        console.log(this.posts); this.popularPostRetrieval()},
       (err) => console.log(err)
     );
   }
@@ -80,6 +83,23 @@ export class PostListComponent implements OnInit {
       },
       (err) => console.log(err)
     );
+  }
+
+  commentCount(post: Post): number {
+    let count = 0;
+    for (let comment of post.comments) {
+      if (comment.enabled === true) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  removePost(post: Post) {
+    this.svc.removePost(post.id).subscribe(
+      (success) => {this.reload();},
+      (err) => console.log(err)
+    )
   }
 
   popularPostRetrieval() {

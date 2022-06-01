@@ -16,14 +16,9 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     let id = localStorage.getItem("userId");
-
     if (id !== null) {
       this.showUser(parseInt(id));
     }
-  }
-
-  loggedIn(): boolean {
-    return this.auth.checkLogin();
   }
 
   showUser(id: number) {
@@ -31,6 +26,10 @@ export class NavigationComponent implements OnInit {
       (data) => this.user = data,
       (err) => console.log(err)
     )
+  }
+
+  loggedIn(): boolean {
+    return this.auth.checkLogin();
   }
 
 }

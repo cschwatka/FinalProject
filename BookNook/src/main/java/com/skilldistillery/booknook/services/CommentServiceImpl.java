@@ -88,6 +88,7 @@ public class CommentServiceImpl implements CommentService {
 		if(getCommentById(commentId) != null) {
 			Comment comment = getCommentById(commentId);
 			comment.setEnabled(false);
+			commentRepo.saveAndFlush(comment);
 			return comment;
 		}
 			return null;

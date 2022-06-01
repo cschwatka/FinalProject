@@ -335,8 +335,8 @@ export class BooknookService {
           );
         }
 
-        postReview(review: Review) {
-          return this.http.post<Review>(this.url + "reviews", review, this.getHttpOptions())
+        postReview(review: Review, id: number) {
+          return this.http.post<Review>(this.url + "reviews/" + id, review, this.getHttpOptions())
           .pipe(
             catchError((err: any) => {
               console.log(err);

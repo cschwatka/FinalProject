@@ -1,6 +1,7 @@
 import { Author } from "./author";
 import { Category } from "./category";
 import { Language } from "./language";
+import { Review } from "./review";
 import { User } from "./user";
 
 export class Book {
@@ -17,6 +18,7 @@ export class Book {
   isbn13: string;
   dateAdded: string;
   lastUpdated: string;
+  reviews: Review[];
   categories: Category[];
   authors: Author[];
   favoriteUsers: User[];
@@ -41,7 +43,8 @@ export class Book {
     favoriteUsers: User[] = [],
     finishedUsers: User[] = [],
     readingUsers: User[] = [],
-    wishlistUsers: User[] = []) {
+    wishlistUsers: User[] = [],
+    reviews: Review [] = []) {
 
       this.id = id;
       this.language = language;
@@ -62,6 +65,7 @@ export class Book {
       this.readingUsers = readingUsers;
       this.wishlistUsers = wishlistUsers;
       this.language = language;
+      this.reviews = reviews;
 
   }
 

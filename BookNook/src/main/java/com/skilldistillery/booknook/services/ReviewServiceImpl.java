@@ -6,8 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.booknook.entities.Book;
 import com.skilldistillery.booknook.entities.Review;
-import com.skilldistillery.booknook.entities.Review;
+import com.skilldistillery.booknook.repositories.BookRepository;
 import com.skilldistillery.booknook.repositories.ReviewRepository;
 
 @Service
@@ -15,6 +16,8 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	@Autowired
 	private ReviewRepository reviewRepo;
+	@Autowired
+	private BookRepository bookRepo;
 
 	@Override
 	public Review getReviewById(int reviewId) {
@@ -31,7 +34,13 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public Review create(Review review) {
+	public Review create(Review review, int id) {
+		Optional<Book> bookOpt = bookRepo.findById(id);
+		Book book = null;
+		if (bookOpt.isPresent()) {
+			book = bookOpt.get();
+			review.setBook(book);
+		}
 		return reviewRepo.saveAndFlush(review);
 	}
 
@@ -49,6 +58,7 @@ public class ReviewServiceImpl implements ReviewService {
 		if(getReviewById(reviewId) != null) {
 			Review review = getReviewById(reviewId);
 			review.setEnabled(false);
+			reviewRepo.saveAndFlush(review);
 			return review;
 		}
 			return null;

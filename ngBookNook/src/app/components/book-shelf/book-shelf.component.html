@@ -132,7 +132,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" (change)="check(category)">
                       <label class="form-check-label" for="all">{{category.name}}</label>
-                    </div><span class="fs-xs text-muted">{{category.books.length}}</span>
+                    </div><span class="fs-xs text-muted">{{categoryNumber(category)}}</span>
                   </li>
                 </ul>
               </div>
@@ -147,7 +147,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" (change)="checkLanguage(language)">
                       <label class="form-check-label" for="all">{{language.name}}</label>
-                    </div><span class="fs-xs text-muted">{{language.books.length}}</span>
+                    </div><span class="fs-xs text-muted">{{languageNumber(language)}}</span>
                   </li>
                 </ul>
               </div>
@@ -482,15 +482,3 @@
     <div class="d-table table-layout-fixed w-100"><a class="d-none handheld-toolbar-item" href="#vendor-sidebar" data-bs-toggle="offcanvas"><span class="handheld-toolbar-icon"><i class="ci-sign-in"></i></span><span class="handheld-toolbar-label">Sidebar</span></a><a class="d-table-cell handheld-toolbar-item" href="#signin-modal" data-bs-toggle="modal"><span class="handheld-toolbar-icon"><i class="ci-user"></i></span><span class="handheld-toolbar-label">Account</span></a><a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item" href="nft-connect-wallet.html"><span class="handheld-toolbar-icon"><i class="ci-wallet"></i></span><span class="handheld-toolbar-label text-nowrap">Connect wallet</span></a>
     </div>
   </div>
-  <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
-  <!-- Vendor scrits: js libraries and plugins-->
-  <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/simplebar/dist/simplebar.min.js"></script>
-  <script src="assets/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
-  <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-  <!-- Main theme script-->
-
-
-
-
-

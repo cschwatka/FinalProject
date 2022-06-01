@@ -16,7 +16,7 @@
         <div class="d-flex flex-wrap justify-content-between align-items-center pb-4 mt-n1" *ngIf="selected != null">
           <div class="d-flex align-items-center fs-sm mb-2"><a class="blog-entry-meta-link">
               <div class="blog-entry-author-ava"><img [src]="selected.user.imgUrl"></div>{{selected.user.username}}</a><span class="blog-entry-meta-divider"></span><a class="blog-entry-meta-link" href="#">{{selected.postDate | date:"medium"}}</a></div>
-          <div class="fs-sm mb-2"><a class="blog-entry-meta-link text-nowrap" data-scroll><i class="ci-message"></i>{{selected.comments.length}}</a></div>
+          <div class="fs-sm mb-2"><a class="blog-entry-meta-link text-nowrap" data-scroll><i class="ci-message"></i>{{commentCount()}}</a></div>
         </div>
         <!-- Post content-->
         <h2 *ngIf="selected != null">{{selected.title}}</h2>
@@ -27,20 +27,27 @@
         </blockquote>
         <!-- Comments-->
         <div class="pt-2 mt-5">
-          <h2 class="h4">Comments<span class="badge bg-secondary fs-sm text-body align-middle ms-2">{{comments.length}}</span></h2>
+          <h2 class="h4">Comments<span class="badge bg-secondary fs-sm text-body align-middle ms-2">{{commentCount()}}</span></h2>
           <div *ngFor="let comment of comments">
           <!-- comment-->
-          <div class="d-flex align-items-start py-4 border-bottom" *ngIf="comment.comment === null"><img class="rounded-circle" [src]="comment.user.imgUrl" width="50">
+          <div class="d-flex align-items-start py-4 border-bottom" *ngIf="comment.comment === null && comment.enabled === true"><img class="rounded-circle" [src]="comment.user.imgUrl" width="50">
             <div class="ps-3" >
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <h6 class="fs-md mb-0">{{comment.user.username}}</h6><a class="nav-link-style fs-sm fw-medium" [attr.data-bs-target]="'#collapseExample'+comment.id" data-bs-toggle="collapse" [attr.aria-controls]="'collapseExample'+ comment.id"><i class="ci-reply me-2"></i>Reply</a>
+                <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center" *ngIf="user?.id === comment.user.id || user?.role === 'ROLE_ADMIN'">
+                  <button class="btn btn-outline-danger btn-sm" type="button" (click)="removeComment(comment)" ><i class="ci-trash me-2"></i>Remove</button>
+                </div>
               </div>
               <p class="fs-md mb-1">{{comment.content}}</p><span class="fs-ms text-muted"><i class="ci-time align-middle me-2"></i>{{comment.commentDate | date:"medium"}}</span>
               <!-- comment reply-->
-              <div class="d-flex align-items-start border-top pt-4 mt-4" *ngFor="let reply of comment.comments"><img class="rounded-circle" [src]="reply.user.imgUrl" width="50">
-                <div class="ps-3">
+              <div class="d-flex align-items-start border-top pt-4 mt-4" *ngFor="let reply of comment.comments">
+                <div class="ps-3" *ngIf="reply.enabled === true">
+                  <img class="rounded-circle" [src]="reply.user.imgUrl" width="50">
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fs-md mb-0">{{reply.user.username}}</h6>
+                    <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center" *ngIf="user?.id === comment.user.id || user?.role === 'ROLE_ADMIN'">
+                      <button class="btn btn-outline-danger btn-sm" type="button" (click)="removeComment(reply)" ><i class="ci-trash me-2"></i>Remove</button>
+                    </div>
                   </div>
                   <p class="fs-md mb-1">{{reply.content}}</p><span class="fs-ms text-muted"><i class="ci-time align-middle me-2"></i>{{reply.commentDate | date:"medium"}}</span>
                 </div>
@@ -87,81 +94,20 @@
             <button class="btn-close ms-auto" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body py-grid-gutter py-lg-1 px-lg-4" data-simplebar data-simplebar-auto-hide="true">
-            <!-- Categories-->
-            <div class="widget widget-links mb-grid-gutter pb-grid-gutter border-bottom mx-lg-2">
-              <h3 class="widget-title">Blog categories</h3>
-              <ul class="widget-list">
-                <li class="widget-list-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span>Online shopping</span><span class="fs-xs text-muted ms-3">18</span></a></li>
-                <li class="widget-list-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span>Fashion</span><span class="fs-xs text-muted ms-3">25</span></a></li>
-                <li class="widget-list-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span>Personal finance</span><span class="fs-xs text-muted ms-3">13</span></a></li>
-                <li class="widget-list-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span>Travel &amp; vacation</span><span class="fs-xs text-muted ms-3">7</span></a></li>
-                <li class="widget-list-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span>Lifestyle</span><span class="fs-xs text-muted ms-3">34</span></a></li>
-                <li class="widget-list-item"><a class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span>Technology</span><span class="fs-xs text-muted ms-3">6</span></a></li>
-              </ul>
-            </div>
-            <!-- Trending posts-->
-            <div class="widget mb-grid-gutter pb-grid-gutter border-bottom mx-lg-2">
-              <h3 class="widget-title">Trending posts</h3>
-              <div class="d-flex align-items-center mb-3"><a class="flex-shrink-0" href="blog-single.html"><img class="rounded" src="assets/img/blog/widget/01.jpg" width="64" alt="Post image"></a>
-                <div class="ps-3">
-                  <h6 class="blog-entry-title fs-sm mb-0"><a href="blog-single.html">Retro Cameras are Trending. Why so Popular?</a></h6><span class="fs-ms text-muted">by <a href='#' class='blog-entry-meta-link'>Andy Williams</a></span>
-                </div>
-              </div>
-              <div class="d-flex align-items-center mb-3"><a class="flex-shrink-0" href="blog-single.html"><img class="rounded" src="assets/img/blog/widget/02.jpg" width="64" alt="Post image"></a>
-                <div class="ps-3">
-                  <h6 class="blog-entry-title fs-sm mb-0"><a href="blog-single.html">New Trends in Suburban Fashion</a></h6><span class="fs-ms text-muted">by <a href='#' class='blog-entry-meta-link'>Susan Mayer</a></span>
-                </div>
-              </div>
-              <div class="d-flex align-items-center"><a class="flex-shrink-0" href="blog-single.html"><img class="rounded" src="assets/img/blog/widget/03.jpg" width="64" alt="Post image"></a>
-                <div class="ps-3">
-                  <h6 class="blog-entry-title fs-sm mb-0"><a href="blog-single.html">Augmented Reality - Game Changing Technology</a></h6><span class="fs-ms text-muted">by <a href='#' class='blog-entry-meta-link'>John Doe</a></span>
-                </div>
-              </div>
-            </div>
-            <!-- Popular tags-->
-            <div class="widget pb-grid-gutter mx-lg-2">
-              <h3 class="widget-title">Popular tags</h3><a class="btn-tag me-2 mb-2" href="#">#fashion</a><a class="btn-tag me-2 mb-2" href="#">#gadgets</a><a class="btn-tag me-2 mb-2" href="#">#online shopping</a><a class="btn-tag me-2 mb-2" href="#">#top brands</a><a class="btn-tag me-2 mb-2" href="#">#travel</a><a class="btn-tag me-2 mb-2" href="#">#cartzilla news</a><a class="btn-tag me-2 mb-2" href="#">#personal finance</a><a class="btn-tag me-2 mb-2" href="#">#tips &amp; tricks</a>
-            </div>
-            <!-- Promo banner-->
-            <div class="bg-size-cover bg-position-center rounded-3 py-5 mx-lg-2" style="background-image: url(assets/img/blog/banner-bg.jpg);">
-              <div class="py-5 px-4 text-center">
-                <h5 class="mb-2">Your Add Banner Here</h5>
-                <p class="fs-sm text-muted">Hurry up to reserve your spot</p><a class="btn btn-primary btn-shadow btn-sm" href="#">Contact us</a>
+          <!-- Trending posts-->
+          <div class="widget mb-grid-gutter pb-grid-gutter border-bottom mx-lg-2">
+            <h3 class="widget-title">Popular posts</h3>
+            <div class="d-flex align-items-center mb-3" *ngFor="let post of popularPosts"><a class="flex-shrink-0" [routerLink]="['/postview', post.id]"><img class="rounded" [src]="post.user.imgUrl" width="64" alt="Post image"></a>
+              <div class="ps-3">
+                <h6 class="blog-entry-title fs-sm mb-0"><a [routerLink]="['/postview', post.id]">{{post.title}}</a></h6><span class="fs-ms text-muted">by <a [routerLink]="['/postview', post.id]" class='blog-entry-meta-link'>{{post.user.username}}</a></span>
+                <br>
+                <span class="fs-ms text-muted"><i class="ci-message"></i> {{post.comments.length}}</span>
               </div>
             </div>
           </div>
         </div>
-      </aside>
-    </div>
-  </div>
-  <!-- Related posts-->
-  <div class="bg-secondary py-5">
-    <div class="container py-3">
-      <h2 class="h4 text-center pb-4">You may also like</h2>
-      <div class="tns-carousel">
-        <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 20},&quot;900&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 30}}}">
-          <!-- article-->
-          <article><a class="blog-entry-thumb mb-3" href="#"><img src="assets/img/blog/03.jpg" alt="Post"></a>
-            <div class="d-flex align-items-center fs-sm mb-2"><a class="blog-entry-meta-link" href="#">by Rafael Marquez</a><span class="blog-entry-meta-divider"></span><a class="blog-entry-meta-link" href="#">Sep 16</a></div>
-            <h3 class="h6 blog-entry-title"><a href="#">We Launched Regular Drone Delivery in California. Watch Demo Video</a></h3>
-          </article>
-          <!-- article-->
-          <article><a class="blog-entry-thumb mb-3" href="#"><img src="assets/img/blog/04.jpg" alt="Post"></a>
-            <div class="d-flex align-items-center fs-sm mb-2"><a class="blog-entry-meta-link" href="#">by Emma Gallaher</a><span class="blog-entry-meta-divider"></span><a class="blog-entry-meta-link" href="#">Sep 5</a></div>
-            <h3 class="h6 blog-entry-title"><a href="#">Payments Made Easy. How New Technology will Affect E-Commerce Industry Worldwide?</a></h3>
-          </article>
-          <!-- article-->
-          <article><a class="blog-entry-thumb mb-3" href="#"><img src="assets/img/blog/02.jpg" alt="Post"></a>
-            <div class="d-flex align-items-center fs-sm mb-2"><a class="blog-entry-meta-link" href="#">by Emma Gallaher</a><span class="blog-entry-meta-divider"></span><a class="blog-entry-meta-link" href="#">Aug 28</a></div>
-            <h3 class="h6 blog-entry-title"><a href="#">Shopping Tips. Complete Guide of Places Where to Buy Cheap and Get Cashback</a></h3>
-          </article>
-          <!-- article-->
-          <article><a class="blog-entry-thumb mb-3" href="#"><img src="assets/img/blog/01.jpg" alt="Post"></a>
-            <div class="d-flex align-items-center fs-sm mb-2"><a class="blog-entry-meta-link" href="#">by Emma Gallaher</a><span class="blog-entry-meta-divider"></span><a class="blog-entry-meta-link" href="#">Aug 28</a></div>
-            <h3 class="h6 blog-entry-title"><a href="#">Top 10 New Trends in Suburban High Fashion</a></h3>
-          </article>
-        </div>
       </div>
+    </aside>
     </div>
   </div>
 </main>
