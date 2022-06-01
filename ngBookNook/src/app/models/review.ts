@@ -21,7 +21,7 @@ export class Review {
   rating: number = 0,
   enabled: boolean = true,
   title: string = '',
-  reviewDate: string = ''
+  reviewDate: string = '',
   ){
 this.id = id;
 this.book = book;

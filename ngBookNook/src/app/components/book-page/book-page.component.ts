@@ -28,9 +28,14 @@ reviews: Review[] = [];
   ) { }
 
 show(id: number){
+  this.reviews = [];
   this.service.showBook(id).subscribe(
     (data) => {this.selected = data;
-    this.reviews = this.selected.reviews},
+    for(let review of this.selected.reviews){
+      if(review.enabled === true){
+        this.reviews.push(review);
+      }
+    }},
     (error) => console.log("Observable error showing book for selected book: " + error)
   )
 }
@@ -336,6 +341,15 @@ overallRatingFlat(){
     sum += review.rating;
   }
   return Math.floor(sum/this.reviews.length);
+}
+
+removeReview(review: Review) {
+  this.service.removeReview(review.id).subscribe(
+    (success) => { if (this.selected !== null) {
+      this.show(this.selected.id)
+    }},
+    (err) => console.log(err)
+  )
 }
 
 

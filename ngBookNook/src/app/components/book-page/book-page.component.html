@@ -271,7 +271,7 @@
             <div class="star-rating me-2" *ngIf="(overallRatingFlat()) === 3"><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star fs-sm text-accent me-1"></i><i class="ci-star fs-sm text-muted me-1"></i></div>
             <div class="star-rating me-2" *ngIf="(overallRatingFlat()) === 4"><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star fs-sm text-muted me-1"></i></div>
             <div class="star-rating me-2" *ngIf="(overallRatingFlat()) === 5"><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-muted me-1"></i></div>
-            <span class="d-inline-block align-middle">{{overallRating()}} Overall Rating</span>
+            <span class="d-inline-block align-middle">{{overallRating() | number: '1.2-2'}} Overall Rating</span>
           </div>
           <div class="col-lg-8 col-md-7">
             <div class="d-flex align-items-center mb-2">
@@ -380,6 +380,9 @@
                 </div>
               </div>
               <p class="fs-md mb-2">{{review.content}}</p>
+              <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center" *ngIf="user?.id === review.user.id || user?.role === 'ROLE_ADMIN'">
+                <button class="btn btn-outline-danger btn-sm" type="button" (click)="removeReview(review)" ><i class="ci-trash me-2"></i>Remove</button>
+              </div>
             </div>
           </div>
           <!-- Leave review form-->
