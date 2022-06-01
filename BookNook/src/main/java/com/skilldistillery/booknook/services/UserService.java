@@ -50,4 +50,6 @@ public interface UserService {
 	public void removeBookFromFinished(int userId, int bookId);
 	
 	public User addUserToUsersFollowing(int userId, int userToFollowId, User user);
+	
+	public void deleteUserFromUserUsersFollowing(int userId, int userToFollowId);
 }

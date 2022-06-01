@@ -286,4 +286,15 @@ public class UserController {
 		return userDoingTheFollowing;
 	}
 	
+	@DeleteMapping("users/{userId}/userfollow/{userToFollowId}")
+	public void deleteUserFromUserUsersFollowing(
+			@PathVariable Integer userId,
+			@PathVariable Integer userToFollowId,
+			HttpServletResponse res,
+			HttpServletRequest req
+			){
+		userService.deleteUserFromUserUsersFollowing(userId, userToFollowId);
+		
+	}
+	
 }

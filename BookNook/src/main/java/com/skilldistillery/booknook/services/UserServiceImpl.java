@@ -1,6 +1,5 @@
 package com.skilldistillery.booknook.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -256,6 +255,25 @@ public class UserServiceImpl implements UserService {
 		userRepo.saveAndFlush(userDoingTheFollowing);
 
 		return userDoingTheFollowing;
+	}
+
+	@Override
+	public void deleteUserFromUserUsersFollowing(int userId, int userToFollowId) {
+		Optional<User> userOptFollow = userRepo.findById(userToFollowId);
+		User userToFollow = null;
+		if (userOptFollow.isPresent()) {
+			userToFollow = userOptFollow.get();
+		}
+		
+		Optional<User> userOpt = userRepo.findById(userId);
+		User userDoingTheFollowing = null;
+		if (userOpt.isPresent()) {
+			userDoingTheFollowing = userOpt.get();
+		}
+		
+		userDoingTheFollowing.removeUserFromUsersFollowing(userToFollow);
+		userRepo.saveAndFlush(userDoingTheFollowing);
+		
 	}
 
 }

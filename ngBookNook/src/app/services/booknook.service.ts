@@ -513,6 +513,16 @@ export class BooknookService {
       );
     }
 
+    removeUserFollowing(userToFollowId: number, userDoingTheFollowingId: number) {
+      return this.http.delete(this.url + "users/" + userDoingTheFollowingId + "/userfollow/" + userToFollowId, this.getHttpOptions())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Could not unfollow the User');
+        })
+      );
+    }
+
     // Category mappings
 
     showCategory(id: number) {
