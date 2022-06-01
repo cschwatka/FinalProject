@@ -1,20 +1,20 @@
 
 <main class="page-wrapper">
   <!-- Page Title-->
-  <div class="page-title-overlap bg-accent pt-4">
+  <div class="page-title-overlap bg-accent pt-4" *ngIf="selected">
     <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
       <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
             <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="ci-home"></i>Home</a></li>
-            <li class="breadcrumb-item text-nowrap"><a href="home-nft.html">Marketplace</a>
+            <li class="breadcrumb-item text-nowrap"><a href="home-nft.html">Bookshelf</a>
             </li>
-            <li class="breadcrumb-item text-nowrap active" aria-current="page">Single Project</li>
+            <li class="breadcrumb-item text-nowrap active" aria-current="page">{{selected.title}}</li>
           </ol>
         </nav>
       </div>
       <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-        <h1 class="h3 text-light mb-0">Single Item - Buy Now</h1>
+        <h1 class="h3 text-light mb-0">{{selected.title}}</h1>
       </div>
     </div>
   </div>
@@ -29,8 +29,8 @@
               <div class="image-zoom-pane"></div>
             </div>
             <div class="pt-2 text-lg-start text-center">
-              <button *ngIf="favoriteDisabled == false" (click)="favoritesAdd(selected)" class="btn btn-secondary rounded-pill btn-icon me-sm-3 me-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Favorites"><i class="ci-heart"></i></button>
-              <button *ngIf="favoriteDisabled == true" (click)="favoritesRemove(selected)" class="btn btn-secondary rounded-pill btn-icon me-sm-3 me-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Favorites"><i class="ci-heart"></i></button>
+              <button (click)="favoritesAddOrRemove(selected)" class="btn btn-secondary rounded-pill btn-icon me-sm-3 me-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Favorites"><i class="ci-heart"></i></button>
+              <!-- <button *ngIf="favoriteDisabled == true" (click)="favoritesRemove(selected)" class="btn btn-secondary rounded-pill btn-icon me-sm-3 me-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Favorites"><i class="ci-heart"></i></button> -->
               <!-- <button class="btn btn-secondary rounded-pill btn-icon me-sm-3 me-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Share"><i class="ci-share-alt"></i></button> -->
               <!-- <button class="btn btn-secondary rounded-pill btn-icon me-sm-3 me-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Flag"><i class="ci-flag"></i></button> -->
             </div>
@@ -47,10 +47,10 @@
 
               <div class="d-flex align-items-center flex-wrap text-nowrap mb-sm-4 mb-3 fs-sm">
                 <div class="mb-2 me-sm-3 me-2 text-muted">Published: {{selected.publishDate | date: 'mediumDate'}}</div>
-                <div class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i class="ci-eye me-1 fs-base mt-n1 align-middle"></i>15 views</div>
-                <div class="favorites indicator">
-                  <div *ngIf="favoriteDisabled == false" class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i class="ci-heart me-1 fs-base mt-n1 align-middle"></i>Add to favorites</div>
-                  <div *ngIf="favoriteDisabled == true" class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i class="ci-heart me-1 fs-base mt-n1 align-middle"></i>Favorited!</div>
+                <div class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i class="ci-eye me-1 fs-base mt-n1 align-middle"></i>{{selected.favoriteUsers.length}} favorites</div>
+                <div class="favorites indicator" >
+                  <div *ngIf="favoriteDisabled == false" (click)="favoritesAddOrRemove(selected)" class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i class="ci-heart me-1 fs-base mt-n1 align-middle"></i>Add to favorites</div>
+                  <div *ngIf="favoriteDisabled == true" (click)="favoritesAddOrRemove(selected)" class="mb-2 me-sm-3 me-2 ps-sm-3 ps-2 border-start text-muted"><i *ngIf="favoriteDisabled == true" class="ci-heart me-1 fs-base mt-n1 align-middle"></i>Favorited!</div>
                 </div>
               </div>
               <div class="row row-cols-sm-2 row-cols-1 gy-3 gx-4 mb-4 pb-md-2">

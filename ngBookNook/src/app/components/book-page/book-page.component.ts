@@ -124,33 +124,75 @@ favoritesAdd(book: Book) {
       this.service.postFavorite(book, this.user.id).subscribe(
         (data) => {if (this.selected !== null && this.user !== null) {
           this.checkUser(this.selected.id, this.user.id);
+          console.log(this.favoriteDisabled);
+        }},
+        (err) => console.log(err)
+        )
+      }
+    }
+
+    favoritesRemove(book: Book) {
+      let userId = localStorage.getItem("userId");
+      let id = 0;
+      let rejected = false;
+      if (userId !== null && this.user !== null) {
+        id = parseInt(userId);
+        for (let book1 of this.user.favoriteBooks) {
+          if (book1.id === book.id) {
+            rejected = true;
+            break;
+          }
+        }
+      }
+      if (rejected === true && this.user !== null) {
+        this.service.removeFavorite(this.user.id, book.id).subscribe(
+          (data) => {if (this.selected !== null && this.user !== null) {
+            this.checkUser(this.selected.id, this.user.id);
+            console.log(this.favoriteDisabled);
        }},
        (err) => console.log(err)
      )
   }
 }
 
-favoritesRemove(book: Book) {
+checkFavorite(book: Book){
   let userId = localStorage.getItem("userId");
-  let id = 0;
-  let rejected = false;
-    if (userId !== null && this.user !== null) {
-      id = parseInt(userId);
-      for (let book1 of this.user.favoriteBooks) {
-        if (book1.id === book.id) {
-          rejected = true;
-          break;
+      let id = 0;
+      let rejected = false;
+      if (userId !== null && this.user !== null) {
+        id = parseInt(userId);
+        for (let book1 of this.user.favoriteBooks) {
+          if (book1.id === book.id) {
+            rejected = true;
+            break;
+          }
         }
       }
-    }
-    if (rejected === true && this.user !== null) {
+      return rejected;
+}
+
+favoritesAddOrRemove(book: Book){
+  // let userId = localStorage.getItem("userId");
+  // let id = 0;
+    if (this.checkFavorite(book) === false && this.user !== null) {
+      console.log("inside if statement")
+      this.service.postFavorite(book, this.user.id).subscribe(
+        (data) => {if (this.selected !== null && this.user !== null) {
+          this.checkUser(this.selected.id, this.user.id);
+        }},
+        (err) => console.log(err)
+        )
+      }
+      else if (this.checkFavorite(book) === true && this.user !== null) {
+      console.log("inside else-if statement")
       this.service.removeFavorite(this.user.id, book.id).subscribe(
         (data) => {if (this.selected !== null && this.user !== null) {
           this.checkUser(this.selected.id, this.user.id);
-       }},
-       (err) => console.log(err)
-     )
-  }
+     }},
+     (err) => console.log(err)
+   )
+}
+
 }
 
 showUser(id: number) {
@@ -162,10 +204,11 @@ showUser(id: number) {
 }
 
 checkUser(id: number, userId: number) {
-  let user: User = new User();
+  // let user: User = new User();
 
   this.service.showUser(userId).subscribe(
-    (data) => {user = data; this.checkLists(id, user);
+    (data) => {this.user = data; this.checkLists(id, this.user);
+      // console.log(user.favoriteBooks)
     },
     (err) => console.log(err)
     )
