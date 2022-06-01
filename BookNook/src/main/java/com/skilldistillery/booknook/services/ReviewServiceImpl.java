@@ -58,6 +58,7 @@ public class ReviewServiceImpl implements ReviewService {
 		if(getReviewById(reviewId) != null) {
 			Review review = getReviewById(reviewId);
 			review.setEnabled(false);
+			reviewRepo.saveAndFlush(review);
 			return review;
 		}
 			return null;
