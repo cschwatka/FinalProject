@@ -55,6 +55,7 @@ public class Comment {
 	@OneToMany(mappedBy="comment")
 	private List<Comment> comments;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name="comment_vote")
 	private List<User> users;
