@@ -1,3 +1,4 @@
+import { Review } from './../../models/review';
 import { BooknookService } from './../../services/booknook.service';
 import { Book } from 'src/app/models/book';
 import { Component, OnInit } from '@angular/core';
@@ -17,10 +18,13 @@ readingDisabled: boolean = false;
 finishedDisabled: boolean = false;
 favoriteDisabled: boolean = false;
 user: User | null = null;
+newReview: Review = new Review();
+reviews: Review[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private service: BooknookService
+    private service: BooknookService,
+    private svc: BooknookService
   ) { }
 
 show(id: number){
@@ -184,6 +188,26 @@ checkUser(id: number, userId: number) {
       this.showUser(parseInt(userId));
       this.checkUser(parseInt(id), parseInt(userId));
     }
+  }
+
+
+  reload() {
+    this.svc.showReviewList().subscribe(
+      (data) => {
+        this.reviews = data;
+         console.log(this.reviews)},
+      (err) => console.log(err)
+    )
+  }
+
+  makeReview() {
+    if(this.user != null){
+      this.newReview.user = this.user;
+    }
+    this.service.postReview(this.newReview).subscribe(
+      (success) => {this.reload(); this. newReview = new Review()},
+      (err) => console.log(err)
+    )
   }
 
 
