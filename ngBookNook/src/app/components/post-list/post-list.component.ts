@@ -111,17 +111,15 @@ export class PostListComponent implements OnInit {
   }
 
   checkUser(id: number, userId: number) {
-    let user: User = new User();
-
     this.svc.showUser(userId).subscribe(
-      (data) => (user = data),
+      (data) => (this.user = data),
       (err) => console.log(err)
     );
   }
 
-  refresh(): void {
-    window.location.reload();
-}
+//   refresh(): void {
+//     window.location.reload();
+// }
 
   usersFollowingAdd(userToFollowId: number) {
     let userDoingTheFollowing = localStorage.getItem('userId');
@@ -146,7 +144,7 @@ export class PostListComponent implements OnInit {
             (data) => {
               if (userToFollowId !== null && this.user !== null) {
                 this.checkUser(userToFollowId, this.user.id);
-                this.refresh();
+                // this.refresh();
               }
             },
             (err) => console.log(err)
@@ -178,7 +176,7 @@ export class PostListComponent implements OnInit {
             (data) => {
               if (userToFollowId !== null && this.user !== null) {
                 this.checkUser(userToFollowId, this.user.id);
-                this.refresh();
+                // this.refresh();
               }
             },
             (err) => console.log(err)
