@@ -30,9 +30,10 @@ public class Review {
 	private Book book;
 	
 	
-	@JsonIgnoreProperties({"usersFollowing","followedUsers", "books","categories","authors",
-		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
-		"favoriteBooks", "finishedBooks","wishlistBooks", "readingBooks"})
+//	@JsonIgnoreProperties({"usersFollowing","followedUsers", "books","categories","authors",
+//		"reviews","answers","posts","comments","postVotes","commentVotes","answerVotes", 
+//		"favoriteBooks", "finishedBooks","wishlistBooks", "readingBooks"})
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;

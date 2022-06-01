@@ -76,7 +76,8 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Post> posts;
 
-	@JsonIgnoreProperties({ "post", "comment", "user", "users" })
+//	@JsonIgnoreProperties({ "post", "comment", "user", "users" })
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments;
 
