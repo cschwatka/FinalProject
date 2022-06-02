@@ -24,7 +24,7 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@JsonIgnoreProperties({"users", "reviews", "categories", "favoriteUsers", "finishedUsers", "readingUsers", "wishlistUsers"})
+	@JsonIgnoreProperties(value={"users", "reviews", "categories", "favoriteUsers", "finishedUsers", "readingUsers", "wishlistUsers"},allowSetters=true)
 	@ManyToOne
 	@JoinColumn(name="book_id")
 	private Book book;
