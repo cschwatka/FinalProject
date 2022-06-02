@@ -41,6 +41,46 @@ You can interact with these books by removing them from the list. A user can als
 
 ## Technologies Used
 
+**Backend Technologies**
+
+- Java
+- JPA
+- MySQL
+- Gradle
+- XML
+- Hibernate
+- RESTful API
+
+**Frontend Technologies**
+
+- Angular
+- JavaScript
+- TypeScript
+- HTML
+- CSS
+- Bootstrap 5
+- JSON
+
+**Hosting Technologies**
+
+- Tomcat
+- AWS
+- MAMP
+
+**Assisting Technologies**
+
+- Postman
+- MySQLWorkbench
+- SpringToolSuite4 (Eclipse)
+- Visual Studio Code
+- Atom
+
+**Communication Technologies**
+
+- Zoom
+- Discord
+- Slack
+
 ## Lessons Learned
 
 ## About The Team
