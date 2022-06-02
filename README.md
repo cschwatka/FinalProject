@@ -87,23 +87,23 @@ The developers ran into difficult concepts and problems throughout the creation 
 
 The team had to learn how to utilize @JsonIgnoreProperties properly for the entities and their foreign keys. It was imperative to use this annotation to prevent recursion when parsing data into JSON. This challenged the team to think a few steps ahead in their use of the data being sent to the server. What was needed, and what wasn't needed? We were able to tackle this question and apply the annotation where it was needed.
 
-![JSONIgnoreProperties](assets/JSONIgnoreProperties "JSONIgnoreProperties")
+![JSONIgnoreProperties](assets/JSONIgnoreProperties.png "JSONIgnoreProperties")
 
 Attempting to have a variable that is changed live based on the filters used in the *ngFor used for the bookshelf proved to be far more difficult than anticipated. The variable would be read before changed, which caused the result count to only display the previous data, not the updated data. To fix this, the team had to use setTimeout in the JavaScript to delay the program from reading the variable before changing it.
 
-![index](assets/index "index") ![findCount](assets/findCount "findCount")
+![index](assets/index.png "index") ![findCount](assets/findCount.png "findCount")
 
 The team had not yet tackled the challenge of creating separate entities for tables that had individual columns, rather than just join columns. We had to learn how to use the @MapsId annotation and map the tables correctly for use in the application.
 
-![MapsId](assets/MapsId "MapsId") ![Embeddable](assets/Embeddable "Embeddable")
+![MapsId](assets/MapsId.png "MapsId") ![Embeddable](assets/Embeddable.png "Embeddable")
 
 There was no reference point for users that were logged in currently to the site, so the team had to learn how to set items into the browser's local storage, and retrieve that data whenever a user is logged in.
 
-![localStorage](assets/localStorage "localStorage") ![localStorageRetrieve](assets/localStorageRetrieve "localStorageRetrieve")
+![localStorage](assets/localStorage.png "localStorage") ![localStorageRetrieve](assets/localStorageRetrieve.png "localStorageRetrieve")
 
 The team learned that checking for administrative permissions and granting different operations than a normal user was something that could be implemented in the view of the code. Using *ngIf statements, we were able to implement those functions with ease.
 
-![admin](assets/admin "admin")
+![admin](assets/admin.png "admin")
 
 ## About The Team
 
