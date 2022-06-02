@@ -16,6 +16,10 @@ In this site, there is a social interaction between users that include following
 
 #### Book Page
 
+The book page for a specific book has multiple uses for our users. It does not just display the book's information, but can be directly interacted with in the community. A user can add a book to their wishlist, favorites books, currently reading book list, and finished reading book list. The favorite book function can be reversed when the book is favorited, so a user can unfavorite the book when clicking the button again. When a user adds a book to one of their lists, the button is deactivated to indicate that it has been added to that list.
+
+A user can leave a review of a book on the book's page. A list of the reviews are displayed and can be interacted with live. The review header will display the average review rating and will show a detailed bar for each star rating, visually displaying the ratings.
+
 #### Nook
 
 The Nook is an interactive social environment. Users can make a post, comment on that post, and make a reply to those comments. The more interaction a post receives, the more likely it will appear in the "Popular Posts" featured section. Users can follow other users on this page, clicking the follow button next to the user's name. They can also unfollow that user on that same page. This social page is imperative for the purpose of the site, which is to enable social interaction for book enthusiasts.
@@ -32,8 +36,6 @@ There are multiple lists related to books that the user can interact with. These
 - A book should be added to the finished reading book list when a user completed the book and wants to display to others that it is a book they finished.
 
 You can interact with these books by removing them from the list. A user can also refer to the books in their list by clicking on the book card and it will display the book's page. All of the interactions on this page are live, so the list will update them moment anything is removed.
-
-
 
 ## Technologies Used
 
