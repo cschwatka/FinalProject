@@ -1,6 +1,6 @@
 # BookNook
 
-![BookNook](https://files.slack.com/files-pri/T052X7BAZ-F03HX5X67UK/booknooklogo.jpg "BookNook")
+![BookNook](~/Downloads/BookNookLogo.jpg "BookNook")
 
 ## Overview
 
