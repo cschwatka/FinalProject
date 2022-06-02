@@ -126,8 +126,11 @@ export class BookShelfComponent implements OnInit {
   checkFollowing(){
     let id = localStorage.getItem("userId");
     if(id != null){
-      this.bnServ.showUserFollowing(parseInt(id)).subscribe(
-        next => {this.following = next},
+      this.bnServ.showUser(parseInt(id)).subscribe(
+        next => {if (next.usersFollowing != null) {
+
+          this.following = next.usersFollowing;
+        }},
         err => console.log("error retrieving book list" + err)
       )
     }
