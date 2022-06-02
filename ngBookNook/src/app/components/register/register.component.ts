@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   newUser: User = new User();
 
-  constructor(private auth: AuthService, private router: Router,private elementRef: ElementRef) { }
+  constructor(private auth: AuthService, private router: Router, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     this.elementRef.nativeElement.ownerDocument

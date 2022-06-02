@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -12,9 +12,11 @@ export class LoginComponent implements OnInit {
 
   loginUser: User = new User();
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
+    this.elementRef.nativeElement.ownerDocument
+    .body.style.backgroundImage = 'url(assets/img/bn-bg.jpg)';
   }
 
   login(user: User) {
