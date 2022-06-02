@@ -1,6 +1,6 @@
 # BookNook
 
-![BookNook](rahtrill/Downloads/BookNookLogo.jpg "BookNook")
+![BookNook](https://ibb.co/crBY701 "BookNook")
 
 ## Overview
 
