@@ -12,7 +12,7 @@ import { MyAccountComponent } from './components/my-account/my-account.component
 import { PostViewComponent } from './components/post-view/post-view.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'bookshelf' },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'bookshelf', component: BookShelfComponent },
   { path: 'displaybook/:id', component: BookPageComponent },
   { path: 'myaccount/:bind', component: MyAccountComponent },

@@ -15100,6 +15100,14 @@ div.code-toolbar > .toolbar > .toolbar-item > button > span {
   border-bottom-color: rgba(255, 255, 255, 0.5);
 } */
 
+/* .table > :not(:last-child) > :last-child  {
+  border-bottom-color: #bccad9;
+}
+
+ .table.table-dark > :not(:last-child) > :last-child  {
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+} */
+
 .col-form-label {
   font-size: 0.875rem;
 }
