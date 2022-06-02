@@ -41,7 +41,7 @@ You can interact with these books by removing them from the list. A user can als
 
 ## Technologies Used
 
-**Backend Technologies**
+**Backend**
 
 - Java
 - JPA
@@ -51,7 +51,7 @@ You can interact with these books by removing them from the list. A user can als
 - Hibernate
 - RESTful API
 
-**Frontend Technologies**
+**Frontend**
 
 - Angular
 - JavaScript
@@ -61,13 +61,13 @@ You can interact with these books by removing them from the list. A user can als
 - Bootstrap 5
 - JSON
 
-**Hosting Technologies**
+**Hosting**
 
 - Tomcat
 - AWS
 - MAMP
 
-**Assisting Technologies**
+**Assisting**
 
 - Postman
 - MySQLWorkbench
@@ -75,7 +75,7 @@ You can interact with these books by removing them from the list. A user can als
 - Visual Studio Code
 - Atom
 
-**Communication Technologies**
+**Communication**
 
 - Zoom
 - Discord
