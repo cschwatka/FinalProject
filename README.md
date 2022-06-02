@@ -1,6 +1,6 @@
 # BookNook
 
-![BookNook](https://ibb.co/crBY701 "BookNook")
+![BookNook](../../../../Downloads/BookNookLogo.jpg "BookNook")
 
 ## Overview
 
