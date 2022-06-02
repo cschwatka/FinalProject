@@ -120,6 +120,31 @@ The team learned that checking for administrative permissions and granting diffe
 
 ## About The Team
 
+### Chase Schwatka
+**GitHub Repository Owner**
+**Software Developer**
+
+[Chase's LinkedIn](https://www.linkedin.com/in/chaseschwatka/ "Chase's LinkedIn")
+
+### Rahil Ali
+**Scrum Master**
+**Software Developer**
+
+[Rahil's LinkedIn](https://www.linkedin.com/in/alirahil/ "Rahil's LinkedIn")
+
+### Dustin Collier
+**Database Administrator**
+**Software Developer**
+
+[Dustin's LinkedIn](https://www.linkedin.com/in/dustin-collier/ "Dustin's LinkedIn")
+
+### Dustin Jennings
+**Styling Manager**
+**Software Developer**
+
+[Dustin's LinkedIn](https://www.linkedin.com/in/dustin-jennings/ "Dustin's LinkedIn")
+
+
 ## Database Design
 
 ## RESTful API Mapping
