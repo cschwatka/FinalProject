@@ -91,26 +91,32 @@ The team had to learn how to utilize @JsonIgnoreProperties properly for the enti
 <img src="assets/JSONIgnoreProperties.png" width="1000" height="500">
 </details>
 
-
-
 Attempting to have a variable that is changed live based on the filters used in the *ngFor used for the bookshelf proved to be far more difficult than anticipated. The variable would be read before changed, which caused the result count to only display the previous data, not the updated data. To fix this, the team had to use setTimeout in the JavaScript to delay the program from reading the variable before changing it.
 
+<details><summary>Example</summary>
 <img src="assets/index.png" width="1000">
 <img src="assets/findCount.png" width="1000">
+</details>
 
 The team had not yet tackled the challenge of creating separate entities for tables that had individual columns, rather than just join columns. We had to learn how to use the @MapsId annotation and map the tables correctly for use in the application.
 
+<details><summary>Example</summary>
 <img src="assets/MapsId.png" width="1000">
 <img src="assets/Embeddable.png" width="1000">
+</details>
 
 There was no reference point for users that were logged in currently to the site, so the team had to learn how to set items into the browser's local storage, and retrieve that data whenever a user is logged in.
 
+<details><summary>Example</summary>
 <img src="assets/localStorage.png" width="1000">
 <img src="assets/localStorageRetrieve.png" width="1000">
+</details>
 
 The team learned that checking for administrative permissions and granting different operations than a normal user was something that could be implemented in the view of the code. Using *ngIf statements, we were able to implement those functions with ease.
 
+<details><summary>Example</summary>
 <img src="assets/admin.png" width="1000">
+</details>
 
 ## About The Team
 
