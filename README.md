@@ -1,5 +1,7 @@
 # BookNook
 
+![BookNook](https://files.slack.com/files-pri/T052X7BAZ-F03HX5X67UK/booknooklogo.jpg "BookNook")
+
 ## Overview
 
 The BookNook project is a helpful tool for book enthusiasts to interact socially with one another and find information about their books in an active library. There are two vital sections of the site. The "Bookshelf" section of the site is an elaborate library that can be searched with multiple filters and keywords to narrow down a book a user might be looking for. The "Nook" section of the site is an interactive social page. Users can make posts, comment on posts, and see the top posts on the site. This social interaction can help book enthusiasts connect in ways that are far more convenient than using other platforms to find those groups of individuals.
