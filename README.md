@@ -121,7 +121,7 @@ The team learned that checking for administrative permissions and granting diffe
 ## About The Team
 
 ### Chase Schwatka
-**GitHub Repository Owner** | 
+**GitHub Repository Owner** |
 **Software Developer**
 
 [Chase's LinkedIn](https://www.linkedin.com/in/chaseschwatka/ "Chase's LinkedIn")
@@ -146,5 +146,7 @@ The team learned that checking for administrative permissions and granting diffe
 
 
 ## Database Design
+
+<img src="assets/BookNookEER_diagram.png" width="1000">
 
 ## RESTful API Mapping
