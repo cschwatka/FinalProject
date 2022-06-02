@@ -158,3 +158,100 @@ The team learned that checking for administrative permissions and granting diffe
 <img src="assets/BookNookEER_diagram.png" width="1000">
 
 ## RESTful API Mapping
+
+### Answer Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/api/answers`      |              | Collection of representations of all _Answer_ resources | **List** or **collection** endpoint |
+| GET       | `/api/answers/1`   |              | Representation of _Answer_ `1` | **Retrieve** endpoint |
+| POST      | `/api/answers`      | Representation of a new _Answer_ resource | | **Create** endpoint |
+| PUT       | `/api/answers/1`   | Representation of a new version of _Answer_ `1` | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/answers/1`   |              | Deletes an _Answer_ entity to database | **Delete** route |
+
+### Authentication Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/authenticate`      |              | Authenticates user information when trying to log in | Logs a user into the site |
+| POST      | `/register`      | Representation of a new _User_ resource | Registers user information to database | **Create** endpoint |
+
+### Book Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/api/books`      |              | Collection of representations of all _Book_ resources | **List** or **collection** endpoint |
+| GET       | `/api/books/1`   |              | Representation of _Book_ `1` | **Retrieve** endpoint |
+| POST      | `/api/books`      | Representation of a new _Book_ resource | | **Create** endpoint |
+| PUT       | `/api/books/1`   | Representation of a new version of _Book_ `1` | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/books/1`   |              | Deletes an _Book_ entity to database | **Delete** route |
+
+### Category Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/api/categories`      |              | Collection of representations of all _Category_ resources | **List** or **collection** endpoint |
+| GET       | `/api/categories/1`   |              | Representation of _Category_ `1` | **Retrieve** endpoint |
+
+### Comment Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/api/comments`      |              | Collection of representations of all _Comment_ resources | **List** or **collection** endpoint |
+| GET       | `/api/comments/1`   |              | Representation of _Comment_ `1` | **Retrieve** endpoint |
+| POST      | `/api/comments`      | Representation of a new _Comment_ resource | | **Create** endpoint |
+| PUT       | `/api/comments/1`   | Representation of a new version of _Comment_ `1` | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/comments/1`   |              | Deletes an _Comment_ entity to database | **Delete** route |
+
+### Language Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/api/languages`      |              | Collection of representations of all _Language_ resources | **List** or **collection** endpoint |
+
+### Post Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/api/posts`      |              | Collection of representations of all _Post_ resources | **List** or **collection** endpoint |
+| GET       | `/api/posts/1`   |              | Representation of _Post_ `1` | **Retrieve** endpoint |
+| POST      | `/api/posts`      | Representation of a new _Post_ resource | | **Create** endpoint |
+| PUT       | `/api/posts/1`   | Representation of a new version of _Post_ `1` | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/posts/1`   |              | Deletes an _Post_ entity to database | **Delete** route |
+
+### Question Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/api/questions`      |              | Collection of representations of all _Question_ resources | **List** or **collection** endpoint |
+| GET       | `/api/questions/1`   |              | Representation of _Question_ `1` | **Retrieve** endpoint |
+| POST      | `/api/questions`      | Representation of a new _Question_ resource | | **Create** endpoint |
+| PUT       | `/api/questions/1`   | Representation of a new version of _Question_ `1` | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/questions/1`   |              | Deletes an _Question_ entity to database | **Delete** route |
+
+### Review Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/api/reviews`      |              | Collection of representations of all _Review_ resources | **List** or **collection** endpoint |
+| GET       | `/api/reviews/1`   |              | Representation of _Review_ `1` | **Retrieve** endpoint |
+| POST      | `/api/reviews`      | Representation of a new _Review_ resource | | **Create** endpoint |
+| PUT       | `/api/reviews/1`   | Representation of a new version of _Review_ `1` | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/reviews/1`   |              | Deletes an _Review_ entity to database | **Delete** route |
+
+### User Entity
+
+| HTTP Verb | URI                  | Request Body | Response Body | Purpose |
+|-----------|----------------------|--------------|---------------|---------|
+| GET       | `/api/users`      |              | Collection of representations of all _User_ resources | **List** or **collection** endpoint |
+| GET       | `/api/users/1`   |              | Representation of _User_ `1` | **Retrieve** endpoint |
+| PUT       | `/api/users/1`   | Representation of a new version of _User_ `1` | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/users/1`   |              | Deletes an _User_ entity to database | **Delete** route |
+| PUT       | `/api/users/1/wishlistbooks`   | Representation of a new version of _Book_ `1` in _User_ 1 | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/users/1/wishlistbooks/1`   |              | Deletes an _Book_ entity from a _User_ entity to database | **Delete** route |
+| PUT       | `/api/users/1/readingbooks`   | Representation of a new version of _Book_ `1` in _User_ 1 | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/users/1/readingbooks/1`   |              | Deletes an _Book_ entity from a _User_ entity to database | **Delete** route |
+| PUT       | `/api/users/1/finishedbooks`   | Representation of a new version of _Book_ `1` in _User_ 1 | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/users/1/finishedbooks/1`   |              | Deletes an _Book_ entity from a _User_ entity to database | **Delete** route |
+| PUT       | `/api/users/1/favoritebooks`   | Representation of a new version of _Book_ `1` in _User_ 1 | Updated entity | **Replace** endpoint |
+| DELETE    | `/api/users/1/favoritebooks/1`   |              | Deletes an _Book_ entity from a _User_ entity to database | **Delete** route |
