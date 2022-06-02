@@ -87,7 +87,7 @@ The developers ran into difficult concepts and problems throughout the creation 
 
 The team had to learn how to utilize @JsonIgnoreProperties properly for the entities and their foreign keys. It was imperative to use this annotation to prevent recursion when parsing data into JSON. This challenged the team to think a few steps ahead in their use of the data being sent to the server. What was needed, and what wasn't needed? We were able to tackle this question and apply the annotation where it was needed.
 
-![JSONIgnoreProperties](assets/JSONIgnoreProperties.png "JSONIgnoreProperties" =250x250)
+![JSONIgnoreProperties](assets/JSONIgnoreProperties.png =250x250 "JSONIgnoreProperties")
 
 Attempting to have a variable that is changed live based on the filters used in the *ngFor used for the bookshelf proved to be far more difficult than anticipated. The variable would be read before changed, which caused the result count to only display the previous data, not the updated data. To fix this, the team had to use setTimeout in the JavaScript to delay the program from reading the variable before changing it.
 
