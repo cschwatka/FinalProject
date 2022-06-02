@@ -125,7 +125,7 @@ The team learned that checking for administrative permissions and granting diffe
 **Software Developer**
 
 [Chase's LinkedIn](https://www.linkedin.com/in/chaseschwatka/ "Chase's LinkedIn")
----------------------
+
 [Chase's GitHub Respositories](https://github.com/cschwatka?tab=repositories "Chase's GitHub Respositories")
 
 ### Rahil Ali
@@ -133,7 +133,7 @@ The team learned that checking for administrative permissions and granting diffe
 **Software Developer**
 
 [Rahil's LinkedIn](https://www.linkedin.com/in/alirahil/ "Rahil's LinkedIn")
----------------------
+
 [Rahil's GitHub Respositories](https://github.com/rahtrill?tab=repositories "Rahil's GitHub Respositories")
 
 ### Dustin Collier
@@ -141,7 +141,7 @@ The team learned that checking for administrative permissions and granting diffe
 **Software Developer**
 
 [Dustin's LinkedIn](https://www.linkedin.com/in/dustin-collier/ "Dustin's LinkedIn")
----------------------
+
 [Dustin's GitHub Respositories](https://github.com/DustinMC1802?tab=repositories "Dustin's GitHub Respositories")
 
 ### Dustin Jennings
@@ -149,7 +149,7 @@ The team learned that checking for administrative permissions and granting diffe
 **Software Developer**
 
 [Dustin's LinkedIn](https://www.linkedin.com/in/dustin-jennings/ "Dustin's LinkedIn")
----------------------
+
 [Dustin's GitHub Respositories](https://github.com/Dustinj11?tab=repositories "Dustin's GitHub Respositories")
 
 
