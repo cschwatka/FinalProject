@@ -92,8 +92,8 @@ The team had to learn how to utilize @JsonIgnoreProperties properly for the enti
 Attempting to have a variable that is changed live based on the filters used in the *ngFor used for the bookshelf proved to be far more difficult than anticipated. The variable would be read before changed, which caused the result count to only display the previous data, not the updated data. To fix this, the team had to use setTimeout in the JavaScript to delay the program from reading the variable before changing it.
 
 ![index](assets/index.png "index") ![findCount](assets/findCount.png "findCount")
-<img src="assets/index.png" width="1000" height="500">
-<img src="assets/findCount.png" width="1000" height="500">
+<img src="assets/index.png" width="1000">
+<img src="assets/findCount.png" width="1000">
 
 The team had not yet tackled the challenge of creating separate entities for tables that had individual columns, rather than just join columns. We had to learn how to use the @MapsId annotation and map the tables correctly for use in the application.
 
