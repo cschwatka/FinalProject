@@ -1,6 +1,6 @@
 # BookNook
 
-![BookNook](../../../../Downloads/BookNookLogo.jpg "BookNook")
+![BookNook](assets/BookNookLogo.jpg "BookNook")
 
 ## Overview
 
