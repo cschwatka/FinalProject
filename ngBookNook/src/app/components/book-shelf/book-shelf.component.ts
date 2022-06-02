@@ -1,6 +1,6 @@
 import { BooknookService } from './../../services/booknook.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { User } from 'src/app/models/user';
 import { Category } from 'src/app/models/category';
