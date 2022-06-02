@@ -112,16 +112,16 @@ public class User {
 	@ManyToMany(mappedBy = "wishlistUsers")
 	private List<Book> wishlistBooks;
 
-	@JsonIgnoreProperties({ "usersFollowing", "followedUsers", "books", "categories", "authors", "reviews", "answers",
+	@JsonIgnoreProperties(value={ "usersFollowing", "followedUsers", "books", "categories", "authors", "reviews", "answers",
 			"posts", "comments", "postVotes", "commentVotes", "answerVotes", "favoriteBooks", "finishedBooks",
-			"wishlistBooks" })
+			"wishlistBooks" },allowSetters=true)
 	@ManyToMany
 	@JoinTable(name = "follow_list", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "follow_to_user_id"))
 	private List<User> usersFollowing;
 
-	@JsonIgnoreProperties({ "usersFollowing", "followedUsers", "books", "categories", "authors", "reviews", "answers",
+	@JsonIgnoreProperties(value={ "usersFollowing", "followedUsers", "books", "categories", "authors", "reviews", "answers",
 			"posts", "comments", "postVotes", "commentVotes", "answerVotes", "favoriteBooks", "finishedBooks",
-			"readingBooks", "wishlistBooks" })
+			"readingBooks", "wishlistBooks" },allowSetters=true)
 	@ManyToMany(mappedBy = "usersFollowing")
 	private List<User> followedUsers;
 
